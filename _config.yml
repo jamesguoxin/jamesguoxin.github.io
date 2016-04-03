@@ -29,8 +29,8 @@ force-https: True
 #############
 
 lang: "en"
-author: "Xin / James Guo"
-title: "{ Xin / James Guo,\na Machine Learning Adventurer }"
+author: "Xin / James Guo, a Machine Learning Adventurer"
+title: "{ Xin / James Guo }"
 description: "Blog and website of James, blogging mainly for tech. Opinions expressed are mine."
 keywords: "xin, james, guo, introduction, start"
 favicon: "/img/favicon.ico"
