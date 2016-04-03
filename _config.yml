@@ -55,7 +55,8 @@ type-speed: 10
 start-delay: 200
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
-  - text: "Ready for the adventure? Follow me."
+  - text: "Follow me."
+  - text: "Ready for the adventure?"
   - text: "Try again, fail again, fail better."
 
 me-img: "/img/jetpacktocat.png"
@@ -100,7 +101,7 @@ pinterest-share: True
 pocket-share: True
 vkontakte-share: True
 
-disqus-shortname: "panossakkos"
+disqus-shortname: "jamesguoxin"
 
 syntax-highlight: True
 
