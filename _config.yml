@@ -135,8 +135,8 @@ email: "tigerguoxin@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "James is an awesome person. He lives in Flatland, where he works on two-dimensional engineering projects. In his spare time, James likes to eat cotton candy."
-author_blurb_image: "/img/author.png"
+author_blurb: "James is an awesome person. He lived in Australia, Switzerland, Germany and England, where he's worked on multiple cutting-edge engineering projects. In his spare time, James likes to eat Sushi, Sashimi and Swiss Chocolate!"
+author_blurb_image: "/img/profile.jpg"
 
 ##################
 # Social Buttons #
