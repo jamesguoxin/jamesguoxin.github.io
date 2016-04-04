@@ -55,11 +55,11 @@ type-speed: 10
 start-delay: 200
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
-  - text: "Follow me."
+  - text: "Follow me!"
   - text: "Ready for the adventure?"
-  - text: "Try again, fail again, fail better."
+#  - text: "Try again, fail again, fail better."
 
-me-img: "/img/jetpacktocat.png"
+me-img: "/img/profile.jpg"
 
 ##############################
 # Color the browser elements #
