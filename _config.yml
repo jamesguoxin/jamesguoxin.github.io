@@ -110,16 +110,25 @@ syntax-highlight: True
 ############
 
 events:
-  - image: "/img/timeline/spidertocat.png"
-    date: "September 2013 - Today"
-    description: "Saving the neighborhood!"
-  - image: "/img/timeline/baracktocat.jpg"
-    date: "September 2007 - August 2013"
-    description: "Started coding"
+  - image: "/img/profile.jpg"
+    date: "Nov. 2015 - Today"
+    description: "To be continued..."
+  - image: "/img/timeline/britain.jpg"
+    date: "Aug. 2015 - Nov. 2015"
+    description: "Tractable Ltd."
+  - image: "/img/timeline/germany.jpg"
+    date: "Mar. 2014 - Sep. 2014"
+    description: "Sony EuTECH"
+  - image: "/img/timeline/switzerland.jpg"
+    date: "Sep. 2012 - Oct. 2015"
+    description: "EPFL"
+  - image: "/img/timeline/bachelor.jpg"
+    date: "Sep. 2008 - Jun. 2012"
+    description: "Started coding, ZJU!"
 
 # First image of the Timeline
 
-timeline-img: "/img/timeline/default.png"
+timeline-img: "/img/timeline/born.jpg"
 
 ###########
 # Contact #
@@ -135,7 +144,7 @@ email: "tigerguoxin@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "James is an awesome person. He lived in Australia, Switzerland, Germany and England, where he's worked on multiple cutting-edge engineering projects. In his spare time, James likes to eat Sushi, Sashimi and Swiss Chocolate!"
+author_blurb: "James is an awesome person. He lived in China, Switzerland, Germany and England, where he's worked on multiple cutting-edge engineering projects. In his spare time, James likes to eat Sushi, Sashimi and Swiss Chocolate!"
 author_blurb_image: "/img/profile.jpg"
 
 ##################
