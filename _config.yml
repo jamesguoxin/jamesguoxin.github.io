@@ -41,7 +41,7 @@ favicon: "/img/favicon.ico"
 
 black-favicon: "/img/black-lab-glass.ico"
 
-background-img: "../img/intro-bg.jpg"
+background-img: "../img/matterhorn.jpg"
 
 ##############################
 # Dynamic Text on the Header #
@@ -86,9 +86,9 @@ icon-192p: "/img/web-app/icon-192p.png"
 # Blog #
 ########
 
-post-preview-words: 96
+post-preview-words: 64
 
-paginate: 5
+paginate: 6
 
 email-share: True
 fb-share: True
@@ -144,7 +144,7 @@ email: "tigerguoxin@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "James is an awesome person. He lived in China, Switzerland, Germany and England, where he's worked on multiple cutting-edge engineering projects. In his spare time, James likes to eat Sushi, Sashimi and Swiss Chocolate!"
+author_blurb: "James is an awesome person. He's lived in China, Switzerland, Germany and England, where he's worked on multiple cutting-edge engineering projects. In his spare time, James likes to eat Sushi, Sashimi and Swiss Chocolate!"
 author_blurb_image: "/img/profile.jpg"
 
 ##################
