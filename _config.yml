@@ -16,7 +16,7 @@ baseurl: ""
 
 # Google tracking id to track your visitors
 
-google-tracking-id: "UA-35880426-4"
+google-tracking-id: ""
 
 # Forces https everywhere in your website, except when you serve it locally
 # If you are not hosted on Github Pages, and your host doesn't support https
@@ -29,8 +29,8 @@ force-https: True
 #############
 
 lang: "en"
-author: "Xin / James Guo, a Machine Learning Adventurer"
-title: "{ Xin / James Guo }"
+author: "Xin / James Guo, an AI Believer"
+title: "{ Xin / James Guo (郭昕) }"
 description: "Blog and website of James, blogging mainly for tech. Opinions expressed are mine."
 keywords: "xin, james, guo, introduction, start"
 favicon: "/img/favicon.ico"
@@ -55,8 +55,8 @@ type-speed: 10
 start-delay: 200
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
-  - text: "Follow me!"
-  - text: "Ready for the adventure?"
+  - text: "Running Up That Hill"
+  - text: "A Deal with God"
 #  - text: "Try again, fail again, fail better."
 
 me-img: "/img/profile.jpg"
@@ -111,20 +111,24 @@ syntax-highlight: True
 
 events:
   - image: "/img/profile.jpg"
-    date: "Nov. 2015 - Today"
-    description: "To be continued..."
+    date: "Apr. 2016 - Today"
+    description: "Senior R&D Engineer     \n
+                  @ Ant & Alibaba Group"
   - image: "/img/timeline/britain.jpg"
     date: "Aug. 2015 - Nov. 2015"
-    description: "Tractable Ltd."
-  - image: "/img/timeline/germany.jpg"
-    date: "Mar. 2014 - Sep. 2014"
-    description: "Sony EuTECH"
+    description: "Research Engineer       \n @ Tractable Ltd."
+  # - image: "/img/timeline/germany.jpg"
+  #   date: "Mar. 2014 - Sep. 2014"
+  #   description: "Sony EuTECH"
   - image: "/img/timeline/switzerland.jpg"
     date: "Sep. 2012 - Oct. 2015"
-    description: "EPFL"
+    description: "Master Degree @ EPFL  \n
+                  Research Intern @ Sony \n
+                  Research Intern @ nViso"
   - image: "/img/timeline/bachelor.jpg"
     date: "Sep. 2008 - Jun. 2012"
-    description: "Started coding, ZJU!"
+    description: "Bachelor Degree  \n 
+                  @ Zhejiang University"
 
 # First image of the Timeline
 
