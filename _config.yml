@@ -29,7 +29,7 @@ force-https: True
 #############
 
 lang: "en"
-author: "Xin / James Guo, an AI Believer"
+author: "Xin / James Guo, an AGI Believer and Food Explorer"
 title: "{ Xin / James Guo (郭昕) }"
 description: "Blog and website of James, blogging mainly for tech. Opinions expressed are mine."
 keywords: "xin, james, guo, introduction, start"
@@ -52,7 +52,7 @@ shuffle: True # Shuffle the lines.
 loop: True
 loop-count: False # Set False for infinite loop, or set any number for finite loop.
 type-speed: 10
-start-delay: 200
+start-delay: 500
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
   - text: "Running Up That Hill"
@@ -148,8 +148,8 @@ email: "tigerguoxin@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "James is an awesome person. He's lived in China, Switzerland, Germany and England, where he's worked on multiple cutting-edge engineering projects. In his spare time, James likes to eat Sushi, Sashimi and Swiss Chocolate!"
-author_blurb_image: "/img/profile.jpg"
+author_blurb: "Xin is an engineer working on Machine Learning and AGI. He is living in Hangzhou, China and has studied and worked in Switzerland, Germany and UK before. In his spare time, Xin likes to drink Coffee and eat Swiss Chocolate! He is also an entry-level badminton and basketball player. His favorate basketball player is Stephen Curry."
+author_blurb_image: "/img/bib.png"
 
 ##################
 # Social Buttons #
@@ -157,15 +157,15 @@ author_blurb_image: "/img/profile.jpg"
 
 social:
   - title: "facebook"
-    url: "https://facebook.com/"
-  - title: "twitter"
-    url: "https://twitter.com/"
+    url: "https://www.facebook.com/james.guo.12382/"
+  - title: "linkedin"
+    url: "https://www.linkedin.com/in/xinjamesguo89/?profileId=ACoAAATHaGMBHX5Mw6_MaqC3koDJ7thWYEmoWnQ"
   - title: "github"
     url: "https://github.com/jamesguoxin"
 #  - title: "bitcoin"
 #    url: "https://blockchain.info/address/1LHuKC9Em3KA5yoZaf7nngnNdf9K7s2gSi"
-  - title: "rss"
-    url: "/feed.xml"
+#  - title: "rss"
+#    url: "/feed.xml"
 
 ############
 # 404 page #
