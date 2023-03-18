@@ -109,7 +109,7 @@ icon-192p: "/img/web-app/icon-192p.png"
 
 enable-gesture-navigation: True
 
-post-preview-words: 96
+post-preview-words: 64
 
 paginate: 6
 
@@ -165,7 +165,7 @@ email: "tigerguoxin@gmail.com"
 
 
 # Set a url pointing to your publish PGP Public Key here, and it will appear in the Contact section
-pgp: False
+# pgp: False
 
 ################
 # Author Blurb #
@@ -204,9 +204,9 @@ err-404-img: "/img/labtocat.png"
 # GPG on Keybase #
 ##################
 
-keybase-username: johnsmith
-keybase-in-social: True
-keybase-in-footer: True
+# keybase-username: johnsmith
+# keybase-in-social: True
+# keybase-in-footer: True
 
 ################################################################################
 
