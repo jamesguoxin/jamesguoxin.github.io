@@ -19,10 +19,10 @@
         </h4>
 
         <section class="text-justify">
-          {{ post.content | truncatewords: site.post-preview-words | strip_html | markdownify }}
+          {{ post.content | strip_html | markdownify | truncatewords: site.post-preview-words }}
         </section>
 
-        <h4><a href="{{site.baseurl}}/blog/">View more posts</a></h4>
+        <h4><a href="{{site.baseurl}}/blog/">Archive</a></h4>
 
       </div>
     </div>
