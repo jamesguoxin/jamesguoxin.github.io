@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>{ Xin / James Guo (郭昕) }</title>
+		<description>Blog and website of James, blogging mainly for tech. Opinions expressed are mine.</description>
+		<link>https://jamesguoxin.github.io</link>
+		<atom:link href="https://jamesguoxin.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Towards AGI - ChatGPT and GPT4.0</title>
+				
+				
+					<description>&lt;p align=&quot;justify&quot;&gt;
+With the development of modern LLM (i.e. Large Languege Model), we&apos;ve reached the turning point that the carefully trained model is more knowledgeable than most human-beings to some extent. The emergance of ChatGPT and recently published GPT4.0 sheds light on building Artificial General Intelligence in a feasible way. :stuck_out_tongue_closed_eyes:
+&lt;/p&gt;
+</description>
+				
+				<pubDate>Sun, 19 Mar 2023 00:00:00 +0800</pubDate>
+				<link>https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html</link>
+				<guid isPermaLink="true">https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html</guid>
+			</item>
+		
+			<item>
+				<title>Restaurants in Lausanne</title>
+				
+				
+					<description>&lt;p align=&quot;justify&quot;&gt;
+As an enthusiastic food lover, I&apos;m always eager to try local dishes and find proper ones among all. During my three years&apos; living in Lausanne, the Swiss Olympic Capital, I&apos;ve dined at various restaurants here. My friends encouraged me to make a list of the ones I&apos;m fond of. Below are all based on my own taste, hope you could find these information useful :wink:
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Le Pirate&lt;/strong&gt;
+&lt;img src=&quot;../../../../img/le_pirate.png&quot; alt=&quot;Le Pirate&quot; /&gt;&lt;/p&gt;
+</description>
+				
+				<pubDate>Mon, 04 Apr 2016 00:00:00 +0800</pubDate>
+				<link>https://jamesguoxin.github.io/cuisine/2016/04/04/res-rec.html</link>
+				<guid isPermaLink="true">https://jamesguoxin.github.io/cuisine/2016/04/04/res-rec.html</guid>
+			</item>
+		
+	</channel>
+</rss>
