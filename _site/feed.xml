@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
 		<title>{ Xin / James Guo (郭昕) }</title>
-		<description>Blog and website of James, blogging mainly for tech. Opinions expressed are mine.</description>
+		<description>Welcome to the blog and website of James, primarily focused on technology. The opinions expressed here are my own.</description>
 		<link>https://jamesguoxin.github.io</link>
 		<atom:link href="https://jamesguoxin.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		

@@ -29,9 +29,9 @@ force-https: True
 #############
 
 lang: "en"
-author: "Xin / James Guo, an AGI Believer and Food Explorer"
+author: "Xin / James Guo, a Tech Explorer"
 title: "{ Xin / James Guo (郭昕) }"
-description: "Blog and website of James, blogging mainly for tech. Opinions expressed are mine."
+description: "Welcome to the blog and website of James, primarily focused on technology. The opinions expressed here are my own."
 keywords: "xin, james, guo, introduction, start"
 favicon: "/img/favicon.ico"
 
@@ -175,7 +175,7 @@ email: "tigerguoxin@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "Xin is an engineer working on Machine Learning and AGI. He is living in Hangzhou, China and has studied and worked in Switzerland, Germany and UK before. In his spare time, Xin likes to drink Coffee and eat Swiss Chocolate! He is also an entry-level badminton and basketball player. His favorate basketball player is Stephen Curry."
+author_blurb: "Xin is an engineer specializing in Machine Learning and Computer Vision. He currently resides in Hangzhou, China, and has previously studied and worked in Switzerland, Germany and the UK. In his leisure time, Xin enjoys drinking coffee and indulging in Swiss chocolate. Additionally, he is an amateur badminton and basketball player, with Stephen Curry being his favorite basketball player."
 author_blurb_image: "/img/bib.png"
 
 ##################
