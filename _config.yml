@@ -60,7 +60,7 @@ lines: # You can add HTML Tags in the Text
   - text: "A Deal with God"
 #  - text: "Try again, fail again, fail better."
 
-me-img: "/img/profile.png"
+me-img: "/img/photo.JPG"
 
 # To use facebook profile pic comment the previous line and uncomment the following
 # line, and replace 'user_id' with your facebook user id.
@@ -133,31 +133,31 @@ syntax-highlight: True
 ############
 
 events:
-  - image: "/img/profile.png"
+  - image: "/img/photo.JPG"
     date: "Apr. 2024 - Present"
     description: "Senior Research Fellow    \n
                   @ SAIS"
-  - image: "/img/timeline/britain.png"
+  - image: "/img/timeline/alibaba.png"
     date: "Apr. 2016 - Apr. 2024"
     description: "Senior Research Engineer     \n
                   @ Ant & Alibaba Group"
   # - image: "/img/timeline/germany.jpg"
   #   date: "Mar. 2014 - Sep. 2014"
   #   description: "Sony EuTECH"
-  - image: "/img/timeline/switzerland.png"
+  - image: "/img/timeline/epfl.jpg"
     date: "Sep. 2012 - Nov. 2015"
     description: "Master Degree @ EPFL  \n
                   Research Intern @ Sony \n
                   Research Intern @ nViso \n
                   Data Scientist @ Tractable"
-  - image: "/img/timeline/bachelor.png"
+  - image: "/img/timeline/zju.png"
     date: "Sep. 2008 - Jun. 2012"
     description: "Bachelor Degree  \n 
                   @ Zhejiang University"
 
 # First image of the Timeline
 
-timeline-img: "/img/timeline/born.png"
+timeline-img: "/img/timeline/hangzhou.png"
 
 ###########
 # Contact #
