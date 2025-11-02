@@ -135,7 +135,7 @@ syntax-highlight: True
 events:
   - image: "/img/photo.JPG"
     date: "Apr. 2024 - Present"
-    description: "Senior Research Fellow    \n
+    description: "Staff Research Scientist    \n
                   @ SAIS"
   - image: "/img/timeline/alibaba.png"
     date: "Apr. 2016 - Apr. 2024"
