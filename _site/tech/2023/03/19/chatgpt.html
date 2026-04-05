@@ -29,7 +29,7 @@
   <meta name="author" content="Xin / James Guo">
   <meta name="keywords" content="xin, james, guo, introduction, start">
   <link rel="canonical" href="/tech/2023/03/19/chatgpt.html">
-  <title>{ Xin / James Guo (郭昕) } | Towards AGI - ChatGPT and GPT4.0</title>
+  <title>{ Xin / James Guo (郭昕) } | Towards AGI - ChatGPT and GPT-4</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -191,7 +191,7 @@
 <!-- Swipe Instructions End -->
 
 
-          <h1><strong>Towards AGI - ChatGPT and GPT4.0</strong></h1>
+          <h1><strong>Towards AGI - ChatGPT and GPT-4</strong></h1>
           <h4>
             <strong>19 Mar 2023</strong>
             <small>
@@ -204,21 +204,158 @@
               
                 <a class="tag" href="/tags/chatgpt.html">#chatgpt</a>
               
+                <a class="tag" href="/tags/gpt.html">#gpt</a>
+              
                 <a class="tag" href="/tags/agi.html">#agi</a>
               
-                <a class="tag" href="/tags/gpt.html">#gpt</a>
+                <a class="tag" href="/tags/llm.html">#llm</a>
+              
+                <a class="tag" href="/tags/nlp.html">#nlp</a>
+              
+                <a class="tag" href="/tags/deep-learning.html">#deep-learning</a>
+              
+                <a class="tag" href="/tags/transformer.html">#transformer</a>
+              
+                <a class="tag" href="/tags/rlhf.html">#rlhf</a>
               
             </small>
           </h4>
 
           <section class="text-justify">
             <p align="justify">
-With the development of modern LLMs (i.e. Large Languege Models), we've reached the turning point that the carefully trained model is more knowledgeable than most human-beings to some extent. The emergance of ChatGPT and recently published GPT4.0 sheds light on building Artificial General Intelligence in a feasible way <img class="emoji" title=":stuck_out_tongue_closed_eyes:" alt=":stuck_out_tongue_closed_eyes:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png" height="20" width="20"> In this blog, I would like to briefly introduce GPT-series and discuss its current limitations and future applications.
+With the development of modern LLMs (i.e. Large Language Models), we've reached a turning point where carefully trained models are more knowledgeable than most human beings in many regards. The emergence of ChatGPT and the recently published GPT-4 sheds light on building Artificial General Intelligence in a feasible way <img class="emoji" title=":stuck_out_tongue_closed_eyes:" alt=":stuck_out_tongue_closed_eyes:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f61d.png" height="20" width="20"> In this blog, I would like to briefly introduce the GPT series and discuss their current limitations and future applications.
 </p>
 
-<h3 id="gpt1-improving-language-understanding-by-generative-pre-training">GPT1: Improving Language Understanding by Generative Pre-Training</h3>
+<h3 id="gpt-1-improving-language-understanding-by-generative-pre-training">GPT-1: Improving Language Understanding by Generative Pre-Training</h3>
+
 <p align="justify">
-This is the first work to introduce Pre-Training - Finetuning paradigm into NLP domain. 
+This is the first work to introduce the Pre-Training - Fine-tuning paradigm into the NLP domain. Published by OpenAI in 2018, GPT-1 demonstrated that a Transformer decoder trained on a large corpus of unlabeled text could learn useful linguistic representations. The key insight was simple yet powerful: first, pre-train a language model to predict the next token on a massive amount of text (BooksCorpus, ~7000 unpublished books); then, fine-tune the model on specific downstream tasks with a small amount of labeled data.
+</p>
+
+<p align="justify">
+The architecture was a 12-layer Transformer decoder with 117M parameters. Despite being relatively small by today's standards, GPT-1 achieved state-of-the-art results on 9 out of 12 NLP benchmarks at the time, including natural language inference, question answering, and text classification. The takeaway: unsupervised pre-training + supervised fine-tuning is a recipe that works remarkably well.
+</p>
+
+<h3 id="gpt-2-language-models-are-unsupervised-multitask-learners">GPT-2: Language Models are Unsupervised Multitask Learners</h3>
+
+<p align="justify">
+In 2019, OpenAI scaled things up. GPT-2 used 1.5B parameters (roughly 10x GPT-1) and was trained on WebText, a dataset of ~8 million web pages curated by following outbound links from Reddit posts with at least 3 karma. The quality of training data turned out to matter a great deal.
+</p>
+
+<p align="justify">
+The most exciting finding of GPT-2 was <strong>zero-shot task transfer</strong>: without any fine-tuning, the model could perform tasks it was never explicitly trained for — summarization, translation, and question answering — simply by conditioning on natural language prompts. For example, feeding it "TL;DR:" after a passage would produce a reasonable summary. This hinted at an intriguing property: sufficiently large language models can implicitly learn to perform tasks as a byproduct of learning to predict the next word.
+</p>
+
+<p align="justify">
+GPT-2 also made headlines for a different reason — OpenAI initially chose not to release the full model, citing concerns about potential misuse for generating fake news and spam. This sparked an important debate about responsible AI release practices that continues to this day.
+</p>
+
+<h3 id="gpt-3-language-models-are-few-shot-learners">GPT-3: Language Models are Few-Shot Learners</h3>
+
+<p align="justify">
+GPT-3, published in 2020, was a massive leap. With 175B parameters (over 100x GPT-2) trained on a filtered version of Common Crawl plus books and Wikipedia, GPT-3 demonstrated a remarkable capability: <strong>in-context learning</strong>. Instead of fine-tuning the model on task-specific data, you could simply provide a few examples in the prompt (few-shot), a single example (one-shot), or just a task description (zero-shot), and the model would figure out what to do.
+</p>
+
+<p align="justify">
+Technically, GPT-3 followed the same Transformer decoder architecture as its predecessors but introduced alternating dense and locally banded sparse attention patterns in certain layers. The real breakthrough, however, was the <strong>scaling law</strong>: the authors observed smooth, predictable improvements in performance as model size, data, and compute increased. This empirical finding has since become a guiding principle for the field — sometimes you don't need a new algorithm, you just need to scale up.
+</p>
+
+<p align="justify">
+GPT-3 also revealed some uncomfortable truths. The model could generate biased, toxic, or factually incorrect content. It had no mechanism to say "I don't know." And its few-shot performance, while impressive, was brittle — small changes in prompt formatting could lead to wildly different outputs.
+</p>
+
+<h3 id="instructgpt-and-chatgpt-aligning-language-models-with-human-intent">InstructGPT and ChatGPT: Aligning Language Models with Human Intent</h3>
+
+<p align="justify">
+The jump from GPT-3 to ChatGPT is arguably more about <strong>alignment</strong> than architecture. InstructGPT (early 2022) introduced a three-step recipe that would prove transformative:
+</p>
+
+<ol>
+  <li>
+<strong>Supervised Fine-Tuning (SFT)</strong>: Train the model on high-quality demonstrations written by human labelers.</li>
+  <li>
+<strong>Reward Modeling</strong>: Train a separate model to predict which of two outputs a human would prefer.</li>
+  <li>
+<strong>Reinforcement Learning from Human Feedback (RLHF)</strong>: Use Proximal Policy Optimization (PPO) to fine-tune the language model against the reward model.</li>
+</ol>
+
+<p align="justify">
+The result was striking: a 1.3B parameter InstructGPT model was preferred by human evaluators over the 175B GPT-3. This showed that alignment techniques could be more impactful than raw scale. The model became more helpful, less likely to produce harmful content, and much better at following instructions.
+</p>
+
+<p align="justify">
+ChatGPT, released in November 2022, applied similar techniques to GPT-3.5 (a refined version of GPT-3) and wrapped it in a conversational interface. The rest is history — it reached 100 million users within two months, making it the fastest-growing consumer application ever. Suddenly, the general public could experience the power of large language models first-hand, and the AI discourse shifted from academic circles to dinner table conversations worldwide.
+</p>
+
+<h3 id="gpt-4-a-multimodal-leap">GPT-4: A Multimodal Leap</h3>
+
+<p align="justify">
+Released in March 2023, GPT-4 represents a significant step forward in several dimensions. While OpenAI disclosed very few technical details (no architecture specifics, no parameter count, no training data details — a controversial departure from the earlier GPT papers), the capabilities speak for themselves.
+</p>
+
+<p align="justify">
+The most notable advancement is <strong>multimodality</strong>: GPT-4 can accept both text and images as input (though it outputs only text). It can describe images, answer questions about visual content, and reason about diagrams. This opens up a whole new range of applications, from assisting visually impaired users to analyzing medical images and interpreting complex charts.
+</p>
+
+<p align="justify">
+In terms of reasoning, GPT-4 shows substantial improvement. It passes the bar exam in the top 10% of test takers (GPT-3.5 scored in the bottom 10%), and performs well on various academic and professional exams. It is also more calibrated in its confidence — better at knowing when it doesn't know — though it still hallucinates.
+</p>
+
+<p align="justify">
+Under the hood, rumor and analysis suggest GPT-4 uses a <strong>Mixture-of-Experts (MoE)</strong> architecture, where multiple smaller "expert" networks are selectively activated for different inputs. This allows for greater model capacity without proportional increases in computation per token. While unconfirmed by OpenAI, this approach would explain how GPT-4 achieves superior performance while maintaining reasonable inference costs.
+</p>
+
+<h3 id="current-limitations">Current Limitations</h3>
+
+<p align="justify">
+Despite the rapid progress, current LLMs still face fundamental challenges:
+</p>
+
+<ul>
+  <li>
+    <p><strong>Hallucination</strong>: LLMs generate fluent but sometimes fabricated information with high confidence. They have no grounded understanding of truth — they model statistical patterns of language, not facts about the world. This is perhaps the most critical barrier to deployment in high-stakes domains like medicine and law.</p>
+  </li>
+  <li>
+    <p><strong>Reasoning</strong>: While GPT-4 shows improved reasoning, LLMs still struggle with multi-step logical reasoning, mathematical proofs, and tasks requiring systematic planning. They are pattern matchers at heart, and their “reasoning” can break down in novel situations that fall outside their training distribution.</p>
+  </li>
+  <li>
+    <p><strong>Context window</strong>: Current models have limited context windows (e.g., 4K-32K tokens), which restrict their ability to process long documents or maintain very long conversations. Though this is being actively addressed (GPT-4 already offers a 32K token variant), it remains a practical limitation.</p>
+  </li>
+  <li>
+    <p><strong>Temporal knowledge</strong>: LLMs have a knowledge cutoff and cannot access real-time information. They don’t know what happened yesterday unless augmented with external tools or retrieval mechanisms.</p>
+  </li>
+  <li>
+    <p><strong>Cost and efficiency</strong>: Training and serving these models requires enormous computational resources. GPT-4 training reportedly cost over $100M. This creates barriers to entry and raises questions about the environmental impact and equitable access.</p>
+  </li>
+</ul>
+
+<h3 id="looking-ahead">Looking Ahead</h3>
+
+<p align="justify">
+The trajectory from GPT-1 to GPT-4 — spanning just five years — is remarkable. We've gone from a 117M parameter model that needed fine-tuning for every task, to a multimodal system that can pass professional exams and write working code from a screenshot of a hand-drawn sketch.
+</p>
+
+<p align="justify">
+Several directions seem particularly promising:
+</p>
+
+<ul>
+  <li>
+    <p><strong>Tool use and augmentation</strong>: Teaching LLMs to use external tools (calculators, search engines, code interpreters) to compensate for their inherent limitations. This is already happening with ChatGPT plugins and could dramatically expand what these systems can do.</p>
+  </li>
+  <li>
+    <p><strong>Multimodal expansion</strong>: GPT-4’s vision capabilities are just the beginning. Future models may seamlessly integrate text, images, audio, video, and other modalities, moving closer to how humans perceive and interact with the world.</p>
+  </li>
+  <li>
+    <p><strong>Alignment and safety</strong>: As these models become more capable, ensuring they remain aligned with human values becomes increasingly important. Techniques like RLHF are a good start, but we likely need more robust approaches as capabilities grow.</p>
+  </li>
+  <li>
+    <p><strong>Domain-specific applications</strong>: Adapting foundation models for specialized fields (science, medicine, law, engineering) where they can serve as powerful assistants to domain experts, rather than replacing them.</p>
+  </li>
+</ul>
+
+<p align="justify">
+Are we on the path to AGI? It's hard to say. What's clear is that we've entered a new era where AI can understand and generate human language at a level that would have seemed like science fiction just a few years ago. The challenge now is to harness this capability responsibly, address the real limitations, and build systems that genuinely benefit humanity. The journey has just begun <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20">
 </p>
 
           </section>
@@ -229,7 +366,7 @@ This is the first work to introduce Pre-Training - Finetuning paradigm into NLP 
   <ul class="rrssb-buttons clearfix">
     
       <li class="rrssb-email">
-        <a href="mailto:?subject=Towards%20AGI%20-%20ChatGPT%20and%20GPT4.0&amp;body=https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html" data-proofer-ignore>
+        <a href="mailto:?subject=Towards%20AGI%20-%20ChatGPT%20and%20GPT-4&amp;body=https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html" data-proofer-ignore>
           <span class="rrssb-icon">
             <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 28 28">
               <path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"></path>
@@ -241,7 +378,7 @@ This is the first work to introduce Pre-Training - Finetuning paradigm into NLP 
     
     
       <li class="rrssb-facebook">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html&amp;title=Towards%20AGI%20-%20ChatGPT%20and%20GPT4.0" class="popup">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html&amp;title=Towards%20AGI%20-%20ChatGPT%20and%20GPT-4" class="popup">
           <span class="rrssb-icon">
             <svg xmlns="https://www.w3.org/2000/svg" preserveaspectratio="xMidYMid" width="29" height="29" viewbox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z" class="cls-2" fill-rule="evenodd"></path></svg>
           </span>
@@ -251,7 +388,7 @@ This is the first work to introduce Pre-Training - Finetuning paradigm into NLP 
     
     
       <li class="rrssb-twitter">
-        <a href="https://twitter.com/share?url=https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html&amp;text=Towards%20AGI%20-%20ChatGPT%20and%20GPT4.0" class="popup">
+        <a href="https://twitter.com/share?url=https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html&amp;text=Towards%20AGI%20-%20ChatGPT%20and%20GPT-4" class="popup">
           <span class="rrssb-icon"><svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"></path></svg></span>
           <span class="rrssb-text">twitter</span>
         </a>
@@ -271,7 +408,7 @@ This is the first work to introduce Pre-Training - Finetuning paradigm into NLP 
     
     
       <li class="rrssb-reddit">
-        <a href="https://www.reddit.com/submit?url=https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html&amp;title=Towards%20AGI%20-%20ChatGPT%20and%20GPT4.0" target="_blank">
+        <a href="https://www.reddit.com/submit?url=https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html&amp;title=Towards%20AGI%20-%20ChatGPT%20and%20GPT-4" target="_blank">
           <span class="rrssb-icon">
             <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 28 28">
               <path d="M11.794 15.316c0-1.03-.835-1.895-1.866-1.895-1.03 0-1.893.866-1.893 1.896s.863 1.9 1.9 1.9c1.023-.016 1.865-.916 1.865-1.9zM18.1 13.422c-1.03 0-1.895.864-1.895 1.895 0 1 .9 1.9 1.9 1.865 1.03 0 1.87-.836 1.87-1.865-.006-1.017-.875-1.917-1.875-1.895zM17.527 19.79c-.678.68-1.826 1.007-3.514 1.007h-.03c-1.686 0-2.834-.328-3.51-1.005-.264-.265-.693-.265-.958 0-.264.265-.264.7 0 1 .943.9 2.4 1.4 4.5 1.402.005 0 0 0 0 0 .005 0 0 0 0 0 2.066 0 3.527-.46 4.47-1.402.265-.264.265-.693.002-.958-.267-.334-.688-.334-.988-.043z"></path>
@@ -282,15 +419,6 @@ This is the first work to introduce Pre-Training - Finetuning paradigm into NLP 
         </a>
       </li>
     
-    
-      <li class="rrssb-googleplus">
-        <a href="https://plus.google.com/share?url=https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html" class="popup">
-          <span class="rrssb-icon">
-            <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24"><path d="M21 8.29h-1.95v2.6h-2.6v1.82h2.6v2.6H21v-2.6h2.6v-1.885H21V8.29zM7.614 10.306v2.925h3.9c-.26 1.69-1.755 2.925-3.9 2.925-2.34 0-4.29-2.016-4.29-4.354s1.885-4.353 4.29-4.353c1.104 0 2.014.326 2.794 1.105l2.08-2.08c-1.3-1.17-2.924-1.883-4.874-1.883C3.65 4.586.4 7.835.4 11.8s3.25 7.212 7.214 7.212c4.224 0 6.953-2.988 6.953-7.082 0-.52-.065-1.104-.13-1.624H7.614z"></path></svg>
-          </span>
-          <span class="rrssb-text">google+</span>
-        </a>
-      </li>
     
     
       <li class="rrssb-tumblr">
@@ -513,7 +641,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, 'Towards AGI - ChatGPT and GPT4.0', 'https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html');
+    history.pushState({}, 'Towards AGI - ChatGPT and GPT-4', 'https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html');
   }
 }
 </script>
@@ -540,7 +668,7 @@ function addTohistory() {
       new Hammer(post).on('swiperight', function(event) {
         addTohistory();
         
-          document.location.replace("/");
+          document.location.replace("/tech/2026/04/05/foundation-models-meet-biology.html");
         
       });
     </script>

@@ -118,7 +118,7 @@ fb-share: True
 twitter-share: True
 linkedin-share: True
 reddit-share: True
-google-plus-share: True
+google-plus-share: False
 tumblr-share: True
 pinterest-share: True
 pocket-share: True
@@ -135,7 +135,7 @@ syntax-highlight: True
 events:
   - image: "/img/photo.JPG"
     date: "Apr. 2024 - Present"
-    description: "Principle Research Scientist    \n
+    description: "Principal Research Scientist    \n
                   @ SAIS"
   - image: "/img/timeline/alibaba.png"
     date: "Apr. 2016 - Apr. 2024"

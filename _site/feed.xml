@@ -7,11 +7,25 @@
 		<atom:link href="https://jamesguoxin.github.io/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Towards AGI - ChatGPT and GPT4.0</title>
+				<title>Foundation Models Meet Biology - A New Frontier</title>
 				
 				
 					<description>&lt;p align=&quot;justify&quot;&gt;
-With the development of modern LLMs (i.e. Large Languege Models), we&apos;ve reached the turning point that the carefully trained model is more knowledgeable than most human-beings to some extent. The emergance of ChatGPT and recently published GPT4.0 sheds light on building Artificial General Intelligence in a feasible way :stuck_out_tongue_closed_eyes: In this blog, I would like to briefly introduce GPT-series and discuss its current limitations and future applications.
+The foundation model paradigm — pre-train at massive scale, then adapt to downstream tasks — has reshaped NLP and computer vision over the past few years. But the most exciting frontier for this paradigm might not be language or images at all. It&apos;s biology. The sheer complexity of biological systems, the explosion of multi-omics data, and the urgent need for better drug design make biology a natural (and arguably the most impactful) proving ground for foundation models. In this post, I&apos;ll walk through how foundation models are transforming different corners of biology, share some lessons from our own work, and discuss where I think this field is heading.
+&lt;/p&gt;
+</description>
+				
+				<pubDate>Sun, 05 Apr 2026 00:00:00 +0800</pubDate>
+				<link>https://jamesguoxin.github.io/tech/2026/04/05/foundation-models-meet-biology.html</link>
+				<guid isPermaLink="true">https://jamesguoxin.github.io/tech/2026/04/05/foundation-models-meet-biology.html</guid>
+			</item>
+		
+			<item>
+				<title>Towards AGI - ChatGPT and GPT-4</title>
+				
+				
+					<description>&lt;p align=&quot;justify&quot;&gt;
+With the development of modern LLMs (i.e. Large Language Models), we&apos;ve reached a turning point where carefully trained models are more knowledgeable than most human beings in many regards. The emergence of ChatGPT and the recently published GPT-4 sheds light on building Artificial General Intelligence in a feasible way :stuck_out_tongue_closed_eyes: In this blog, I would like to briefly introduce the GPT series and discuss their current limitations and future applications.
 &lt;/p&gt;
 </description>
 				
@@ -21,13 +35,13 @@ With the development of modern LLMs (i.e. Large Languege Models), we&apos;ve rea
 			</item>
 		
 			<item>
-				<title>Restaurants in Lausanne</title>
+				<title>Restaurants in Lausanne - A Food Lover&apos;s Guide</title>
 				
 				
 					<description>&lt;p align=&quot;justify&quot;&gt;
-As an enthusiastic food lover, I&apos;m always eager to try local dishes and find proper ones among all. During my three years&apos; living in Lausanne, the Swiss Olympic Capital, I&apos;ve dined at various restaurants here. My friends encouraged me to make a list of the ones I&apos;m fond of. Below are all based on my own taste, hope you could find these information useful :wink:
+As an enthusiastic food lover, I&apos;m always eager to try local dishes and find the best ones. During my three years living in Lausanne, the Swiss Olympic Capital, I&apos;ve dined at various restaurants here. My friends encouraged me to make a list of the ones I&apos;m fond of. Below are all based on my own taste, hope you find this useful :wink:
 &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Le Pirate&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;Le Pirate&lt;/strong&gt; &lt;em&gt;(Permanently closed since 2021)&lt;/em&gt;
 &lt;img src=&quot;../../../../img/le_pirate.png&quot; alt=&quot;Le Pirate&quot; /&gt;&lt;/p&gt;
 </description>
 				
