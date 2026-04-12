@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
 		<title>{ Xin / James Guo (郭昕) }</title>
-		<description>Welcome to the blog and website of James, a Tech &amp; Science Explorer.</description>
-		<link>https://jamesguoxin.github.io</link>
-		<atom:link href="https://jamesguoxin.github.io/feed.xml" rel="self" type="application/rss+xml" />
+		<description>Principal Research Scientist at SAIS — AI for Life Science, Genomic Foundation Models, and Multimodal Perception.</description>
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Foundation Models Meet Biology - A New Frontier</title>
@@ -16,8 +16,8 @@ The foundation model paradigm — pre-train at massive scale, then adapt to down
 </description>
 				
 				<pubDate>Sun, 05 Apr 2026 00:00:00 +0800</pubDate>
-				<link>https://jamesguoxin.github.io/tech/2026/04/05/foundation-models-meet-biology.html</link>
-				<guid isPermaLink="true">https://jamesguoxin.github.io/tech/2026/04/05/foundation-models-meet-biology.html</guid>
+				<link>http://localhost:4000/tech/2026/04/05/foundation-models-meet-biology.html</link>
+				<guid isPermaLink="true">http://localhost:4000/tech/2026/04/05/foundation-models-meet-biology.html</guid>
 			</item>
 		
 			<item>
@@ -30,8 +30,8 @@ With the development of modern LLMs (i.e. Large Language Models), we&apos;ve rea
 </description>
 				
 				<pubDate>Sun, 19 Mar 2023 00:00:00 +0800</pubDate>
-				<link>https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html</link>
-				<guid isPermaLink="true">https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html</guid>
+				<link>http://localhost:4000/tech/2023/03/19/chatgpt.html</link>
+				<guid isPermaLink="true">http://localhost:4000/tech/2023/03/19/chatgpt.html</guid>
 			</item>
 		
 			<item>
@@ -46,8 +46,8 @@ As an enthusiastic food lover, I&apos;m always eager to try local dishes and fin
 </description>
 				
 				<pubDate>Mon, 04 Apr 2016 00:00:00 +0800</pubDate>
-				<link>https://jamesguoxin.github.io/cuisine/2016/04/04/res-rec.html</link>
-				<guid isPermaLink="true">https://jamesguoxin.github.io/cuisine/2016/04/04/res-rec.html</guid>
+				<link>http://localhost:4000/cuisine/2016/04/04/res-rec.html</link>
+				<guid isPermaLink="true">http://localhost:4000/cuisine/2016/04/04/res-rec.html</guid>
 			</item>
 		
 	</channel>

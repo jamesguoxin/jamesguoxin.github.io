@@ -50,3 +50,12 @@ htmlproofer ./_site --disable-external --empty-alt-ignore
 
 - `jekyll-paginate` — Blog pagination
 - `jemoji` — GitHub-style emoji support in content
+
+## External Dependencies
+
+- **Academicons** — CDN-loaded icon font for academic social icons (Google Scholar, ORCID). Added in `_includes/head.html`.
+- Social buttons template (`_includes/social-buttons.html`) supports an optional `icon` field in `_config.yml` social entries, falling back to Font Awesome `fa fa-{{ title }}` when not specified.
+
+## Deployment
+
+Currently using manual deployment: build locally with `jekyll build`, commit `_site/`, and push. GitHub Pages serves the committed `_site/` directly — no CI/CD auto-build is configured. See `future-work.md` §4.2 for the GitHub Actions migration plan.

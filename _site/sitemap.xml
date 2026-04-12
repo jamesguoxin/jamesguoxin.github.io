@@ -23,7 +23,7 @@
   
     
       <url>
-        <loc>https://jamesguoxin.github.io/blog/</loc>
+        <loc>http://localhost:4000/blog/</loc>
         
           
           
@@ -36,7 +36,7 @@
   
     
       <url>
-        <loc>https://jamesguoxin.github.io/</loc>
+        <loc>http://localhost:4000/</loc>
         
           
           
@@ -69,7 +69,7 @@
   
   
     <url>
-      <loc>https://jamesguoxin.github.io/tech/2026/04/05/foundation-models-meet-biology.html</loc>
+      <loc>http://localhost:4000/tech/2026/04/05/foundation-models-meet-biology.html</loc>
       
         <lastmod>2026-04-05T00:00:00+08:00</lastmod>
       
@@ -78,7 +78,7 @@
     </url>
   
     <url>
-      <loc>https://jamesguoxin.github.io/tech/2023/03/19/chatgpt.html</loc>
+      <loc>http://localhost:4000/tech/2023/03/19/chatgpt.html</loc>
       
         <lastmod>2023-03-19T00:00:00+08:00</lastmod>
       
@@ -87,7 +87,7 @@
     </url>
   
     <url>
-      <loc>https://jamesguoxin.github.io/cuisine/2016/04/04/res-rec.html</loc>
+      <loc>http://localhost:4000/cuisine/2016/04/04/res-rec.html</loc>
       
         <lastmod>2016-04-04T00:00:00+08:00</lastmod>
       

@@ -1,32 +1,24 @@
 # Future Work — Website Improvement Plan
 
-## Priority 1: Quick Wins (config changes only)
+## Priority 1: Quick Wins (config changes only) — ✅ COMPLETED (2026-04-13)
 
-### 1.1 Header Dynamic Text — Add Professional Lines
-Current text is Kate Bush lyrics only. Mix in professional lines to communicate expertise to first-time visitors.
-```yaml
-lines:
-  - text: "AI for Life Science"
-  - text: "Foundation Models x Biology"
-  - text: "Running Up That Hill"
-```
+### 1.1 Header Dynamic Text — ✅ Done
+Added professional lines: "AI for Life Science", "Foundation Models × Biology" alongside existing Kate Bush lyrics.
 
-### 1.2 Site Description — More Specific
-Current: *"Welcome to the blog and website of James, a Tech & Science Explorer."*
-Suggested: *"Principal Research Scientist at SAIS — AI for Life Science, Genomic Foundation Models, and Multimodal Perception."*
-File: `_config.yml` → `description`
+### 1.2 Site Description — ✅ Done
+Updated to: *"Principal Research Scientist at SAIS — AI for Life Science, Genomic Foundation Models, and Multimodal Perception."*
 
-### 1.3 Social Links — Update for Academic Audience
-- **Add:** Google Scholar, Twitter/X, ORCID
-- **Consider removing:** Facebook (less relevant for academic profile)
-- **Keep:** LinkedIn, GitHub
+### 1.3 Social Links — ✅ Done
+- **Added:** Google Scholar, ORCID (with Academicons CDN for proper icons)
+- **Removed:** Facebook, Twitter/X
+- **Kept:** LinkedIn, GitHub
+- Template updated to support custom `icon` field in social entries.
 
-### 1.4 Disable Irrelevant Features
-- `google-plus-share: False` (already done)
-- `vkontakte-share: False`
+### 1.4 Disable Irrelevant Features — ✅ Done
 - `tumblr-share: False`
 - `pinterest-share: False`
-- Consider disabling Disqus comments if not actively used
+- `vkontakte-share: False`
+- Still TODO: Consider disabling Disqus comments if not actively used
 
 ---
 
