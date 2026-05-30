@@ -56,10 +56,8 @@ type-speed: 10
 start-delay: 500
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
-  - text: "AI for Life Science"
-  - text: "Foundation Models × Biology"
   - text: "Running Up That Hill"
-  - text: "A Deal with God"
+  - text: "Decoding Life with Foundation Models"
 
 me-img: "/img/photo.JPG"
 

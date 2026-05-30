@@ -20,11 +20,18 @@ gem install jekyll jekyll-paginate jemoji
 jekyll serve --baseurl "" --watch
 ```
 
-**HTML validation (CI uses this):**
+**HTML validation (Travis CI runs this — `.travis.yml`):**
 ```
 gem install html-proofer
 htmlproofer ./_site --disable-external --empty-alt-ignore
 ```
+
+**Helper scripts (`scripts/`):**
+- `scripts/serve` — `jekyll serve --watch` with dev config (no Disqus/Analytics).
+- `scripts/serve-production` — serve with `JEKYLL_ENV=production`.
+- `scripts/newpost <title>` — scaffold a `_posts/YYYY-MM-DD-<title>.md` stub.
+- `scripts/generate-categories` / `scripts/generate-tags` — regenerate the `categories/` and `tags/` listing pages from post front matter (run after adding posts with new categories/tags).
+- `scripts/integrate-personal` — pull upstream theme updates (read the linked wiki first).
 
 ## Architecture
 
@@ -43,7 +50,7 @@ htmlproofer ./_site --disable-external --empty-alt-ignore
 - **About/publications page**: Edit `about.html` directly — it contains news, bio, publications list, patents, and awards as inline HTML.
 - **Timeline entries**: Edit the `events` list in `_config.yml`.
 - **Header animated text**: Edit the `lines` list in `_config.yml`.
-- **Blog posts**: Add Markdown files to `_posts/` with format `YYYY-MM-DD-slug.md`.
+- **Blog posts**: Add Markdown files to `_posts/` with format `YYYY-MM-DD-slug.md`. Front matter requires `layout: post`, `section-type: post`, `title`, `category`, and `tags`. After introducing a new `category`/`tag`, run `scripts/generate-categories` / `scripts/generate-tags` so the corresponding listing pages exist.
 - **Navigation pages**: Controlled by `pages_list` in `_config.yml`.
 
 ## Plugins

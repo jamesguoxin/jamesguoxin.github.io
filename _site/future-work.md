@@ -34,17 +34,19 @@ Suggested new structure:
 
 Update `pages_list` in `_config.yml` accordingly.
 
-### 2.2 Publication Tracking — Use YAML Data File
-Replace hand-coded HTML with `_data/publications.yml`:
+### 2.2 Publication Tracking — Use YAML Data File — ✅ COMPLETED (2026-05-29)
+Publications now live in `_data/publications.yml` (grouped by `section`, each paper has `title`/`url`/`authors`/`venue` and an optional `me_mark: equal|corr`). `about.html` renders them via a Liquid loop that auto-bolds "Xin Guo" and appends the `*`/✉ marks. Adding a paper is now a few-line YAML entry — no HTML editing.
+
+Data model:
 ```yaml
-- title: "ChromFound: Towards A Universal Foundation Model..."
-  authors: "Yifeng Jiao, Yuchen Liu, Yu Zhang, Xin Guo, ..."
-  venue: "NeurIPS 2025"
-  url: "https://arxiv.org/abs/2505.12638"
-  corresponding: true
-  section: "AI4Biomedicine at SAIS"
+- section: "AI4Biomedicine at SAIS"
+  papers:
+    - title: "ChromFound: Towards A Universal Foundation Model..."
+      url: "https://arxiv.org/abs/2505.12638"
+      authors: "Yifeng Jiao, Yuchen Liu, Yu Zhang, Xin Guo, ..."
+      venue: "NeurIPS 2025"
+      me_mark: "corr"   # "corr" → ✉, "equal" → *, omit for none; url optional
 ```
-Then render with a Liquid template for automatic, consistent formatting. Adding a new paper becomes a one-line YAML entry.
 
 ### 2.3 About Page — Add Photo and Key Metrics
 - Add professional headshot at the top of the About section
@@ -64,19 +66,15 @@ Suggested additions:
 
 ---
 
-## Priority 3: Blog Strategy (ongoing effort)
+## Priority 3: Blog Strategy — ✅ COMPLETED (2026-05-29)
 
-### 3.1 Write More Consistently
-Current: 3 posts over 10 years (2016, 2023, 2026).
+Closed as sufficient for now. Three substantial posts (Lausanne restaurants 2016, ChatGPT/GPT-4 2023, Foundation Models Meet Biology 2026) cover the AI-for-Life-Science positioning well; the two recent tech posts are 1,500–2,000 words each. More posts are welcome over time but not a blocker.
 
-Suggested content sources (low effort — content already exists in knowledge base):
-- **Monthly Research Highlights** — Curated from daily paper digests
-- **Research Notes** — Shorter posts: conference takeaways, paper reviews, tool recommendations
-- **Research Idea Spotlights** — Adapted from novelty-ideas reports
+### 3.1 Write More Consistently — Done (deemed sufficient)
+3 posts; recent ones are on-message and substantial. Future posts optional, not required.
 
-### 3.2 Add New Categories
-Current: `tech`, `cuisine`
-Suggested additions: `research`, `tutorial`, `life`
+### 3.2 Add New Categories — Dropped
+`tech` already covers research content; no new categories needed. Regenerated `tags/` pages so all tags on recent posts resolve (fixed previously-missing tag pages).
 
 ---
 
