@@ -85,90 +85,17 @@ Closed as sufficient for now. Three substantial posts (Lausanne restaurants 2016
 - `le_pirate.png` is 1.9MB — compress significantly
 - Other large images in `img/timeline/`
 
-### 4.2 Remove `_site/` from Git — Use GitHub Actions to Build — ✅ COMPLETED (2026-05-30)
-Added `.github/workflows/jekyll.yml` (build with Bundler + deploy via GitHub Pages on push to `master`), a `Gemfile`/`Gemfile.lock`, gitignored `_site/`, and untracked it from git. **Manual repo step required:** Settings → Pages → Source → "GitHub Actions". The old "build locally + commit `_site/`" flow is retired.
+### 4.2 Remove `_site/` from Git — Use GitHub Actions to Build — ✅ COMPLETED (2026-05-30, verified live)
+- Added `.github/workflows/jekyll.yml`: builds with Bundler (`bundle exec jekyll build`) and deploys via GitHub Pages on push to `master`.
+- Added `Gemfile` / `Gemfile.lock` pinning jekyll, jekyll-paginate, jemoji, jekyll-spaceship, webrick.
+- Gitignored `_site/` and untracked it (87 files); generated output is no longer committed.
+- Repo setting changed: Settings → Pages → Source → "GitHub Actions".
+- First deploy succeeded and the live site was confirmed updated.
 
-**Problem:** GitHub Pages' built-in Jekyll builder doesn't support all plugins/configurations, so `_site/` is committed directly. This bloats the repo (~21MB of generated files) and creates messy diffs on every content change.
-
-**Solution:** Use a GitHub Actions workflow to build Jekyll and deploy to GitHub Pages. This replaces both the manual `_site/` commit and the outdated Travis CI config (Ruby 2.5).
-
-**Step-by-step:**
-
-1. **Create `.github/workflows/jekyll.yml`:**
-```yaml
-name: Deploy Jekyll to GitHub Pages
-
-on:
-  push:
-    branches: ["master"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Build with Jekyll
-        run: |
-          gem install jekyll jekyll-paginate jemoji
-          JEKYLL_ENV=production jekyll build
-        env:
-          JEKYLL_ENV: production
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-```
-
-2. **In GitHub repo settings:**
-   - Go to Settings → Pages
-   - Under "Build and deployment", change Source from "Deploy from a branch" to **"GitHub Actions"**
-
-3. **Add `_site/` to `.gitignore`:**
-```
-_site/
-```
-
-4. **Remove `_site/` from git tracking:**
-```bash
-git rm -r --cached _site/
-```
-
-5. **Optionally delete `.travis.yml`** — no longer needed.
-
-**Why this works:** GitHub Actions runs a full Ruby/Jekyll build in CI with the exact gems you need (`jekyll-paginate`, `jemoji`), then deploys the output directly to GitHub Pages. You never need to commit `_site/` again.
-
-**Fallback:** If GitHub Actions has issues, an alternative is to use a `Gemfile` with `github-pages` gem, which bundles all GitHub Pages-compatible plugins. But the Actions approach is more flexible and supports any plugin.
+**Gotchas hit (for future reference):**
+- Pushing workflow files needs a PAT with `workflow` scope (or push via SSH).
+- Bundler 4 wrote a `CHECKSUMS` section with empty entries (Tsinghua mirror serves no checksums), which fails CI's frozen `bundle install`. Fix: removed the `CHECKSUMS` section. When regenerating the lockfile locally, verify with `BUNDLE_FROZEN=true bundle check` before pushing.
+- New workflow `.travis.yml` is now redundant — could be deleted (left in place for now).
 
 ### 4.3 Set Up Google Analytics
 Currently empty in `_config.yml`. Set up if you want to track visitor metrics.
@@ -178,7 +105,39 @@ Currently empty in `_config.yml`. Set up if you want to track visitor metrics.
 - jQuery 1.11.3 → remove or update
 - Font Awesome 4.4.0 → 6.x
 - Consider migrating to a modern academic theme (e.g., Hugo Academic / al-folio for Jekyll) which has built-in publication management, BibTeX import, and responsive design
+- NB: the upstream theme (le4ker fork) has already done most of this — see Priority 5. Route B there ≈ this upgrade.
 
 ---
 
-*Generated: 2026-04-05*
+## Priority 5: Adopt Upstream Theme Updates (le4ker fork)
+
+Context: the upstream theme [le4ker/personal-jekyll-theme](https://github.com/le4ker/personal-jekyll-theme) (v10.4.1, Mar 2026) has diverged substantially from our fork — it rewrote to **Bootstrap 5 (no jQuery)**, **Font Awesome 7**, and a **CSS-variable + `[data-theme]` styling system**. Our `grayscale.scss` still uses Bootstrap 3 + SASS `darken()`/hardcoded colors. Reviewed 2026-05-30; decided to cherry-pick rather than wholesale-merge.
+
+**Already adopted (2026-05-30):**
+- ✅ Mermaid diagrams via `jekyll-spaceship` (build-time SVG; see Plugins / CLAUDE.md).
+- ✅ GitHub Actions deploy (= §4.2).
+
+### 5.1 Dark mode with theme toggle — ⬜ TODO (highest-value visual upgrade)
+System-following + manual toggle button, preference saved in `localStorage`. This is the main reason the upstream "looks nice".
+**Decision: Route A (incremental).** Keep Bootstrap 3 and current structure; convert `grayscale.scss` to CSS variables and hand-write light/dark palettes coordinated with the Matterhorn backdrop. Large styling job — do as its own focused session.
+- (Route B = adopt upstream's Bootstrap 5 + new styles and port our customizations back. Rejected for now: highest risk, ≈ a full front-end re-integration. Equivalent to §4.4.)
+- Upstream reference clone notes: dark mode bootstraps via an inline `<head>` script reading `localStorage.theme` and setting `data-theme`; toggle logic lives in `js.html`; styles key off `[data-theme="dark"]`.
+
+### 5.2 Cusdis comments — ⬜ TODO (depends on 5.1)
+Upstream replaced Disqus with **Cusdis** (open-source, privacy-friendly, no tracking). Its include syncs the comment widget's light/dark theme to the page `data-theme`, so it should land **together with 5.1**. We currently have `disqus-shortname: jamesguoxin` configured but rarely used — alternatively just disable comments entirely (this also closes the §1.4 leftover TODO).
+
+### 5.3 Skipped from upstream (intentionally)
+- License change to Apache 2.0, Conventional Commits, git hooks — maintainer tooling, not relevant to us.
+- Single-quote `site.quote` header (we keep typed.js multi-line animation).
+
+---
+
+## Current status snapshot (2026-05-30)
+
+- **Done:** P1 (quick wins), P2.2 (publications data file), P3 (blog), P4.2 (Actions deploy), P5 Mermaid.
+- **Open:** P2.1/2.3/2.4/2.5 (about split, photo+metrics, timeline, new pages), P4.1 (image compression), P4.3 (analytics), P4.4 (framework upgrade), **P5.1 dark mode + P5.2 Cusdis** (the main remaining "style" work).
+- **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.
+
+---
+
+*Generated: 2026-04-05 · last updated: 2026-05-30*
