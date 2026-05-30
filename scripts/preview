@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# Local preview that mirrors the GitHub Actions build:
+#   - uses Bundler (same gems/versions as CI via Gemfile.lock)
+#   - serves with the dev config (baseurl "") and live reload
+#
+# This is the recommended way to verify changes before pushing, since _site/
+# is no longer committed — a local build is your only pre-push sanity check.
+#
+# Usage:  scripts/preview
+# Then open http://127.0.0.1:4000/
+
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+if ! command -v bundle >/dev/null 2>&1; then
+  echo "✗ 'bundle' not found. Install with: gem install bundler" >&2
+  exit 1
+fi
+
+# Only install when something is actually missing — `bundle install` hits the
+# network even when gems are present, which is slow behind a mirror.
+if ! bundle check >/dev/null 2>&1; then
+  echo "▸ Installing gems (Bundler)…"
+  bundle install
+fi
+
+echo "▸ Serving at http://127.0.0.1:4000/  (Ctrl-C to stop)"
+exec bundle exec jekyll serve \
+  --watch --livereload \
+  --host "127.0.0.1" \
+  --config _config.yml,_config.dev.yml
