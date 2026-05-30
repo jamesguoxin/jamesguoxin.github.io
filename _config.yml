@@ -236,7 +236,20 @@ sass:
 gems:
   - jekyll-paginate
   - jemoji
+  - jekyll-spaceship
 
 plugins:
   - jekyll-paginate
   - jemoji
+  - jekyll-spaceship
+
+# jekyll-spaceship: only enable the Mermaid processor (jemoji already handles
+# emoji; leaving other processors off avoids overlap).
+# Use ```mermaid!  (note the trailing "!") to mark a diagram code block.
+jekyll-spaceship:
+  processors:
+    - mermaid-processor
+  mermaid-processor:
+    mode: pre-fetch   # fetch SVG from mermaid.ink at build time and inline it
+    css:
+      class: mermaid

@@ -14,17 +14,20 @@ docker-compose up
 ```
 Serves at http://localhost:4000 with live reload. Uses `_config.yml` + `_config.dev.yml` (dev overrides baseurl to empty string).
 
-**Local development with Jekyll directly:**
+**Local development with Bundler (matches CI):**
 ```
-gem install jekyll jekyll-paginate jemoji
-jekyll serve --baseurl "" --watch
+bundle install
+bundle exec jekyll serve --baseurl "" --watch
 ```
+Dependencies are pinned in `Gemfile` / `Gemfile.lock` (jekyll, jekyll-paginate, jemoji, jekyll-spaceship, webrick). In China, redirect the source to a mirror once: `bundle config set mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems/`.
 
 **HTML validation (Travis CI runs this — `.travis.yml`):**
 ```
 gem install html-proofer
 htmlproofer ./_site --disable-external --empty-alt-ignore
 ```
+
+**Mermaid diagrams:** `jekyll-spaceship` renders diagrams at build time via mermaid.ink. Mark a block with ` ```mermaid! ` (trailing `!`) or `@startmermaid … @endmermaid`. `mode: pre-fetch` (in `_config.yml`) inlines the SVG into the HTML, so it needs network access to mermaid.ink during the build.
 
 **Helper scripts (`scripts/`):**
 - `scripts/serve` — `jekyll serve --watch` with dev config (no Disqus/Analytics).
@@ -57,6 +60,7 @@ htmlproofer ./_site --disable-external --empty-alt-ignore
 
 - `jekyll-paginate` — Blog pagination
 - `jemoji` — GitHub-style emoji support in content
+- `jekyll-spaceship` — Mermaid diagram rendering (mermaid-processor only; see Development Commands)
 
 ## External Dependencies
 
@@ -65,4 +69,6 @@ htmlproofer ./_site --disable-external --empty-alt-ignore
 
 ## Deployment
 
-Currently using manual deployment: build locally with `jekyll build`, commit `_site/`, and push. GitHub Pages serves the committed `_site/` directly — no CI/CD auto-build is configured. See `future-work.md` §4.2 for the GitHub Actions migration plan.
+GitHub Actions builds and deploys on every push to `master` (`.github/workflows/jekyll.yml`): it runs `bundle exec jekyll build` and publishes via GitHub Pages. `_site/` is **no longer committed** (it's in `.gitignore`) — do not commit generated output. Repo setting: Settings → Pages → Source must be "GitHub Actions".
+
+For local preview, build/serve with `bundle exec jekyll …`; the output in `_site/` is git-ignored.

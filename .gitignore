@@ -17,3 +17,8 @@ Rakefile
 .jekyll-metadata
 *.DS_Store*
 /.idea/
+
+# Generated output — now built & deployed by GitHub Actions (.github/workflows/jekyll.yml)
+_site/
+.bundle/
+vendor/

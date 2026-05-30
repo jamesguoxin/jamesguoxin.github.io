@@ -85,7 +85,8 @@ Closed as sufficient for now. Three substantial posts (Lausanne restaurants 2016
 - `le_pirate.png` is 1.9MB — compress significantly
 - Other large images in `img/timeline/`
 
-### 4.2 Remove `_site/` from Git — Use GitHub Actions to Build
+### 4.2 Remove `_site/` from Git — Use GitHub Actions to Build — ✅ COMPLETED (2026-05-30)
+Added `.github/workflows/jekyll.yml` (build with Bundler + deploy via GitHub Pages on push to `master`), a `Gemfile`/`Gemfile.lock`, gitignored `_site/`, and untracked it from git. **Manual repo step required:** Settings → Pages → Source → "GitHub Actions". The old "build locally + commit `_site/`" flow is retired.
 
 **Problem:** GitHub Pages' built-in Jekyll builder doesn't support all plugins/configurations, so `_site/` is committed directly. This bloats the repo (~21MB of generated files) and creates messy diffs on every content change.
 
