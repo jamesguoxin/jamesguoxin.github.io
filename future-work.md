@@ -1,5 +1,84 @@
 # Future Work — Website Improvement Plan
 
+## Recommended Roadmap (re-ranked after live-site review, 2026-06-07)
+
+The academic light refresh is now live. The next improvements should help a first-time visitor answer four questions quickly:
+
+1. Who is Xin / James Guo?
+2. What are his current research areas?
+3. What are his strongest representative works?
+4. How can someone recruit or collaborate with him?
+
+### Next 1: Homepage Positioning and Conversion — highest priority
+
+- Add a stable, non-animated identity line to the Matterhorn hero:
+  - `Principal Research Scientist at SAIS`
+  - `AI for Life Sciences · Multimodal Foundation Models`
+- Keep the typed animation as secondary personality, not the only research description.
+- Add three direct hero actions: `Selected Publications`, `Google Scholar`, and `Contact`.
+- Add a short collaboration statement to Contact covering AI for life sciences, multimodal foundation models, and agentic AI for scientific discovery.
+- Do not add a CV download yet. Revisit only when a publishable PDF is supplied.
+
+**Why first:** small-to-moderate implementation effort with the clearest benefit for academic visibility, recruiting, and collaboration leads.
+
+### Next 2: Homepage Information Architecture — recommended first substantial project
+
+- Reorder the main content to:
+  - `About Me`
+  - `Research Highlights`
+  - `Recent News`
+  - `Selected Publications`
+  - `Experience`
+  - `Contact`
+- Limit Recent News to the latest 3–4 entries and add `More news`.
+- Keep only concise highlights from Patents, Academic Services, Awards, and Competitions on the homepage.
+- Move complete activity details to a dedicated page; consider a downloadable CV later when a publishable PDF is available.
+- Rename Timeline to `Experience` and remove details already explained in About Me.
+
+**Why second:** the live homepage is credible but very long. Improving hierarchy will make it easier to scan without removing substantive content.
+
+### Next 3: Representative Publications and Research Navigation
+
+- Show 5–8 representative papers on the homepage instead of the near-complete publication record.
+- Keep a complete Publications page generated from `_data/publications.yml`.
+- Add compact resource links where available: `Paper`, `Code`, and `Project`.
+- Organize work by research topic rather than internal project name:
+  - `Biomedical Foundation Models at SAIS`
+  - `Remote Sensing Foundation Models — Yimutian Project`
+  - `Computer Vision for Insurance — Dingsunbao`
+  - `Signal Processing and Blind Source Separation`
+- Consider adding `selected: true`, `code`, and `project` fields to the publication data model.
+
+**Why third:** this materially improves research discoverability, but requires content selection and publication metadata work.
+
+### Next 4: Content Editing and Credibility Details
+
+- Professionally edit the About Me copy for concision and consistent terminology:
+  - `Life Sciences`
+  - `multi-omics`
+  - `vision foundation models`
+  - `large corporations and innovative startups`
+- Replace broad claims such as `benefit the whole world` with a concrete research mission.
+- Update numerical claims such as `15+ papers` when the displayed record has grown beyond them.
+- Keep Awards chronological, preferably newest first, without artificial `1, 2, 3` ranking.
+- Clarify project names for international visitors while retaining Chinese branding where useful.
+
+### Next 5: Performance, Measurement, and Maintenance
+
+- Compress large images, especially `matterhorn.jpg`, `le_pirate.png`, and timeline assets.
+- Add a downloadable CV when a publishable PDF is available (low priority).
+- Add privacy-conscious analytics only if visitor metrics will influence decisions.
+- Remove obsolete `.travis.yml` after confirming GitHub Actions remains the sole deploy path.
+- Resolve Sass `@import` deprecation warnings as part of a future styling/toolchain update.
+
+### Deferred: Dark Mode and Framework Upgrade
+
+- Dark mode remains a valid visual enhancement, but it is lower value than improving homepage hierarchy and conversion.
+- Cusdis should only be added if comments are genuinely useful; otherwise disable Disqus and keep the site simpler.
+- Bootstrap 5 / no-jQuery migration remains long-term technical work and should not block content improvements.
+
+---
+
 ## Priority 1: Quick Wins (config changes only) — ✅ COMPLETED (2026-04-13)
 
 ### 1.1 Header Dynamic Text — ✅ Done
@@ -24,15 +103,10 @@ Updated to: *"Principal Research Scientist at SAIS — AI for Life Science, Geno
 
 ## Priority 2: Content & Structure (moderate effort)
 
-### 2.1 Split About Page into Dedicated Pages
-Current `about.html` is 258 lines mixing news, bio, publications, patents, awards, and academic activities.
+### 2.1 Split About Page into Dedicated Sections — 🟨 PARTIALLY COMPLETED (2026-06-07)
+The content has been separated into `about.html`, `publications.html`, `activities.html`, and matching includes. They currently render as sections on the single-page homepage rather than separate navigable URLs.
 
-Suggested new structure:
-- **About** — Bio + recent news only
-- **Publications** — Dedicated page with all papers
-- **Awards & Activities** — Patents, awards, competitions, interviews
-
-Update `pages_list` in `_config.yml` accordingly.
+Remaining work is covered by `Next 2` and `Next 3`: keep concise highlights on the homepage and decide whether full Publications / CV content should have standalone pages.
 
 ### 2.2 Publication Tracking — Use YAML Data File — ✅ COMPLETED (2026-05-29)
 Publications now live in `_data/publications.yml` (grouped by `section`, each paper has `title`/`url`/`authors`/`venue` and an optional `me_mark: equal|corr`). `about.html` renders them via a Liquid loop that auto-bolds "Xin Guo" and appends the `*`/✉ marks. Adding a paper is now a few-line YAML entry — no HTML editing.
@@ -48,16 +122,12 @@ Data model:
       me_mark: "corr"   # "corr" → ✉, "equal" → *, omit for none; url optional
 ```
 
-### 2.3 About Page — Add Photo and Key Metrics
-- Add professional headshot at the top of the About section
-- Add a one-liner: "15+ papers | 10+ patents | 10+ years in AI"
+### 2.3 About Page — Add Photo and Key Metrics — ✅ COMPLETED (2026-06-07)
+- Professional headshot is embedded in the About section.
+- Key metrics are displayed in a responsive metric grid.
 
-### 2.4 Timeline — Expand Milestones
-Currently 4 entries covering 16 years. Key experiences (Sony, Tractable) are collapsed.
-Suggested additions:
-- Major publications (SkySense at CVPR 2024, HorusEye in Nature Comp Sci 2026)
-- Awards (NeurIPS Top Reviewer, Oriental Talent Program)
-- Key projects (Dingsunbao, Yimutian)
+### 2.4 Timeline / Experience — REVISED
+Do not expand the homepage timeline with publications, awards, and projects; those already appear elsewhere. Rename it to `Experience`, retain the four major career/education entries, and make each entry concise and non-duplicative.
 
 ### 2.5 Add Missing Pages
 - **Talks/Presentations** — Conference talks, invited lectures
@@ -132,12 +202,15 @@ Upstream replaced Disqus with **Cusdis** (open-source, privacy-friendly, no trac
 
 ---
 
-## Current status snapshot (2026-05-30)
+## Current status snapshot (2026-06-07)
 
-- **Done:** P1 (quick wins), P2.2 (publications data file), P3 (blog), P4.2 (Actions deploy), P5 Mermaid.
-- **Open:** P2.1/2.3/2.4/2.5 (about split, photo+metrics, timeline, new pages), P4.1 (image compression), P4.3 (analytics), P4.4 (framework upgrade), **P5.1 dark mode + P5.2 Cusdis** (the main remaining "style" work).
+- **Done:** P1 (quick wins), P2.2 (publications data file), P2.3 (photo + metrics), P3 (blog), P4.2 (Actions deploy), P5 Mermaid, and the academic light visual refresh.
+- **Partially done:** P2.1 (content split into source sections, but still rendered on one long homepage).
+- **Revised:** P2.4 should simplify Timeline into Experience rather than expand it.
+- **Recommended next:** homepage positioning and conversion, followed by information architecture and representative-publication curation.
+- **Open but lower priority:** P2.5 (optional pages), P4.1 (image compression), P4.3 (analytics), P4.4 (framework upgrade), P5.1 (dark mode), and P5.2 (Cusdis or disabling comments).
 - **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.
 
 ---
 
-*Generated: 2026-04-05 · last updated: 2026-05-30*
+*Generated: 2026-04-05 · last updated: 2026-06-07*
