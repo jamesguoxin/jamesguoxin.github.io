@@ -1,0 +1,36 @@
+
+<!-- Publications Start -->
+
+<section id="{{ page.section-type }}" class="container content-section text-center">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Publications</h2>
+
+      <p class="publication-note">* Equal contribution · <span class="emoji">✉</span> Corresponding Author</p>
+
+      <div class="publication-list">
+        {% comment %} Publications are sourced from _data/publications.yml — edit there to add a paper. {% endcomment %}
+        {% for grp in site.data.publications %}
+          <section class="publication-group">
+            <h3>{{ grp.section }}</h3>
+            <ol>
+              {% for pub in grp.papers %}
+                {%- capture mark -%}{% if pub.me_mark == "corr" %}<span class="emoji">✉</span>{% elsif pub.me_mark == "equal" %}*{% endif %}{%- endcapture -%}
+                {%- capture me -%}<em><ins><strong>Xin Guo{{ mark }}</strong></ins></em>{%- endcapture -%}
+                <li>
+                  <div class="publication-title">
+                    {% if pub.url %}<a href="{{ pub.url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}
+                  </div>
+                  <div class="publication-authors">{{ pub.authors | replace: "Xin Guo", me }}</div>
+                  <div class="publication-venue">{{ pub.venue }}</div>
+                </li>
+              {% endfor %}
+            </ol>
+          </section>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Publications End -->

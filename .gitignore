@@ -22,3 +22,5 @@ Rakefile
 _site/
 .bundle/
 vendor/
+.superpowers/
+docs/superpowers/

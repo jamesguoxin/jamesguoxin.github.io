@@ -134,24 +134,19 @@ syntax-highlight: True
 events:
   - image: "/img/photo.JPG"
     date: "Apr. 2024 - Present"
-    description: "Principal Research Scientist    \n
-                  @ SAIS"
+    description: "Principal Research Scientist @ SAIS"
   - image: "/img/timeline/alibaba.png"
     date: "Apr. 2016 - Apr. 2024"
-    description: "Senior R&D Engineer     \n
-                  @ Ant & Alibaba Group"
+    description: "Senior R&D Engineer @ Ant & Alibaba Group"
   # - image: "/img/timeline/germany.jpg"
   #   date: "Mar. 2014 - Sep. 2014"
   #   description: "Sony EuTECH"
   - image: "/img/timeline/epfl.jpg"
     date: "Sep. 2012 - Nov. 2015"
-    description: "Master Degree @ EPFL  \n
-                  Research Intern @ Sony \n
-                  Data Scientist @ Tractable"
+    description: "Master Degree @ EPFL; Research Intern @ Sony; Data Scientist @ Tractable"
   - image: "/img/timeline/zju.png"
     date: "Sep. 2008 - Jun. 2012"
-    description: "Bachelor Degree  \n 
-                  @ Zhejiang University"
+    description: "Bachelor Degree @ Zhejiang University"
 
 # First image of the Timeline
 
@@ -216,13 +211,15 @@ err-404-img: "/img/labtocat.png"
 
 pages_list:
   About: 'about'
+  Publications: 'publications'
   Blog: 'latest-post'
   Timeline: 'timeline'
+  CV: 'activities'
   Contact: 'contact'
 
 # Exclusion list from the generated _site
 
-exclude: ["LICENSE", "README.md", "CONTRIBUTING", "CONTRIBUTORS", "scripts"]
+exclude: ["LICENSE", "README.md", "CONTRIBUTING", "CONTRIBUTORS", "scripts", "docs"]
 
 # Pagination path
 
