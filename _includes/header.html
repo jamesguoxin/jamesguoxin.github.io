@@ -6,9 +6,23 @@
     <div class="container">
       <div class="row">
           <div class="col-md-10 col-md-offset-1">
-            <h1 class="brand-heading">&nbsp;</h1>
+            <h1 class="hero-name">{{ site.hero.name }}</h1>
+            <p class="hero-role">{{ site.hero.role }}</p>
+            <p class="hero-focus">
+              <span>{{ site.hero.focus-primary }}</span>
+              <span>{{ site.hero.focus-secondary }}</span>
+            </p>
+            <div class="hero-divider" aria-hidden="true"></div>
             <span class="intro-text">{{ content }}</span>
-            <h5>&nbsp;</h5>
+            <nav class="hero-actions" aria-label="Primary profile links">
+              <a class="hero-action hero-action-primary page-scroll" href="#publications">Publications</a>
+              {% for item in site.social %}
+                {% if item.title == "google-scholar" %}
+                  <a class="hero-action" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                {% endif %}
+              {% endfor %}
+              <a class="hero-action page-scroll" href="#contact">Contact</a>
+            </nav>
             <a href="#{{ site.pages_list['About'] }}" class="page-scroll intro-scroll" aria-label="Scroll to About">
               <i class="fa fa-angle-down"></i>
             </a>

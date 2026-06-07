@@ -7,6 +7,10 @@
 
       {{ page.content | markdownify }}
 
+      {% if site.collaboration-statement %}
+        <p class="contact-collaboration">{{ site.collaboration-statement }}</p>
+      {% endif %}
+
       {% if site.email %}
         {% if site.email contains '@' %}
           {% assign newemail = site.email | split: '@' %}

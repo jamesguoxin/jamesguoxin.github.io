@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "nokogiri"
+
+index_path = File.join(__dir__, "..", "_site", "index.html")
+abort("Missing generated page: #{index_path}") unless File.file?(index_path)
+
+doc = Nokogiri::HTML(File.read(index_path))
+page_text = doc.text.gsub(/\s+/, " ").strip
+
+required_text = [
+  "Xin / James Guo",
+  "Principal Research Scientist at SAIS",
+  "AI for Life Sciences",
+  "Multimodal Foundation Models",
+  "Agentic AI for Scientific Discovery",
+  "I welcome research collaborations in AI for life sciences, multimodal foundation models, and agentic AI for scientific discovery."
+]
+
+missing_text = required_text.reject { |text| page_text.include?(text) }
+abort("Missing required text: #{missing_text.join(', ')}") unless missing_text.empty?
+
+required_links = {
+  "Publications" => "#publications",
+  "Google Scholar" => "https://scholar.google.com/citations?user=d2eWV9wAAAAJ",
+  "Contact" => "#contact"
+}
+
+hero_actions = doc.css(".hero-actions a")
+abort("Expected 3 hero action links, found #{hero_actions.length}") unless hero_actions.length == 3
+
+required_links.each do |label, href|
+  link = hero_actions.find { |node| node.text.gsub(/\s+/, " ").strip == label }
+  abort("Missing hero action link: #{label}") unless link
+  abort("Hero action #{label} href expected #{href}, got #{link['href']}") unless link["href"] == href
+end
+
+contact_statement = doc.at_css("#contact .contact-collaboration")
+abort("Missing contact collaboration statement") unless contact_statement
+
+puts "Homepage positioning checks passed"

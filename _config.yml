@@ -61,6 +61,14 @@ lines: # You can add HTML Tags in the Text
 
 me-img: "/img/photo.JPG"
 
+hero:
+  name: "Xin / James Guo"
+  role: "Principal Research Scientist at SAIS"
+  focus-primary: "AI for Life Sciences · Multimodal Foundation Models"
+  focus-secondary: "Agentic AI for Scientific Discovery"
+
+collaboration-statement: "I welcome research collaborations in AI for life sciences, multimodal foundation models, and agentic AI for scientific discovery."
+
 # To use facebook profile pic comment the previous line and uncomment the following
 # line, and replace 'user_id' with your facebook user id.
 # Facebook user id can be found by clicking on your profile pic and the large number
