@@ -19,7 +19,7 @@ The README will cover:
 5. Procedures for updating news, publications, activities, and blog posts
 6. Pre-push verification and GitHub Pages deployment
 7. Maintenance notes, including generated output and known Sass warnings
-8. Theme attribution and license
+8. Project history, theme attribution, and license
 
 ## Accuracy Requirements
 
@@ -32,6 +32,9 @@ The README will cover:
 - Point patents, academic service, competitions, and awards to `activities.html`.
 - Mention `scripts/check-homepage-positioning` as an additional generated-HTML check.
 - Keep the document in English, without badges or screenshots.
+- Explain that the repository was originally based on
+  `PanosSakkos/personal-jekyll-theme`, has since diverged through substantial
+  customization, and is now maintained independently without upstream syncing.
 
 ## Scope
 
