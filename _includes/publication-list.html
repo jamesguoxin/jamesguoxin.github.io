@@ -1,10 +1,10 @@
-<div class="publication-list">
-  {% if include.mode == "selected" %}
+<div class="publication-list{% if include.selected %} publication-list-selected{% endif %}">
+  {% if include.selected %}
     {% for order in (1..6) %}
       {% for group in site.data.publications %}
         {% for pub in group.papers %}
           {% if pub.selected and pub.homepage_order == order %}
-            <article class="publication-item{% if pub.representative %} representative{% endif %}">
+            <article class="publication-item{% if pub.representative %} publication-representative{% endif %}">
               <span class="publication-topic">{{ pub.topic }}</span>
               {% include publication-entry.html pub=pub %}
             </article>
