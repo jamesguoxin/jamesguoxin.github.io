@@ -3,10 +3,17 @@
 
 require "nokogiri"
 
-index_path = File.join(__dir__, "..", "_site", "index.html")
-abort("Missing generated page: #{index_path}") unless File.file?(index_path)
+ROOT = File.expand_path("..", __dir__)
 
-doc = Nokogiri::HTML(File.read(index_path))
+def page(path)
+  full_path = File.join(ROOT, "_site", path)
+  abort("Missing generated page: #{full_path}") unless File.file?(full_path)
+
+  Nokogiri::HTML(File.read(full_path))
+end
+
+doc = page("index.html")
+news_doc = page("news/index.html")
 page_text = doc.text.gsub(/\s+/, " ").strip
 
 required_text = [
@@ -14,15 +21,15 @@ required_text = [
   "Principal Research Scientist at SAIS",
   "AI for Life Sciences",
   "Multimodal Foundation Models",
-  "Agentic AI for Scientific Discovery",
-  "I welcome research collaborations in AI for life sciences, multimodal foundation models, and agentic AI for scientific discovery."
+  "Scientific Agentic AI",
+  "I welcome research collaborations in AI for life sciences, multimodal foundation models, and scientific agentic AI."
 ]
 
 missing_text = required_text.reject { |text| page_text.include?(text) }
 abort("Missing required text: #{missing_text.join(', ')}") unless missing_text.empty?
 
 required_links = {
-  "Publications" => "#publications",
+  "Publications" => "/publications/",
   "Google Scholar" => "https://scholar.google.com/citations?user=d2eWV9wAAAAJ",
   "Contact" => "#contact"
 }
@@ -38,5 +45,31 @@ end
 
 contact_statement = doc.at_css("#contact .contact-collaboration")
 abort("Missing contact collaboration statement") unless contact_statement
+expected_contact_statement = "I welcome research collaborations in AI for life sciences, multimodal foundation models, and scientific agentic AI."
+actual_contact_statement = contact_statement.text.gsub(/\s+/, " ").strip
+unless actual_contact_statement == expected_contact_statement
+  abort("Contact collaboration statement mismatch")
+end
+
+research_cards = doc.css("#research .research-card")
+abort("Expected 2 research cards, found #{research_cards.length}") unless research_cards.length == 2
+
+expected_research_titles = ["AI for Life Sciences", "Scientific Agentic AI"]
+actual_research_titles = research_cards.map { |node| node.at_css("h3")&.text&.gsub(/\s+/, " ")&.strip }
+unless actual_research_titles == expected_research_titles
+  abort("Research titles expected #{expected_research_titles.inspect}, got #{actual_research_titles.inspect}")
+end
+
+expected_home_nav_hrefs = ["#about", "#research", "/publications/", "/news/", "#experience", "#contact"]
+actual_home_nav_hrefs = doc.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
+unless actual_home_nav_hrefs == expected_home_nav_hrefs
+  abort("Homepage nav hrefs expected #{expected_home_nav_hrefs.inspect}, got #{actual_home_nav_hrefs.inspect}")
+end
+
+expected_news_nav_hrefs = ["/#about", "/#research", "/publications/", "/news/", "/#experience", "/#contact"]
+actual_news_nav_hrefs = news_doc.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
+unless actual_news_nav_hrefs == expected_news_nav_hrefs
+  abort("News nav hrefs expected #{expected_news_nav_hrefs.inspect}, got #{actual_news_nav_hrefs.inspect}")
+end
 
 puts "Homepage positioning checks passed"
