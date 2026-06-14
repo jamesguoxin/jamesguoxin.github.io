@@ -43,7 +43,7 @@ htmlproofer ./_site --disable-external --empty-alt-ignore
 - **`_layouts/`** — Page templates: `index.html` (home), `blog.html`, `post.html`, `category.html`, `tag.html`, `error.html`.
 - **`_includes/`** — Reusable partials composed into layouts (header, footer, navigation, comments via Disqus, share buttons, timeline, etc.).
 - **`_posts/`** — Blog posts in Markdown with YAML front matter. Paginated at 6 per page.
-- **Top-level pages** — `about.html`, `contact.html`, `timeline.html`, `latest-post.html`, `index.html`. These use `section-type` front matter and `layout: null` (rendered inside the index layout).
+- **Top-level homepage sections** — `about.html`, `research.html`, `publications.html`, `news-section.html`, `experience.html`, and `contact.html`. These use `section-type` front matter and `layout: null` (rendered inside the index layout).
 - **`_sass/`** + **`css/`** — SASS variables/mixins compiled with Jekyll; `grayscale.scss` is the main stylesheet.
 - **`js/`** — Vendored JS: typed.js (header animation), hammer.js (swipe gestures), rrssb (social sharing).
 - **`_site/`** — Generated output (in `.gitignore` territory, but currently tracked — avoid modifying directly).
