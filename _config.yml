@@ -139,22 +139,23 @@ syntax-highlight: True
 # Timeline #
 ############
 
-events:
+experience:
   - image: "/img/photo.JPG"
     date: "Apr. 2024 - Present"
-    description: "Principal Research Scientist @ SAIS"
+    role: "Principal Research Scientist"
+    organization: "SAIS"
   - image: "/img/timeline/alibaba.png"
     date: "Apr. 2016 - Apr. 2024"
-    description: "Senior R&D Engineer @ Ant & Alibaba Group"
-  # - image: "/img/timeline/germany.jpg"
-  #   date: "Mar. 2014 - Sep. 2014"
-  #   description: "Sony EuTECH"
+    role: "Senior R&D Engineer"
+    organization: "Ant & Alibaba Group"
   - image: "/img/timeline/epfl.jpg"
     date: "Sep. 2012 - Nov. 2015"
-    description: "Master Degree @ EPFL; Research Intern @ Sony; Data Scientist @ Tractable"
+    role: "MSc in Communication Systems"
+    organization: "EPFL"
   - image: "/img/timeline/zju.png"
     date: "Sep. 2008 - Jun. 2012"
-    description: "Bachelor Degree @ Zhejiang University"
+    role: "BEng with Honors"
+    organization: "Zhejiang University"
 
 # First image of the Timeline
 

@@ -9,7 +9,7 @@
 
       <ul class="timeline">
 
-        {% for event in site.events %}
+        {% for event in site.experience %}
           {% assign loopindex = forloop.index | modulo: 2 %}
           {% capture class %}
           {% if loopindex == 0 %}
@@ -26,7 +26,7 @@
                 <h4>{{ event.date }}</h4>
               </div>
               <div class="timeline-body">
-                {{ event.description | markdownify }}
+                <p><strong>{{ event.role }}</strong><br>{{ event.organization }}</p>
               </div>
             </div>
           </li>
@@ -38,6 +38,7 @@
           </div>
         </li>
       </ul>
+      <p class="section-more"><a href="{{ site.baseurl }}/activities/">Patents, academic service, and honors</a></p>
     </div>
   </div>
 </section>
