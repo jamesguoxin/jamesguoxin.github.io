@@ -1,11 +1,11 @@
 
 <!-- Timeline Start -->
 
-<section id="{{ page.section-type }}" class="container content-section text-center">
+<section id="{{ include.section_page.section-type }}" class="container content-section text-center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
-      {{ page.content | markdownify }}
+      {{ include.section_page.content | markdownify }}
 
       <ul class="timeline">
 

@@ -12,10 +12,10 @@
 
     {% include header.html %}
 
-    {% for p in site.pages_list %}
-      {% for page in site.pages %}
-        {% if p[1] == page.section-type %}
-          {% include {{ page.path }} %}
+    {% for section_type in site.homepage_sections %}
+      {% for section_page in site.pages %}
+        {% if section_page.section-type == section_type %}
+          {% include {{ section_page.path }} section_page=section_page %}
         {% endif %}
       {% endfor %}
     {% endfor %}

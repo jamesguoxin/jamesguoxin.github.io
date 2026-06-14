@@ -218,13 +218,33 @@ err-404-img: "/img/labtocat.png"
 
 # Sections shown in the index page
 
-pages_list:
-  About: 'about'
-  Publications: 'publications'
-  Blog: 'latest-post'
-  Timeline: 'timeline'
-  CV: 'activities'
-  Contact: 'contact'
+homepage_sections:
+  - about
+  - research
+  - publications
+  - news
+  - experience
+  - contact
+
+navigation:
+  - label: About
+    type: section
+    target: about
+  - label: Research
+    type: section
+    target: research
+  - label: Publications
+    type: page
+    url: /publications/
+  - label: News
+    type: page
+    url: /news/
+  - label: Experience
+    type: section
+    target: experience
+  - label: Contact
+    type: section
+    target: contact
 
 # Exclusion list from the generated _site
 

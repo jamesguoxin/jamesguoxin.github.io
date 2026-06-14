@@ -15,7 +15,7 @@
             <div class="hero-divider" aria-hidden="true"></div>
             <span class="intro-text">{{ content }}</span>
             <nav class="hero-actions" aria-label="Primary profile links">
-              <a class="hero-action hero-action-primary page-scroll" href="#publications">Publications</a>
+              <a class="hero-action hero-action-primary" href="{{ site.baseurl }}/publications/">Publications</a>
               {% for item in site.social %}
                 {% if item.title == "google-scholar" %}
                   <a class="hero-action" href="{{ item.url }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>
@@ -23,7 +23,7 @@
               {% endfor %}
               <a class="hero-action page-scroll" href="#contact">Contact</a>
             </nav>
-            <a href="#{{ site.pages_list['About'] }}" class="page-scroll intro-scroll" aria-label="Scroll to About">
+            <a href="#about" class="page-scroll intro-scroll" aria-label="Scroll to About">
               <i class="fa fa-angle-down"></i>
             </a>
           </div>
