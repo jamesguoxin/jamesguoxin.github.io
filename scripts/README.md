@@ -19,3 +19,7 @@ generate-tag
 integrate-personal
   - Integrates the latest bug fixes and new features from personal-jekyll-theme repository.
   Make sure to read [this](https://github.com/PanosSakkos/personal-jekyll-theme/wiki/Integrating-latest-bug-fixes-and-features-into-your-past-fork) before using it.
+
+check-site-architecture
+  - Verifies homepage section order and item limits, standalone archives,
+    preserved activity content, and primary navigation after a Jekyll build.

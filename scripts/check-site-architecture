@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "nokogiri"
+require "yaml"
+
+ROOT = File.expand_path("..", __dir__)
+
+def page(path)
+  full_path = File.join(ROOT, "_site", path)
+  abort("Missing generated page: #{full_path}") unless File.file?(full_path)
+
+  Nokogiri::HTML(File.read(full_path))
+end
+
+home = page("index.html")
+publications = page("publications/index.html")
+news = page("news/index.html")
+activities = page("activities/index.html")
+
+expected_home_sections = %w[about research publications news experience contact]
+actual_home_sections = home.css("body > section[id]").map { |node| node["id"] }
+unless actual_home_sections == expected_home_sections
+  abort("Homepage sections expected #{expected_home_sections.inspect}, got #{actual_home_sections.inspect}")
+end
+
+abort("Homepage must show 4 news entries") unless home.css("#news .news-item").length == 4
+abort("Homepage must show 6 publications") unless home.css("#publications .publication-item").length == 6
+abort("SkySense missing from homepage") unless home.at_css("#publications").text.include?("SkySense")
+
+expected_titles = [
+  "FLAG: Foundation model representation with Latent diffusion Alignment via Graph for spatial gene expression prediction",
+  "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration",
+  "Structure-based RNA Design by Step-wise Optimization of Latent Diffusion Model",
+  "Sprint or Delve: A Distribution-Aware Approach to Efficient Reasoning",
+  "ChromFound: Towards A Universal Foundation Model for Single-Cell Chromatin Accessibility Data",
+  "SkySense: A Multi-Modal Remote Sensing Foundation Model Towards Universal Interpretation for Earth Observation Imagery"
+]
+actual_titles = home.css("#publications .publication-title").map { |node| node.text.gsub(/\s+/, " ").strip }
+abort("Selected publication order mismatch") unless actual_titles == expected_titles
+
+publication_data = YAML.load_file(File.join(ROOT, "_data", "publications.yml"))
+expected_publications = publication_data.sum { |group| group.fetch("papers").length }
+unless publications.css(".publication-item").length == expected_publications
+  abort("Complete publication count mismatch")
+end
+
+news_data = YAML.load_file(File.join(ROOT, "_data", "news.yml"))
+abort("Complete news count mismatch") unless news.css(".news-item").length == news_data.length
+
+abort("Activities page lost patents") unless activities.text.include?("EP3201917B1")
+abort("Activities page lost awards") unless activities.text.include?("ICML 2026 Silver Reviewer Award")
+
+expected_nav = ["About", "Research", "Publications", "News", "Experience", "Contact"]
+actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }
+abort("Primary navigation mismatch") unless actual_nav == expected_nav
+
+puts "Site architecture checks passed"
