@@ -1,0 +1,29 @@
+<div class="publication-list">
+  {% if include.mode == "selected" %}
+    {% for order in (1..6) %}
+      {% for group in site.data.publications %}
+        {% for pub in group.papers %}
+          {% if pub.selected and pub.homepage_order == order %}
+            <article class="publication-item{% if pub.representative %} representative{% endif %}">
+              <span class="publication-topic">{{ pub.topic }}</span>
+              {% include publication-entry.html pub=pub %}
+            </article>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+  {% else %}
+    {% for group in site.data.publications %}
+      <section class="publication-group">
+        <h2>{{ group.section }}</h2>
+        <ol>
+          {% for pub in group.papers %}
+            <li class="publication-item">
+              {% include publication-entry.html pub=pub %}
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+    {% endfor %}
+  {% endif %}
+</div>

@@ -7,6 +7,10 @@
 #   authors  (required) — full author string; the literal "Xin Guo" is auto-highlighted
 #   venue    (required) — venue + year, rendered in bold
 #   me_mark  (optional) — "equal" appends * / "corr" appends ✉ after the highlighted Xin Guo
+#   selected (optional) — include the paper in the homepage selection
+#   topic    (optional) — homepage topic label
+#   homepage_order (optional) — homepage display order
+#   representative (optional) — identify the primary representative work
 
 - section: "AI4Biomedicine at SAIS"
   papers:
@@ -31,6 +35,9 @@
       authors: "Yifeng Jiao, Yuchen Liu, Yu Zhang, Xin Guo, Yushuai Wu, Chen Jiang, Jiyang Li, Hongwei Zhang, Limei Han, Xin Gao, Yuan Qi, Yuan Cheng"
       venue: "NeurIPS 2025"
       me_mark: "corr"
+      selected: true
+      topic: "Life Science"
+      homepage_order: 5
     - title: "Minimal Semantic Sufficiency Meets Unsupervised Domain Generalization"
       url: "https://arxiv.org/abs/2509.15791"
       authors: "Tan Pan, Kaiyu Guo, Dongli Xu, Zhaorui Tan, Chen Jiang, Deshu Chen, Xin Guo, Brian C. Lovell, Limei Han, Yuan Cheng, Mahsa Baktashmotlagh"
@@ -40,18 +47,30 @@
       authors: "Qi Si, Xuyang Liu, Penglei Wang, Xin Guo, Yuan Qi, Yuan Cheng"
       venue: "AAAI 2026"
       me_mark: "corr"
+      selected: true
+      topic: "Life Science"
+      homepage_order: 3
     - title: "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration"
       url: "https://www.nature.com/articles/s43588-026-00973-3"
       authors: "Yuetan Chu, Longxi Zhou, Gongning Luo, Kai Kang, Suyu Dong, Zhongyi Han, Lianming Wu, Xianglin Meng, Changchun Yang, Xin Guo, Yuan Cheng, Yuan Qi, Xin Liu, Dexuan Xie, Yue Li, Ricardo Henao, Xigang Xiao, Shaodong Cao, Gianluca Setti, Zhaowen Qiu, Xin Gao"
       venue: "Nature Computational Science, 2026"
+      selected: true
+      topic: "Life Science"
+      homepage_order: 2
     - title: "FLAG: Foundation model representation with Latent diffusion Alignment via Graph for spatial gene expression prediction"
       url: "https://arxiv.org/abs/2605.18055"
       authors: "Qi Si, Penglei Wang, Yushuai Wu, Yifeng Jiao, Xuyang Liu, Xin Guo, Yuan Qi, Yuan Cheng"
       venue: "ICML 2026"
       me_mark: "corr"
+      selected: true
+      topic: "Life Science"
+      homepage_order: 1
     - title: "Sprint or Delve: A Distribution-Aware Approach to Efficient Reasoning"
       authors: "Zehui Ling, Deshu Chen, Hongwei Zhang, Yifeng Jiao, Xin Guo, Zenglin Xu, Yuan Cheng"
       venue: "IJCAI 2026"
+      selected: true
+      topic: "Agentic AI"
+      homepage_order: 4
 
 - section: "亿亩田 with Ant & MYBank & Wuhan University"
   papers:
@@ -64,6 +83,10 @@
       authors: "Xin Guo, Jiangwei Lao*, Bo Dang*, Yingying Zhang, Lei Yu, Lixiang Ru, Liheng Zhong, Ziyuan Huang, Kang Wu, Dingxiang Hu, Huimei He, Jian Wang, Jingdong Chen, Ming Yang, Yongjun Zhang, Yansheng Li"
       venue: "CVPR 2024"
       me_mark: "equal"
+      selected: true
+      representative: true
+      topic: "Key Work"
+      homepage_order: 6
     - title: "POA: Pre-training Once for Models of All Sizes"
       url: "https://eccv.ecva.net/virtual/2024/poster/442"
       authors: "Yingying Zhang, Xin Guo, Jiangwei Lao, Lei Yu, Lixiang Ru, Jian Wang, Guo Ye, Huimei He, Jingdong Chen, Ming Yang"

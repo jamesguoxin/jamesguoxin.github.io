@@ -1,0 +1,7 @@
+{%- capture mark -%}{% if include.pub.me_mark == "corr" %}<span class="emoji">✉</span>{% elsif include.pub.me_mark == "equal" %}*{% endif %}{%- endcapture -%}
+{%- capture me -%}<em><ins><strong>Xin Guo{{ mark }}</strong></ins></em>{%- endcapture -%}
+<div class="publication-title">
+  {% if include.pub.url %}<a href="{{ include.pub.url }}">{{ include.pub.title }}</a>{% else %}{{ include.pub.title }}{% endif %}
+</div>
+<div class="publication-authors">{{ include.pub.authors | replace: "Xin Guo", me }}</div>
+<div class="publication-venue">{{ include.pub.venue }}</div>
