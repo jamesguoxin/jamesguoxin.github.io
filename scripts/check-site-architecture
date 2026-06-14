@@ -1,22 +1,14 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "nokogiri"
-require "yaml"
+require_relative "site-check-helpers"
 
-ROOT = File.expand_path("..", __dir__)
+ROOT = SiteCheckHelpers::ROOT
 
-def page(path)
-  full_path = File.join(ROOT, "_site", path)
-  abort("Missing generated page: #{full_path}") unless File.file?(full_path)
-
-  Nokogiri::HTML(File.read(full_path))
-end
-
-home = page("index.html")
-publications = page("publications/index.html")
-news = page("news/index.html")
-activities = page("activities/index.html")
+home = SiteCheckHelpers.page("index.html")
+publications = SiteCheckHelpers.page("publications/index.html")
+news = SiteCheckHelpers.page("news/index.html")
+activities = SiteCheckHelpers.page("activities/index.html")
 
 expected_home_sections = %w[about research publications news experience contact]
 actual_home_sections = home.css("body > section[id]").map { |node| node["id"] }
@@ -54,5 +46,31 @@ abort("Activities page lost awards") unless activities.text.include?("ICML 2026 
 expected_nav = ["About", "Research", "Publications", "News", "Experience", "Contact"]
 actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }
 abort("Primary navigation mismatch") unless actual_nav == expected_nav
+
+expected_home_nav_hrefs = [
+  "#about",
+  "#research",
+  SiteCheckHelpers.internal_path("/publications/"),
+  SiteCheckHelpers.internal_path("/news/"),
+  "#experience",
+  "#contact"
+]
+actual_home_nav_hrefs = home.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
+unless actual_home_nav_hrefs == expected_home_nav_hrefs
+  abort("Homepage nav hrefs expected #{expected_home_nav_hrefs.inspect}, got #{actual_home_nav_hrefs.inspect}")
+end
+
+expected_news_nav_hrefs = [
+  SiteCheckHelpers.internal_path("/#about"),
+  SiteCheckHelpers.internal_path("/#research"),
+  SiteCheckHelpers.internal_path("/publications/"),
+  SiteCheckHelpers.internal_path("/news/"),
+  SiteCheckHelpers.internal_path("/#experience"),
+  SiteCheckHelpers.internal_path("/#contact")
+]
+actual_news_nav_hrefs = news.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
+unless actual_news_nav_hrefs == expected_news_nav_hrefs
+  abort("News nav hrefs expected #{expected_news_nav_hrefs.inspect}, got #{actual_news_nav_hrefs.inspect}")
+end
 
 puts "Site architecture checks passed"

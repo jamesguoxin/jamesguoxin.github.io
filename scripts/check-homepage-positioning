@@ -1,44 +1,49 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "nokogiri"
+require_relative "site-check-helpers"
 
-ROOT = File.expand_path("..", __dir__)
+doc = SiteCheckHelpers.page("index.html")
 
-def page(path)
-  full_path = File.join(ROOT, "_site", path)
-  abort("Missing generated page: #{full_path}") unless File.file?(full_path)
+intro = doc.at_css(".intro")
+abort("Missing hero container: .intro") unless intro
 
-  Nokogiri::HTML(File.read(full_path))
+hero_name = intro.at_css(".hero-name")
+abort("Missing hero name: .intro .hero-name") unless hero_name
+actual_hero_name = SiteCheckHelpers.normalized_text(hero_name)
+expected_hero_name = "Xin / James Guo"
+unless actual_hero_name == expected_hero_name
+  abort("Hero name expected #{expected_hero_name.inspect}, got #{actual_hero_name.inspect}")
 end
 
-doc = page("index.html")
-news_doc = page("news/index.html")
-page_text = doc.text.gsub(/\s+/, " ").strip
+hero_role = intro.at_css(".hero-role")
+abort("Missing hero role: .intro .hero-role") unless hero_role
+actual_hero_role = SiteCheckHelpers.normalized_text(hero_role)
+expected_hero_role = "Principal Research Scientist at SAIS"
+unless actual_hero_role == expected_hero_role
+  abort("Hero role expected #{expected_hero_role.inspect}, got #{actual_hero_role.inspect}")
+end
 
-required_text = [
-  "Xin / James Guo",
-  "Principal Research Scientist at SAIS",
-  "AI for Life Sciences",
-  "Multimodal Foundation Models",
-  "Scientific Agentic AI",
-  "I welcome research collaborations in AI for life sciences, multimodal foundation models, and scientific agentic AI."
-]
-
-missing_text = required_text.reject { |text| page_text.include?(text) }
-abort("Missing required text: #{missing_text.join(', ')}") unless missing_text.empty?
+hero_focus = intro.at_css(".hero-focus")
+abort("Missing hero focus: .intro .hero-focus") unless hero_focus
+actual_hero_focus = SiteCheckHelpers.normalized_text(hero_focus)
+expected_hero_focus = ["AI for Life Sciences", "Multimodal Foundation Models", "Scientific Agentic AI"]
+missing_hero_focus = expected_hero_focus.reject { |text| actual_hero_focus.include?(text) }
+unless missing_hero_focus.empty?
+  abort("Hero focus missing #{missing_hero_focus.inspect}; got #{actual_hero_focus.inspect}")
+end
 
 required_links = {
-  "Publications" => "/publications/",
+  "Publications" => SiteCheckHelpers.internal_path("/publications/"),
   "Google Scholar" => "https://scholar.google.com/citations?user=d2eWV9wAAAAJ",
   "Contact" => "#contact"
 }
 
-hero_actions = doc.css(".hero-actions a")
+hero_actions = intro.css(".hero-actions a")
 abort("Expected 3 hero action links, found #{hero_actions.length}") unless hero_actions.length == 3
 
 required_links.each do |label, href|
-  link = hero_actions.find { |node| node.text.gsub(/\s+/, " ").strip == label }
+  link = hero_actions.find { |node| SiteCheckHelpers.normalized_text(node) == label }
   abort("Missing hero action link: #{label}") unless link
   abort("Hero action #{label} href expected #{href}, got #{link['href']}") unless link["href"] == href
 end
@@ -46,30 +51,23 @@ end
 contact_statement = doc.at_css("#contact .contact-collaboration")
 abort("Missing contact collaboration statement") unless contact_statement
 expected_contact_statement = "I welcome research collaborations in AI for life sciences, multimodal foundation models, and scientific agentic AI."
-actual_contact_statement = contact_statement.text.gsub(/\s+/, " ").strip
+actual_contact_statement = SiteCheckHelpers.normalized_text(contact_statement)
 unless actual_contact_statement == expected_contact_statement
-  abort("Contact collaboration statement mismatch")
+  abort("Contact collaboration statement expected #{expected_contact_statement.inspect}, got #{actual_contact_statement.inspect}")
 end
 
 research_cards = doc.css("#research .research-card")
 abort("Expected 2 research cards, found #{research_cards.length}") unless research_cards.length == 2
 
 expected_research_titles = ["AI for Life Sciences", "Scientific Agentic AI"]
-actual_research_titles = research_cards.map { |node| node.at_css("h3")&.text&.gsub(/\s+/, " ")&.strip }
+actual_research_titles = research_cards.map do |node|
+  title = node.at_css("h3")
+  abort("Missing research card title: #research .research-card h3") unless title
+
+  SiteCheckHelpers.normalized_text(title)
+end
 unless actual_research_titles == expected_research_titles
   abort("Research titles expected #{expected_research_titles.inspect}, got #{actual_research_titles.inspect}")
-end
-
-expected_home_nav_hrefs = ["#about", "#research", "/publications/", "/news/", "#experience", "#contact"]
-actual_home_nav_hrefs = doc.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
-unless actual_home_nav_hrefs == expected_home_nav_hrefs
-  abort("Homepage nav hrefs expected #{expected_home_nav_hrefs.inspect}, got #{actual_home_nav_hrefs.inspect}")
-end
-
-expected_news_nav_hrefs = ["/#about", "/#research", "/publications/", "/news/", "/#experience", "/#contact"]
-actual_news_nav_hrefs = news_doc.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
-unless actual_news_nav_hrefs == expected_news_nav_hrefs
-  abort("News nav hrefs expected #{expected_news_nav_hrefs.inspect}, got #{actual_news_nav_hrefs.inspect}")
 end
 
 puts "Homepage positioning checks passed"
