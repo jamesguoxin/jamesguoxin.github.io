@@ -61,7 +61,8 @@ htmlproofer ./_site --disable-external --empty-alt-ignore
 - **Blog posts**: Add Markdown files to `_posts/` with format `YYYY-MM-DD-slug.md`. Front matter requires `layout: post`, `section-type: post`, `title`, `category`, and `tags`. After introducing a new `category`/`tag`, run `scripts/generate-categories` / `scripts/generate-tags` so the corresponding listing pages exist.
 - **Homepage and navigation**: `homepage_sections` in `_config.yml` controls
   homepage composition, while `navigation` controls primary nav destinations.
-  The nav mixes homepage anchors with standalone Publications and News URLs.
+  The primary nav contains homepage anchors only. Complete Publications and
+  News pages are reached from links in their homepage sections.
 
 ## Plugins
 

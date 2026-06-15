@@ -141,24 +141,22 @@ Create `/activities/` for the complete patents, academic service, honors and
 awards, interviews, and competitions content. Preserve the current content and
 numbered-list formatting.
 
-Activities is not a primary navigation item. It should remain discoverable
-through an auxiliary link in Experience and a persistent footer link.
+Activities is not a primary navigation item. It remains discoverable through
+an auxiliary link in Experience rather than a global footer link.
 
 ## Navigation
 
-The primary navigation contains six items:
+The primary navigation contains four items:
 
-`About · Research · Publications · News · Experience · Contact`
+`About · Research · Experience · Contact`
 
-On the homepage:
-
-- About, Research, Experience, and Contact scroll to sections.
-- Publications and News open standalone pages.
+All primary navigation items scroll to homepage sections. Complete
+Publications and News pages are reached through `View all publications` and
+`More news` in their respective homepage sections.
 
 On standalone pages:
 
 - Homepage section links return to the corresponding homepage anchors.
-- Publications and News link directly to their standalone pages.
 - The site title returns to the homepage.
 
 Mobile navigation must preserve the same destinations without clipping or

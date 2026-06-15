@@ -233,12 +233,6 @@ navigation:
   - label: Research
     type: section
     target: research
-  - label: Publications
-    type: page
-    url: /publications/
-  - label: News
-    type: page
-    url: /news/
   - label: Experience
     type: section
     target: experience

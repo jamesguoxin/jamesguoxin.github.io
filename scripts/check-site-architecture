@@ -73,7 +73,7 @@ abort("Activities page missing Honors & Awards heading") unless awards_heading
 award_count = awards_heading.xpath("following-sibling::p[not(contains(concat(' ', normalize-space(@class), ' '), ' cv-note '))]").length
 abort("Activities awards count expected 12, got #{award_count}") unless award_count == 12
 
-expected_nav = ["About", "Research", "Publications", "News", "Experience", "Contact"]
+expected_nav = ["About", "Research", "Experience", "Contact"]
 actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }
 abort("Primary navigation mismatch") unless actual_nav == expected_nav
 
@@ -85,8 +85,6 @@ end
 expected_home_nav_hrefs = [
   "#about",
   "#research",
-  SiteCheckHelpers.internal_path("/publications/"),
-  SiteCheckHelpers.internal_path("/news/"),
   "#experience",
   "#contact"
 ]
@@ -98,14 +96,17 @@ end
 expected_news_nav_hrefs = [
   SiteCheckHelpers.internal_path("/#about"),
   SiteCheckHelpers.internal_path("/#research"),
-  SiteCheckHelpers.internal_path("/publications/"),
-  SiteCheckHelpers.internal_path("/news/"),
   SiteCheckHelpers.internal_path("/#experience"),
   SiteCheckHelpers.internal_path("/#contact")
 ]
 actual_news_nav_hrefs = news.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
 unless actual_news_nav_hrefs == expected_news_nav_hrefs
   abort("News nav hrefs expected #{expected_news_nav_hrefs.inspect}, got #{actual_news_nav_hrefs.inspect}")
+end
+
+[home, publications, news, activities].each do |page|
+  activities_href = SiteCheckHelpers.internal_path("/activities/")
+  abort("Footer must not link to Activities") if page.at_css("footer a[href='#{activities_href}']")
 end
 
 puts "Site architecture checks passed"
