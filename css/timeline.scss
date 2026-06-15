@@ -153,8 +153,7 @@
     color: #52616f;
     font-size: 16px;
     line-height: 1.45;
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
     text-align-last: left;
     text-wrap: pretty;
     hyphens: auto;
@@ -175,6 +174,12 @@
         width: 41%;
         padding: 0 20px 20px 30px;
         text-align: right;
+    }
+
+    .timeline>li .timeline-body>p,
+    .timeline>li .timeline-body>ul {
+        text-align: right;
+        text-align-last: right;
     }
 
     .timeline>li .timeline-image {
@@ -206,6 +211,12 @@
         float: right;
         padding: 0 30px 20px 20px;
         text-align: left;
+    }
+
+    .timeline>li.timeline-inverted .timeline-body>p,
+    .timeline>li.timeline-inverted .timeline-body>ul {
+        text-align: left;
+        text-align-last: left;
     }
 }
 

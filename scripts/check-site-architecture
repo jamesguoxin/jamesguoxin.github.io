@@ -23,6 +23,20 @@ abort("Homepage must show 4 news entries") unless home.css("#news .news-item").l
 abort("Homepage must show 6 publications") unless home.css("#publications .publication-item").length == 6
 abort("SkySense missing from homepage") unless home.at_css("#publications").text.include?("SkySense")
 
+expected_section_actions = {
+  "#publications" => ["View all publications →", SiteCheckHelpers.internal_path("/publications/")],
+  "#news" => ["More news →", SiteCheckHelpers.internal_path("/news/")],
+  "#experience" => ["Academic & Professional Activities →", SiteCheckHelpers.internal_path("/activities/")]
+}
+expected_section_actions.each do |selector, (label, href)|
+  action = home.at_css("#{selector} .section-heading-row .section-heading-action")
+  abort("Missing section action for #{selector}") unless action
+  unless SiteCheckHelpers.normalized_text(action) == label && action["href"] == href
+    abort("Section action mismatch for #{selector}")
+  end
+  abort("Section action for #{selector} must not remain at the section bottom") if home.at_css("#{selector} .section-more")
+end
+
 expected_titles = [
   "FLAG: Foundation model representation with Latent diffusion Alignment via Graph for spatial gene expression prediction",
   "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration",

@@ -1,9 +1,11 @@
 <section id="news" class="container content-section text-center">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h2>Recent News</h2>
+      <div class="section-heading-row">
+        <h2>Recent News</h2>
+        <a class="section-heading-action" href="{{ site.baseurl }}/news/">More news →</a>
+      </div>
       {% include news-list.html limit=4 %}
-      <p class="section-more"><a href="{{ site.baseurl }}/news/">More news</a></p>
     </div>
   </div>
 </section>
