@@ -5,15 +5,15 @@ Source code for Xin / James Guo's academic website:
 
 The site presents research interests, publications, professional experience,
 patents, academic service, awards, news, and selected blog posts. It is
-maintained as a static Jekyll site and deployed to GitHub Pages through GitHub
-Actions.
+maintained as a static Jekyll site. A GitHub Actions workflow is configured to
+build and deploy the site after changes are pushed to the deployment branch.
 
 ## Technology
 
 - Jekyll 4.4 and Liquid templates
 - SCSS with the repository's existing Bootstrap 3-based theme
 - Bundler with dependencies pinned in `Gemfile.lock`
-- GitHub Actions for production builds and GitHub Pages deployment
+- GitHub Actions workflow for production builds and GitHub Pages deployment
 - Jekyll Spaceship for build-time Mermaid rendering
 
 ## Repository Guide
@@ -23,10 +23,13 @@ The files most commonly updated are:
 | Path | Purpose |
 | --- | --- |
 | `_config.yml` | Site metadata, hero content, navigation, social profiles, timeline data, and global settings |
-| `about.html` | Recent news, biography, metrics, and research focus |
-| `_data/publications.yml` | Publication titles, links, authors, venues, and contribution markers |
-| `_includes/publications.html` | Publication rendering template |
-| `activities.html` | Patents, academic service, interviews, competitions, and awards |
+| `about.html` | Homepage biography and metrics |
+| `_data/news.yml` | Complete news archive shared by the homepage and News page |
+| `_data/research.yml` | Current homepage research pillars |
+| `_data/publications.yml` | Complete publication archive plus homepage selection metadata |
+| `publications-index.html` | Complete Publications page at `/publications/` |
+| `news.html` | Complete News page at `/news/` |
+| `activities.html` | Standalone patents, academic service, interviews, competitions, and awards page |
 | `_posts/` | Blog posts |
 | `img/` | Profile, hero, timeline, and blog images |
 | `css/grayscale.scss` | Main site styling |
@@ -36,6 +39,12 @@ The files most commonly updated are:
 
 Generated output is written to `_site/`. It is intentionally ignored by Git
 and must not be committed.
+
+The homepage section order is configured by `homepage_sections` in
+`_config.yml`. About and Experience use `about.html` and `experience.html`;
+Research Highlights uses `_data/research.yml`; Recent News uses the latest four
+entries from `_data/news.yml`; and Selected Publications uses selection
+metadata from `_data/publications.yml`.
 
 ## Local Development
 
@@ -83,14 +92,21 @@ toolchain warnings and do not currently prevent a successful build.
 
 ## Updating Content
 
-### Recent News and Biography
+### News
 
-Edit `about.html`. Keep news entries in reverse chronological order and follow
-the existing `YYYY.MM.DD` date format.
+Edit `_data/news.yml`. Keep the complete archive in reverse chronological
+order and use the `YYYY.MM.DD` date format. The homepage automatically shows
+the latest four entries, while `news.html` renders the complete News page.
+
+### Biography
+
+Edit `about.html` for the About biography and homepage metrics. News is not
+maintained in this file.
 
 ### Publications
 
-Edit `_data/publications.yml`. Each entry supports:
+Edit `_data/publications.yml`. The homepage selection and complete
+`publications-index.html` page share this source. Each entry supports:
 
 ```yaml
 - title: "Paper title"
@@ -98,6 +114,10 @@ Edit `_data/publications.yml`. Each entry supports:
   authors: "Author One, Xin Guo, Author Three"
   venue: "Conference or Journal, Year"
   me_mark: "corr"
+  selected: true
+  topic: "Life Science"
+  homepage_order: 1
+  representative: true
 ```
 
 `me_mark` is optional:
@@ -106,11 +126,25 @@ Edit `_data/publications.yml`. Each entry supports:
 - `corr` adds the corresponding-author marker
 - omit it when neither marker applies
 
-The publication template automatically highlights `Xin Guo`.
+Homepage metadata is also optional:
+
+- `selected: true` includes the paper in Selected Publications.
+- `topic` supplies its homepage topic label.
+- `homepage_order` sets its position in the six-paper homepage list.
+- `representative: true` applies the primary representative-work styling.
+
+The shared publication templates automatically highlight `Xin Guo`. Papers
+without `selected: true` still appear on the complete Publications page.
+
+### Research Highlights
+
+Edit `_data/research.yml` to maintain the current homepage research pillars.
+Each item has a `title` and `description`.
 
 ### Patents, Service, Competitions, and Awards
 
-Edit `activities.html`. Numbered sections use
+Edit the standalone `activities.html` page. This content is not rendered on the
+homepage. Numbered sections use
 `<ol class="activity-list">` so indentation and typography remain consistent.
 
 ### Blog Posts
@@ -126,15 +160,30 @@ Before committing or pushing:
 ```bash
 JEKYLL_ENV=production bundle exec jekyll build --baseurl ""
 bundle exec ruby scripts/check-homepage-positioning
+bundle exec ruby scripts/check-site-architecture
 git diff --check
 ```
 
-The homepage check validates the fixed academic positioning, primary profile
-links, and collaboration statement in the generated HTML.
+The checks validate homepage positioning, section order, navigation, selected
+content counts and order, complete archive rendering, and standalone
+activities in the generated HTML.
+
+To test a non-empty base URL, pass the same value to Jekyll and the check
+helpers:
+
+```bash
+JEKYLL_ENV=production bundle exec jekyll build --baseurl "/preview"
+JEKYLL_BASEURL=/preview bundle exec ruby scripts/check-homepage-positioning
+JEKYLL_BASEURL=/preview bundle exec ruby scripts/check-site-architecture
+```
+
+`JEKYLL_BASEURL` must match the build's `--baseurl` value so internal-link
+expectations are evaluated with the same prefix.
 
 ## Deployment
 
-Pushes to `master` trigger `.github/workflows/jekyll.yml`. The workflow:
+The configured `.github/workflows/jekyll.yml` workflow runs on pushes to
+`master`. It:
 
 1. Checks out the repository
 2. Installs Ruby 3.3 and the locked Bundler dependencies
@@ -142,8 +191,9 @@ Pushes to `master` trigger `.github/workflows/jekyll.yml`. The workflow:
 4. Uploads `_site/` as a GitHub Pages artifact
 5. Deploys the artifact to GitHub Pages
 
-Deployment status is available on the repository's **Actions** page. The live
-site normally updates within a few minutes of a successful workflow run.
+After a deployment push, status is available on the repository's **Actions**
+page. Do not treat local or worktree changes as deployed until that workflow
+has completed successfully.
 
 ## Maintenance Notes
 

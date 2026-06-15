@@ -1,6 +1,8 @@
-# Publications data — rendered by the Liquid loop in about.html.
+# Publications data shared by the homepage selection and complete
+# Publications page.
 #
-# Each top-level entry is a section (rendered as an <h4>) with a list of papers.
+# Each top-level entry is a section. The complete page renders section names as
+# <h2> headings; the selected homepage view renders each paper's topic label.
 # Per-paper fields:
 #   title    (required) — paper title
 #   url      (optional) — if present, the title is hyperlinked; if omitted, plain text

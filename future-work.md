@@ -1,6 +1,6 @@
 # Future Work — Website Improvement Plan
 
-## Recommended Roadmap (re-ranked after live-site review, 2026-06-07)
+## Recommended Roadmap (updated 2026-06-16)
 
 The academic light refresh is now live. The next improvements should help a first-time visitor answer four questions quickly:
 
@@ -9,47 +9,48 @@ The academic light refresh is now live. The next improvements should help a firs
 3. What are his strongest representative works?
 4. How can someone recruit or collaborate with him?
 
-### Next 1: Homepage Positioning and Conversion — highest priority
+### Next 1: Homepage Positioning and Conversion — ✅ COMPLETED
 
-- Add a stable, non-animated identity line to the Matterhorn hero:
+- Added a stable, non-animated identity line to the Matterhorn hero:
   - `Principal Research Scientist at SAIS`
   - `AI for Life Sciences · Multimodal Foundation Models`
-- Keep the typed animation as secondary personality, not the only research description.
-- Add three direct hero actions: `Selected Publications`, `Google Scholar`, and `Contact`.
-- Add a short collaboration statement to Contact covering AI for life sciences, multimodal foundation models, and agentic AI for scientific discovery.
-- Do not add a CV download yet. Revisit only when a publishable PDF is supplied.
+- Kept the typed animation as secondary personality rather than the only
+  research description.
+- Added three direct hero actions: `Publications`, `Google Scholar`, and
+  `Contact`.
+- Added a short collaboration statement to Contact covering AI for life
+  sciences, multimodal foundation models, and agentic AI for scientific
+  discovery.
+- Deferred a CV download until a publishable PDF is supplied.
 
-**Why first:** small-to-moderate implementation effort with the clearest benefit for academic visibility, recruiting, and collaboration leads.
+Completed with a stable identity line, research focus, direct Publications /
+Google Scholar / Contact actions, and a collaboration statement. CV download
+remains low priority until a publishable PDF is available.
 
-### Next 2: Homepage Information Architecture — recommended first substantial project
+### Next 2: Homepage Information Architecture — ✅ COMPLETED (2026-06-16)
 
-- Reorder the main content to:
-  - `About Me`
-  - `Research Highlights`
-  - `Recent News`
-  - `Selected Publications`
-  - `Experience`
-  - `Contact`
-- Limit Recent News to the latest 3–4 entries and add `More news`.
-- Keep only concise highlights from Patents, Academic Services, Awards, and Competitions on the homepage.
-- Move complete activity details to a dedicated page; consider a downloadable CV later when a publishable PDF is available.
-- Rename Timeline to `Experience` and remove details already explained in About Me.
+- Homepage order is now `About Me`, `Research Highlights`, `Selected
+  Publications`, `Recent News`, `Experience`, and `Contact`.
+- Recent News shows the latest four entries from `_data/news.yml`.
+- Selected Publications shows six papers in this order: FLAG, HorusEye, RNA
+  Design, Sprint or Delve, ChromFound, and SkySense.
+- Complete Publications and News archives are available as standalone pages.
+- Patents, academic service, interviews, competitions, and awards are on the
+  standalone Activities page rather than the homepage.
+- Timeline was renamed to `Experience` and kept concise.
+- CV download remains a low-priority follow-up when a publishable PDF is
+  available.
 
-**Why second:** the live homepage is credible but very long. Improving hierarchy will make it easier to scan without removing substantive content.
+### Next 3: Resource Metadata and Research Navigation
 
-### Next 3: Representative Publications and Research Navigation
-
-- Show 5–8 representative papers on the homepage instead of the near-complete publication record.
-- Keep a complete Publications page generated from `_data/publications.yml`.
 - Add compact resource links where available: `Paper`, `Code`, and `Project`.
-- Organize work by research topic rather than internal project name:
-  - `Biomedical Foundation Models at SAIS`
-  - `Remote Sensing Foundation Models — Yimutian Project`
-  - `Computer Vision for Insurance — Dingsunbao`
-  - `Signal Processing and Blind Source Separation`
-- Consider adding `selected: true`, `code`, and `project` fields to the publication data model.
+- Add `code` and `project` fields to publication data when useful.
+- Consider future research navigation enhancements, such as topic filters or
+  richer topic landing paths, only when the metadata supports them.
 
-**Why third:** this materially improves research discoverability, but requires content selection and publication metadata work.
+The representative homepage selection and complete Publications page are
+already implemented. This item remains open only for resource metadata and
+navigation enhancements not included in Next 2.
 
 ### Next 4: Content Editing and Credibility Details
 
@@ -103,13 +104,17 @@ Updated to: *"Principal Research Scientist at SAIS — AI for Life Science, Geno
 
 ## Priority 2: Content & Structure (moderate effort)
 
-### 2.1 Split About Page into Dedicated Sections — 🟨 PARTIALLY COMPLETED (2026-06-07)
-The content has been separated into `about.html`, `publications.html`, `activities.html`, and matching includes. They currently render as sections on the single-page homepage rather than separate navigable URLs.
-
-Remaining work is covered by `Next 2` and `Next 3`: keep concise highlights on the homepage and decide whether full Publications / CV content should have standalone pages.
+### 2.1 Split About Page into Dedicated Sections — ✅ COMPLETED (2026-06-16)
+The homepage now uses concise About, Research Highlights, Selected
+Publications, Recent News, Experience, and Contact sections. Complete
+Publications, News, and Activities content has standalone pages.
 
 ### 2.2 Publication Tracking — Use YAML Data File — ✅ COMPLETED (2026-05-29)
-Publications now live in `_data/publications.yml` (grouped by `section`, each paper has `title`/`url`/`authors`/`venue` and an optional `me_mark: equal|corr`). `about.html` renders them via a Liquid loop that auto-bolds "Xin Guo" and appends the `*`/✉ marks. Adding a paper is now a few-line YAML entry — no HTML editing.
+Publications now live in `_data/publications.yml` (grouped by `section`, each
+paper has `title`/`url`/`authors`/`venue` and an optional
+`me_mark: equal|corr`). Shared Liquid includes render the selected homepage
+list and complete Publications page, auto-highlight "Xin Guo", and append the
+`*`/✉ marks. Adding a paper requires YAML changes rather than HTML editing.
 
 Data model:
 ```yaml
@@ -126,8 +131,10 @@ Data model:
 - Professional headshot is embedded in the About section.
 - Key metrics are displayed in a responsive metric grid.
 
-### 2.4 Timeline / Experience — REVISED
-Do not expand the homepage timeline with publications, awards, and projects; those already appear elsewhere. Rename it to `Experience`, retain the four major career/education entries, and make each entry concise and non-duplicative.
+### 2.4 Timeline / Experience — ✅ COMPLETED (2026-06-16)
+The homepage section is named `Experience`, retains the four major career and
+education entries, and stays concise rather than duplicating publications,
+awards, and projects shown elsewhere.
 
 ### 2.5 Add Missing Pages
 - **Talks/Presentations** — Conference talks, invited lectures
@@ -202,15 +209,20 @@ Upstream replaced Disqus with **Cusdis** (open-source, privacy-friendly, no trac
 
 ---
 
-## Current status snapshot (2026-06-07)
+## Current status snapshot (2026-06-16)
 
-- **Done:** P1 (quick wins), P2.2 (publications data file), P2.3 (photo + metrics), P3 (blog), P4.2 (Actions deploy), P5 Mermaid, and the academic light visual refresh.
-- **Partially done:** P2.1 (content split into source sections, but still rendered on one long homepage).
-- **Revised:** P2.4 should simplify Timeline into Experience rather than expand it.
-- **Recommended next:** homepage positioning and conversion, followed by information architecture and representative-publication curation.
-- **Open but lower priority:** P2.5 (optional pages), P4.1 (image compression), P4.3 (analytics), P4.4 (framework upgrade), P5.1 (dark mode), and P5.2 (Cusdis or disabling comments).
+- **Done:** homepage positioning and information architecture, representative
+  publication curation, complete Publications / News / Activities pages,
+  Experience rename, P1 quick wins, P2.2 publication data, P2.3 photo +
+  metrics, P3 blog, P4.2 Actions workflow, P5 Mermaid, and the academic light
+  visual refresh.
+- **Recommended next:** add Code / Project resource metadata where available,
+  then consider research navigation improvements supported by that metadata.
+- **Open but lower priority:** CV download when a publishable PDF is available,
+  P2.5 optional pages, P4.1 image compression, P4.3 analytics, P4.4 framework
+  upgrade, P5.1 dark mode, and P5.2 Cusdis or disabling comments.
 - **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.
 
 ---
 
-*Generated: 2026-04-05 · last updated: 2026-06-07*
+*Generated: 2026-04-05 · last updated: 2026-06-16*
