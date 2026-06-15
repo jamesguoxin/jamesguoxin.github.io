@@ -183,7 +183,8 @@ a {
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out,padding .5s ease-in-out;
-        &.top-nav-collapse {
+        &.top-nav-collapse,
+        &.navbar-standalone {
             padding: 0;
             background: $navbar-lg-collapse-background-color;
             border-bottom: 1px solid rgba($font-color, 0.3);

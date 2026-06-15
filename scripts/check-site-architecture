@@ -11,7 +11,10 @@ news = SiteCheckHelpers.page("news/index.html")
 activities = SiteCheckHelpers.page("activities/index.html")
 
 expected_home_sections = %w[about research publications news experience contact]
-actual_home_sections = home.css("body > section[id]").map { |node| node["id"] }
+home_main = home.at_css("body > main")
+abort("Homepage sections must be wrapped in a main landmark") unless home_main
+
+actual_home_sections = home.css("body > main > section[id]").map { |node| node["id"] }
 unless actual_home_sections == expected_home_sections
   abort("Homepage sections expected #{expected_home_sections.inspect}, got #{actual_home_sections.inspect}")
 end
@@ -33,19 +36,51 @@ abort("Selected publication order mismatch") unless actual_titles == expected_ti
 
 publication_data = YAML.load_file(File.join(ROOT, "_data", "publications.yml"))
 expected_publications = publication_data.sum { |group| group.fetch("papers").length }
+abort("Source publication count expected 19, got #{expected_publications}") unless expected_publications == 19
 unless publications.css(".publication-item").length == expected_publications
   abort("Complete publication count mismatch")
 end
 
 news_data = YAML.load_file(File.join(ROOT, "_data", "news.yml"))
+abort("Source news count expected 7, got #{news_data.length}") unless news_data.length == 7
 abort("Complete news count mismatch") unless news.css(".news-item").length == news_data.length
 
 abort("Activities page lost patents") unless activities.text.include?("EP3201917B1")
 abort("Activities page lost awards") unless activities.text.include?("ICML 2026 Silver Reviewer Award")
 
+expected_activity_counts = {
+  "Selected Patents" => 10,
+  "Academic Services" => 2,
+  "Interviews" => 2,
+  "Competitions" => 4
+}
+activity_headings = activities.css(".standalone-page h3")
+expected_activity_counts.each do |heading, expected_count|
+  heading_node = activity_headings.find { |node| SiteCheckHelpers.normalized_text(node) == heading }
+  abort("Activities page missing #{heading} heading") unless heading_node
+
+  list = heading_node.xpath("following-sibling::*[1][self::ol]").first
+  actual_count = list ? list.element_children.count { |node| node.name == "li" } : 0
+  unless actual_count == expected_count
+    abort("Activities #{heading} count expected #{expected_count}, got #{actual_count}")
+  end
+end
+
+awards_heading = activity_headings.find do |node|
+  SiteCheckHelpers.normalized_text(node) == "Honors & Awards"
+end
+abort("Activities page missing Honors & Awards heading") unless awards_heading
+award_count = awards_heading.xpath("following-sibling::p[not(contains(concat(' ', normalize-space(@class), ' '), ' cv-note '))]").length
+abort("Activities awards count expected 12, got #{award_count}") unless award_count == 12
+
 expected_nav = ["About", "Research", "Publications", "News", "Experience", "Contact"]
 actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }
 abort("Primary navigation mismatch") unless actual_nav == expected_nav
+
+abort("Homepage navbar must remain hero-transparent") if home.at_css("nav.navbar-standalone")
+[publications, news, activities].each do |page|
+  abort("Standalone page navbar missing persistent contrast class") unless page.at_css("nav.navbar-standalone")
+end
 
 expected_home_nav_hrefs = [
   "#about",

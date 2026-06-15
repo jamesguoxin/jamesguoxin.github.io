@@ -12,13 +12,15 @@
 
     {% include header.html %}
 
-    {% for section_type in site.homepage_sections %}
-      {% for section_page in site.pages %}
-        {% if section_page.section-type == section_type %}
-          {% include {{ section_page.path }} section_page=section_page %}
-        {% endif %}
+    <main>
+      {% for section_type in site.homepage_sections %}
+        {% for section_page in site.pages %}
+          {% if section_page.section-type == section_type %}
+            {% include {{ section_page.path }} section_page=section_page %}
+          {% endif %}
+        {% endfor %}
       {% endfor %}
-    {% endfor %}
+    </main>
 
     {% include footer.html %}
 
