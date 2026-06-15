@@ -21,25 +21,22 @@ The academic light refresh is now live. The next improvements should help a firs
 - Added a short collaboration statement to Contact covering AI for life
   sciences, multimodal foundation models, and agentic AI for scientific
   discovery.
-- Deferred a CV download until a publishable PDF is supplied.
 
 Completed with a stable identity line, research focus, direct Publications /
-Google Scholar / Contact actions, and a collaboration statement. CV download
-remains low priority until a publishable PDF is available.
+Google Scholar / Contact actions, and a collaboration statement.
 
-### Next 2: Homepage Information Architecture — ✅ COMPLETED (2026-06-16)
+### Next 2: Homepage Information Architecture — IMPLEMENTED LOCALLY (2026-06-16)
 
 - Homepage order is now `About Me`, `Research Highlights`, `Selected
   Publications`, `Recent News`, `Experience`, and `Contact`.
 - Recent News shows the latest four entries from `_data/news.yml`.
 - Selected Publications shows six papers in this order: FLAG, HorusEye, RNA
   Design, Sprint or Delve, ChromFound, and SkySense.
-- Complete Publications and News archives are available as standalone pages.
+- Complete Publications and News archives are generated as standalone pages
+  and ready for deployment.
 - Patents, academic service, interviews, competitions, and awards are on the
-  standalone Activities page rather than the homepage.
+  generated standalone Activities page rather than the homepage.
 - Timeline was renamed to `Experience` and kept concise.
-- CV download remains a low-priority follow-up when a publishable PDF is
-  available.
 
 ### Next 3: Resource Metadata and Research Navigation
 
@@ -83,10 +80,12 @@ navigation enhancements not included in Next 2.
 ## Priority 1: Quick Wins (config changes only) — ✅ COMPLETED (2026-04-13)
 
 ### 1.1 Header Dynamic Text — ✅ Done
-Added professional lines: "AI for Life Science", "Foundation Models × Biology" alongside existing Kate Bush lyrics.
+Configured lines are `Running Up That Hill` and
+`Decoding Life with Foundation Models`.
 
 ### 1.2 Site Description — ✅ Done
-Updated to: *"Principal Research Scientist at SAIS — AI for Life Science, Genomic Foundation Models, and Multimodal Perception."*
+Current description: *"Principal Research Scientist at SAIS — AI for Life
+Sciences, Multimodal Foundation Models, and Scientific Agentic AI."*
 
 ### 1.3 Social Links — ✅ Done
 - **Added:** Google Scholar, ORCID (with Academicons CDN for proper icons)
@@ -104,10 +103,11 @@ Updated to: *"Principal Research Scientist at SAIS — AI for Life Science, Geno
 
 ## Priority 2: Content & Structure (moderate effort)
 
-### 2.1 Split About Page into Dedicated Sections — ✅ COMPLETED (2026-06-16)
+### 2.1 Split About Page into Dedicated Sections — IMPLEMENTED LOCALLY (2026-06-16)
 The homepage now uses concise About, Research Highlights, Selected
 Publications, Recent News, Experience, and Contact sections. Complete
-Publications, News, and Activities content has standalone pages.
+Publications, News, and Activities content is generated as standalone pages
+and ready for deployment.
 
 ### 2.2 Publication Tracking — Use YAML Data File — ✅ COMPLETED (2026-05-29)
 Publications now live in `_data/publications.yml` (grouped by `section`, each
@@ -131,7 +131,7 @@ Data model:
 - Professional headshot is embedded in the About section.
 - Key metrics are displayed in a responsive metric grid.
 
-### 2.4 Timeline / Experience — ✅ COMPLETED (2026-06-16)
+### 2.4 Timeline / Experience — IMPLEMENTED LOCALLY (2026-06-16)
 The homepage section is named `Experience`, retains the four major career and
 education entries, and stays concise rather than duplicating publications,
 awards, and projects shown elsewhere.
@@ -211,16 +211,17 @@ Upstream replaced Disqus with **Cusdis** (open-source, privacy-friendly, no trac
 
 ## Current status snapshot (2026-06-16)
 
-- **Done:** homepage positioning and information architecture, representative
-  publication curation, complete Publications / News / Activities pages,
-  Experience rename, P1 quick wins, P2.2 publication data, P2.3 photo +
-  metrics, P3 blog, P4.2 Actions workflow, P5 Mermaid, and the academic light
-  visual refresh.
+- **Implemented locally:** homepage information architecture, representative
+  publication curation, generated Publications / News / Activities pages, and
+  the Experience rename.
+- **Previously completed:** homepage positioning, P1 quick wins, P2.2
+  publication data, P2.3 photo + metrics, P3 blog, P4.2 Actions workflow, P5
+  Mermaid, and the academic light visual refresh.
 - **Recommended next:** add Code / Project resource metadata where available,
   then consider research navigation improvements supported by that metadata.
-- **Open but lower priority:** CV download when a publishable PDF is available,
-  P2.5 optional pages, P4.1 image compression, P4.3 analytics, P4.4 framework
-  upgrade, P5.1 dark mode, and P5.2 Cusdis or disabling comments.
+- **Open but lower priority:** P2.5 optional pages, P4.1 image compression,
+  P4.3 analytics, P4.4 framework upgrade, P5.1 dark mode, and P5.2 Cusdis or
+  disabling comments.
 - **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.
 
 ---

@@ -50,8 +50,22 @@ metadata from `_data/publications.yml`.
 
 ### Prerequisites
 
-- Ruby
-- Bundler
+- Ruby 3.3, matching CI. A newer compatible Ruby is also acceptable when
+  `bundle check` succeeds with the lockfile.
+- Bundler 4.0.11, as recorded in `Gemfile.lock`.
+
+Check the active versions:
+
+```bash
+ruby --version
+bundle --version
+```
+
+Install the locked Bundler version if needed:
+
+```bash
+gem install bundler -v 4.0.11
+```
 
 Install the pinned dependencies:
 
@@ -106,27 +120,31 @@ maintained in this file.
 ### Publications
 
 Edit `_data/publications.yml`. The homepage selection and complete
-`publications-index.html` page share this source. Each entry supports:
+`publications-index.html` page share this source. Publications are grouped
+under a top-level section, and metadata such as `selected`, `topic`,
+`homepage_order`, and `representative` belongs to each paper:
 
 ```yaml
-- title: "Paper title"
-  url: "https://example.com/paper"
-  authors: "Author One, Xin Guo, Author Three"
-  venue: "Conference or Journal, Year"
-  me_mark: "corr"
-  selected: true
-  topic: "Life Science"
-  homepage_order: 1
-  representative: true
+- section: "AI4Biomedicine at SAIS"
+  papers:
+    - title: "Paper title"
+      url: "https://example.com/paper"
+      authors: "Author One, Xin Guo, Author Three"
+      venue: "Conference or Journal, Year"
+      me_mark: "corr"
+      selected: true
+      topic: "Life Science"
+      homepage_order: 1
+      representative: true
 ```
 
-`me_mark` is optional:
+Per-paper `me_mark` is optional:
 
 - `equal` adds the equal-contribution marker
 - `corr` adds the corresponding-author marker
 - omit it when neither marker applies
 
-Homepage metadata is also optional:
+Per-paper homepage metadata is also optional:
 
 - `selected: true` includes the paper in Selected Publications.
 - `topic` supplies its homepage topic label.
