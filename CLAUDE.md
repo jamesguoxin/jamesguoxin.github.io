@@ -54,7 +54,9 @@ htmlproofer ./_site --disable-external --empty-alt-ignore
 - **Timeline entries**: Edit the `events` list in `_config.yml`.
 - **Header animated text**: Edit the `lines` list in `_config.yml`.
 - **Blog posts**: Add Markdown files to `_posts/` with format `YYYY-MM-DD-slug.md`. Front matter requires `layout: post`, `section-type: post`, `title`, `category`, and `tags`. After introducing a new `category`/`tag`, run `scripts/generate-categories` / `scripts/generate-tags` so the corresponding listing pages exist.
-- **Navigation pages**: Controlled by `pages_list` in `_config.yml`.
+- **Homepage and navigation**: `homepage_sections` in `_config.yml` controls
+  homepage composition, while `navigation` controls primary nav destinations.
+  The nav mixes homepage anchors with standalone Publications and News URLs.
 
 ## Plugins
 
