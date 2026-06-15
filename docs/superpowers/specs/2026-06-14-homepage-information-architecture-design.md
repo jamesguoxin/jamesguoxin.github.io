@@ -137,9 +137,10 @@ chronological order.
 
 ### Activities
 
-Create `/activities/` for the complete patents, academic service, honors and
-awards, interviews, and competitions content. Preserve the current content and
-numbered-list formatting.
+Create `/activities/` with the visible title `Academic & Professional
+Activities` for the complete patents, academic service, honors and awards,
+interviews, and competitions content. Preserve the current records and
+numbered-list formatting; omit the old contact-for-CV prompt.
 
 Activities is not a primary navigation item. It remains discoverable through
 an auxiliary link in Experience rather than a global footer link.

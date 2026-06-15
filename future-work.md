@@ -35,12 +35,13 @@ Google Scholar / Contact actions, and a collaboration statement.
 - Complete Publications and News archives are generated as standalone pages
   and ready for deployment.
 - Patents, academic service, interviews, competitions, and awards are on the
-  generated standalone Activities page rather than the homepage.
+  generated standalone Academic & Professional Activities page rather than
+  the homepage.
 - The primary navigation contains homepage anchors only. Complete
   Publications and News pages are reached through `View all publications` and
   `More news`.
-- Activities is reached from the Experience section rather than a global
-  footer link.
+- Academic & Professional Activities is reached from the Experience section
+  rather than a global footer link.
 - Timeline was renamed to `Experience` and kept concise.
 
 ### Next 3: Resource Metadata and Research Navigation

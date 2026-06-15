@@ -47,6 +47,12 @@ abort("Complete news count mismatch") unless news.css(".news-item").length == ne
 
 abort("Activities page lost patents") unless activities.text.include?("EP3201917B1")
 abort("Activities page lost awards") unless activities.text.include?("ICML 2026 Silver Reviewer Award")
+activities_title = activities.at_css(".standalone-page h1")
+expected_activities_title = "Academic & Professional Activities"
+unless SiteCheckHelpers.normalized_text(activities_title) == expected_activities_title
+  abort("Activities title expected #{expected_activities_title.inspect}")
+end
+abort("Activities page must not include the obsolete CV prompt") if activities.text.include?("Please contact me for CV.")
 
 expected_activity_counts = {
   "Selected Patents" => 10,
