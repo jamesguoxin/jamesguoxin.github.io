@@ -13,6 +13,8 @@
 #   topic    (optional) — homepage topic label
 #   homepage_order (optional) — homepage display order
 #   representative (optional) — identify the primary representative work
+#   code     (optional) — official source repository
+#   project  (optional) — project page or demo
 
 - section: "AI4Biomedicine at SAIS"
   papers:
@@ -34,6 +36,7 @@
       venue: "Advanced Science, 2025"
     - title: "ChromFound: Towards A Universal Foundation Model for Single-Cell Chromatin Accessibility Data"
       url: "https://arxiv.org/abs/2505.12638"
+      code: "https://github.com/SAIS-LifeScience/ChromFound"
       authors: "Yifeng Jiao, Yuchen Liu, Yu Zhang, Xin Guo, Yushuai Wu, Chen Jiang, Jiyang Li, Hongwei Zhang, Limei Han, Xin Gao, Yuan Qi, Yuan Cheng"
       venue: "NeurIPS 2025"
       me_mark: "corr"
@@ -46,6 +49,7 @@
       venue: "NeurIPS 2025"
     - title: "Structure-based RNA Design by Step-wise Optimization of Latent Diffusion Model"
       url: "https://ojs.aaai.org/index.php/AAAI/article/view/37070"
+      code: "https://github.com/SAIS-LifeScience/SOLD"
       authors: "Qi Si, Xuyang Liu, Penglei Wang, Xin Guo, Yuan Qi, Yuan Cheng"
       venue: "AAAI 2026"
       me_mark: "corr"
@@ -54,6 +58,7 @@
       homepage_order: 3
     - title: "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration"
       url: "https://www.nature.com/articles/s43588-026-00973-3"
+      code: "https://github.com/Arturia-Pendragon-Iris/HorusEye_XRT_Restoration"
       authors: "Yuetan Chu, Longxi Zhou, Gongning Luo, Kai Kang, Suyu Dong, Zhongyi Han, Lianming Wu, Xianglin Meng, Changchun Yang, Xin Guo, Yuan Cheng, Yuan Qi, Xin Liu, Dexuan Xie, Yue Li, Ricardo Henao, Xigang Xiao, Shaodong Cao, Gianluca Setti, Zhaowen Qiu, Xin Gao"
       venue: "Nature Computational Science, 2026"
       selected: true
@@ -61,6 +66,7 @@
       homepage_order: 2
     - title: "FLAG: Foundation model representation with Latent diffusion Alignment via Graph for spatial gene expression prediction"
       url: "https://arxiv.org/abs/2605.18055"
+      code: "https://github.com/SAIS-LifeScience/FLAG"
       authors: "Qi Si, Penglei Wang, Yushuai Wu, Yifeng Jiao, Xuyang Liu, Xin Guo, Yuan Qi, Yuan Cheng"
       venue: "ICML 2026"
       me_mark: "corr"
@@ -82,6 +88,7 @@
       venue: "CVPR 2023"
     - title: "SkySense: A Multi-Modal Remote Sensing Foundation Model Towards Universal Interpretation for Earth Observation Imagery"
       url: "https://openaccess.thecvf.com/content/CVPR2024/papers/Guo_SkySense_A_Multi-Modal_Remote_Sensing_Foundation_Model_Towards_Universal_Interpretation_CVPR_2024_paper.pdf"
+      code: "https://github.com/Jack-bo1220/SkySense"
       authors: "Xin Guo, Jiangwei Lao*, Bo Dang*, Yingying Zhang, Lei Yu, Lixiang Ru, Liheng Zhong, Ziyuan Huang, Kang Wu, Dingxiang Hu, Huimei He, Jian Wang, Jingdong Chen, Ming Yang, Yongjun Zhang, Yansheng Li"
       venue: "CVPR 2024"
       me_mark: "equal"

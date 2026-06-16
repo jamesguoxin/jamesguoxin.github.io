@@ -48,6 +48,32 @@ expected_titles = [
 actual_titles = home.css("#publications .publication-title").map { |node| node.text.gsub(/\s+/, " ").strip }
 abort("Selected publication order mismatch") unless actual_titles == expected_titles
 
+expected_selected_code_links = {
+  "FLAG: Foundation model representation with Latent diffusion Alignment via Graph for spatial gene expression prediction" => "https://github.com/SAIS-LifeScience/FLAG",
+  "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration" => "https://github.com/Arturia-Pendragon-Iris/HorusEye_XRT_Restoration",
+  "Structure-based RNA Design by Step-wise Optimization of Latent Diffusion Model" => "https://github.com/SAIS-LifeScience/SOLD",
+  "ChromFound: Towards A Universal Foundation Model for Single-Cell Chromatin Accessibility Data" => "https://github.com/SAIS-LifeScience/ChromFound",
+  "SkySense: A Multi-Modal Remote Sensing Foundation Model Towards Universal Interpretation for Earth Observation Imagery" => "https://github.com/Jack-bo1220/SkySense"
+}
+selected_items = home.css("#publications .publication-item")
+selected_items.each do |item|
+  title = item.at_css(".publication-title").text.gsub(/\s+/, " ").strip
+  paper_links = item.css(".publication-resource-link").select { |node| SiteCheckHelpers.normalized_text(node) == "Paper" }
+
+  expected_code_href = expected_selected_code_links[title]
+  code_links = item.css(".publication-resource-link").select { |node| SiteCheckHelpers.normalized_text(node) == "Code" }
+  if expected_code_href
+    abort("Selected publication #{title.inspect} missing Paper resource link") if paper_links.empty?
+    abort("Selected publication #{title.inspect} missing Code resource link") if code_links.empty?
+    unless code_links.any? { |node| node["href"] == expected_code_href }
+      abort("Selected publication #{title.inspect} Code link mismatch")
+    end
+  elsif title.start_with?("Sprint or Delve")
+    abort("Sprint or Delve must not show a placeholder Paper link") unless paper_links.empty?
+    abort("Sprint or Delve must not show a placeholder Code link") unless code_links.empty?
+  end
+end
+
 publication_data = YAML.load_file(File.join(ROOT, "_data", "publications.yml"))
 expected_publications = publication_data.sum { |group| group.fetch("papers").length }
 abort("Source publication count expected 19, got #{expected_publications}") unless expected_publications == 19

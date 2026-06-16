@@ -809,6 +809,37 @@ a {
     line-height: 1.4;
 }
 
+.publication-resources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 9px;
+}
+
+.publication-resource-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 4px 10px;
+    border: 1px solid rgba($secondary-color, 0.45);
+    border-radius: 4px;
+    color: $secondary-color;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+
+    &:hover,
+    &:focus {
+        border-color: $secondary-color;
+        color: #fff;
+        background: $secondary-color;
+        text-decoration: none;
+    }
+}
+
 .cv-note {
     margin-top: 35px;
     text-align: center;

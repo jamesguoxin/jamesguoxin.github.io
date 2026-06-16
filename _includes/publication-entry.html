@@ -1,9 +1,23 @@
 {%- capture mark -%}{% if include.pub.me_mark == "corr" %}<span class="emoji">✉</span>{% elsif include.pub.me_mark == "equal" %}*{% endif %}{%- endcapture -%}
 {%- capture me -%}<em><ins><strong>Xin Guo{{ mark }}</strong></ins></em>{%- endcapture -%}
+{%- assign paper_url = include.pub.paper | default: include.pub.url -%}
 <div>
   <h3 class="publication-title">
     {% if include.pub.url %}<a href="{{ include.pub.url }}">{{ include.pub.title }}</a>{% else %}{{ include.pub.title }}{% endif %}
   </h3>
   <div class="publication-authors">{{ include.pub.authors | replace: "Xin Guo", me }}</div>
   <div class="publication-venue">{{ include.pub.venue }}</div>
+  {% if paper_url or include.pub.code or include.pub.project %}
+    <div class="publication-resources" aria-label="Publication resources">
+      {% if paper_url %}
+        <a class="publication-resource-link" href="{{ paper_url }}">Paper</a>
+      {% endif %}
+      {% if include.pub.code %}
+        <a class="publication-resource-link" href="{{ include.pub.code }}">Code</a>
+      {% endif %}
+      {% if include.pub.project %}
+        <a class="publication-resource-link" href="{{ include.pub.project }}">Project</a>
+      {% endif %}
+    </div>
+  {% endif %}
 </div>
