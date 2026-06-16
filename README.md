@@ -219,8 +219,8 @@ has completed successfully.
 - Keep `Gemfile.lock` compatible with GitHub Actions. Verify dependency changes
   with `bundle check` before pushing.
 - Use `_config.dev.yml` only for local overrides.
-- `.travis.yml` is retained from the older deployment setup but GitHub Actions
-  is the active deployment path.
+- GitHub Actions is the active deployment path; legacy CI configuration has
+  been removed.
 - The current repository is independently maintained and does not sync with an
   upstream repository.
 

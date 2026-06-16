@@ -69,10 +69,9 @@ navigation enhancements not included in Next 2.
 
 ### Next 5: Performance, Measurement, and Maintenance
 
-- Compress large images, especially `matterhorn.jpg`, `le_pirate.png`, and timeline assets.
 - Add a downloadable CV when a publishable PDF is available (low priority).
 - Add privacy-conscious analytics only if visitor metrics will influence decisions.
-- Remove obsolete `.travis.yml` after confirming GitHub Actions remains the sole deploy path.
+- Keep GitHub Actions workflow maintenance current.
 - Resolve Sass `@import` deprecation warnings as part of a future styling/toolchain update.
 
 ### Deferred: Dark Mode and Framework Upgrade
@@ -163,12 +162,7 @@ Closed as sufficient for now. Three substantial posts (Lausanne restaurants 2016
 
 ## Priority 4: Technical Debt (low urgency)
 
-### 4.1 Compress Large Images
-- `matterhorn.jpg` is 1.6MB — compress to ~200KB
-- `le_pirate.png` is 1.9MB — compress significantly
-- Other large images in `img/timeline/`
-
-### 4.2 Remove `_site/` from Git — Use GitHub Actions to Build — ✅ COMPLETED (2026-05-30, verified live)
+### 4.1 Remove `_site/` from Git — Use GitHub Actions to Build — ✅ COMPLETED (2026-05-30, verified live)
 - Added `.github/workflows/jekyll.yml`: builds with Bundler (`bundle exec jekyll build`) and deploys via GitHub Pages on push to `master`.
 - Added `Gemfile` / `Gemfile.lock` pinning jekyll, jekyll-paginate, jemoji, jekyll-spaceship, webrick.
 - Gitignored `_site/` and untracked it (87 files); generated output is no longer committed.
@@ -178,12 +172,12 @@ Closed as sufficient for now. Three substantial posts (Lausanne restaurants 2016
 **Gotchas hit (for future reference):**
 - Pushing workflow files needs a PAT with `workflow` scope (or push via SSH).
 - Bundler 4 wrote a `CHECKSUMS` section with empty entries (Tsinghua mirror serves no checksums), which fails CI's frozen `bundle install`. Fix: removed the `CHECKSUMS` section. When regenerating the lockfile locally, verify with `BUNDLE_FROZEN=true bundle check` before pushing.
-- New workflow `.travis.yml` is now redundant — could be deleted (left in place for now).
+- Legacy CI configuration was removed after GitHub Actions became the sole deploy path.
 
-### 4.3 Set Up Google Analytics
+### 4.2 Set Up Google Analytics
 Currently empty in `_config.yml`. Set up if you want to track visitor metrics.
 
-### 4.4 Framework Upgrade (long-term)
+### 4.3 Framework Upgrade (long-term)
 - Bootstrap 3.3.5 → 5.x
 - jQuery 1.11.3 → remove or update
 - Font Awesome 4.4.0 → 6.x
@@ -221,13 +215,13 @@ Upstream replaced Disqus with **Cusdis** (open-source, privacy-friendly, no trac
   publication curation, generated Publications / News / Activities pages, and
   the Experience rename.
 - **Previously completed:** homepage positioning, P1 quick wins, P2.2
-  publication data, P2.3 photo + metrics, P3 blog, P4.2 Actions workflow, P5
+  publication data, P2.3 photo + metrics, P3 blog, P4.1 Actions workflow, P5
   Mermaid, and the academic light visual refresh.
-- **Recommended next:** add Code / Project resource metadata where available,
-  then consider research navigation improvements supported by that metadata.
-- **Open but lower priority:** P2.5 optional pages, P4.1 image compression,
-  P4.3 analytics, P4.4 framework upgrade, P5.1 dark mode, and P5.2 Cusdis or
-  disabling comments.
+- **Recommended next:** continue adding Code / Project resource metadata where
+  available, then consider research navigation improvements supported by that
+  metadata.
+- **Open but lower priority:** P2.5 optional pages, P4.2 analytics, P4.3
+  framework upgrade, P5.1 dark mode, and P5.2 Cusdis or disabling comments.
 - **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.
 
 ---

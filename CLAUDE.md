@@ -21,10 +21,10 @@ bundle exec jekyll serve --baseurl "" --watch
 ```
 Dependencies are pinned in `Gemfile` / `Gemfile.lock` (jekyll, jekyll-paginate, jemoji, jekyll-spaceship, webrick). In China, redirect the source to a mirror once: `bundle config set mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems/`.
 
-**HTML validation (Travis CI runs this — `.travis.yml`):**
+**Site verification (mirrors the GitHub Actions build path):**
 ```
-gem install html-proofer
-htmlproofer ./_site --disable-external --empty-alt-ignore
+bundle exec jekyll build --config _config.yml,_config.dev.yml
+scripts/check-site-architecture
 ```
 
 **Mermaid diagrams:** `jekyll-spaceship` renders diagrams at build time via mermaid.ink. Mark a block with ` ```mermaid! ` (trailing `!`) or `@startmermaid … @endmermaid`. `mode: pre-fetch` (in `_config.yml`) inlines the SVG into the HTML, so it needs network access to mermaid.ink during the build.
@@ -35,6 +35,7 @@ htmlproofer ./_site --disable-external --empty-alt-ignore
 - `scripts/newpost <title>` — scaffold a `_posts/YYYY-MM-DD-<title>.md` stub.
 - `scripts/generate-categories` / `scripts/generate-tags` — regenerate the `categories/` and `tags/` listing pages from post front matter (run after adding posts with new categories/tags).
 - `scripts/integrate-personal` — pull upstream theme updates (read the linked wiki first).
+- `scripts/check-site-architecture` — verify generated homepage/archive structure after a local build.
 
 ## Architecture
 
