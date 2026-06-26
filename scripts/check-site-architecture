@@ -155,4 +155,13 @@ end
   abort("Footer must not link to Activities") if page.at_css("footer a[href='#{activities_href}']")
 end
 
+generated_pages = Dir.glob(File.join(ROOT, "_site", "**", "*.html"))
+generated_pages.each do |path|
+  html = File.read(path)
+  relative_path = path.delete_prefix("#{File.join(ROOT, "_site")}/")
+  if html.match?(/disqus|#disqus_thread|disqus_thread|>\s*Comments\s*</i)
+    abort("Generated page #{relative_path} must not include Disqus or comment UI")
+  end
+end
+
 puts "Site architecture checks passed"

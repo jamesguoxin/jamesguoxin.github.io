@@ -30,7 +30,7 @@ scripts/check-site-architecture
 **Mermaid diagrams:** `jekyll-spaceship` renders diagrams at build time via mermaid.ink. Mark a block with ` ```mermaid! ` (trailing `!`) or `@startmermaid … @endmermaid`. `mode: pre-fetch` (in `_config.yml`) inlines the SVG into the HTML, so it needs network access to mermaid.ink during the build.
 
 **Helper scripts (`scripts/`):**
-- `scripts/serve` — `jekyll serve --watch` with dev config (no Disqus/Analytics).
+- `scripts/serve` — `jekyll serve --watch` with dev config (no Analytics).
 - `scripts/serve-production` — serve with `JEKYLL_ENV=production`.
 - `scripts/newpost <title>` — scaffold a `_posts/YYYY-MM-DD-<title>.md` stub.
 - `scripts/generate-categories` / `scripts/generate-tags` — regenerate the `categories/` and `tags/` listing pages from post front matter (run after adding posts with new categories/tags).
@@ -42,7 +42,7 @@ scripts/check-site-architecture
 - **`_config.yml`** — Central configuration: site metadata, header dynamic text, experience entries, social links, blog settings, homepage composition, and navigation.
 - **`_config.dev.yml`** — Dev-only override (just sets `baseurl: ""`).
 - **`_layouts/`** — Page templates: `index.html` (home), `page.html` (standalone pages), `blog.html`, `post.html`, `category.html`, `tag.html`, and `error.html`.
-- **`_includes/`** — Reusable partials composed into layouts (header, footer, navigation, comments via Disqus, share buttons, experience, publication/news lists, etc.).
+- **`_includes/`** — Reusable partials composed into layouts (header, footer, navigation, share buttons, experience, publication/news lists, etc.).
 - **`_posts/`** — Blog posts in Markdown with YAML front matter. Paginated at 6 per page.
 - **Top-level homepage sections** — `about.html`, `research.html`, `publications.html`, `news-section.html`, `experience.html`, and `contact.html`. These use `section-type` front matter and `layout: null` (rendered inside the index layout).
 - **Standalone pages** — `publications-index.html`, `news.html`, and `activities.html` use the `page` layout for complete Publications, News, and Activities content.

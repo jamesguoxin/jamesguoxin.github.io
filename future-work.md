@@ -77,7 +77,7 @@ navigation enhancements not included in Next 2.
 ### Deferred: Dark Mode and Framework Upgrade
 
 - Dark mode remains a valid visual enhancement, but it is lower value than improving homepage hierarchy and conversion.
-- Cusdis should only be added if comments are genuinely useful; otherwise disable Disqus and keep the site simpler.
+- Comments are disabled. Cusdis can be reconsidered only if comments become genuinely useful.
 - Bootstrap 5 / no-jQuery migration remains long-term technical work and should not block content improvements.
 
 ---
@@ -102,7 +102,7 @@ Sciences, Multimodal Foundation Models, and Scientific Agentic AI."*
 - `tumblr-share: False`
 - `pinterest-share: False`
 - `vkontakte-share: False`
-- Still TODO: Consider disabling Disqus comments if not actively used
+- Disqus comments disabled to keep the site focused and lighter.
 
 ---
 
@@ -200,8 +200,8 @@ System-following + manual toggle button, preference saved in `localStorage`. Thi
 - (Route B = adopt upstream's Bootstrap 5 + new styles and port our customizations back. Rejected for now: highest risk, ≈ a full front-end re-integration. Equivalent to §4.4.)
 - Upstream reference clone notes: dark mode bootstraps via an inline `<head>` script reading `localStorage.theme` and setting `data-theme`; toggle logic lives in `js.html`; styles key off `[data-theme="dark"]`.
 
-### 5.2 Cusdis comments — ⬜ TODO (depends on 5.1)
-Upstream replaced Disqus with **Cusdis** (open-source, privacy-friendly, no tracking). Its include syncs the comment widget's light/dark theme to the page `data-theme`, so it should land **together with 5.1**. We currently have `disqus-shortname: jamesguoxin` configured but rarely used — alternatively just disable comments entirely (this also closes the §1.4 leftover TODO).
+### 5.2 Comments — Deferred / Optional
+Disqus is disabled. Cusdis can be reconsidered later only if comments become genuinely useful; if added, it should land together with the dark-mode theme plumbing so the widget can match the page theme.
 
 ### 5.3 Skipped from upstream (intentionally)
 - License change to Apache 2.0, Conventional Commits, git hooks — maintainer tooling, not relevant to us.
@@ -221,7 +221,7 @@ Upstream replaced Disqus with **Cusdis** (open-source, privacy-friendly, no trac
   available, then consider research navigation improvements supported by that
   metadata.
 - **Open but lower priority:** P2.5 optional pages, P4.2 analytics, P4.3
-  framework upgrade, P5.1 dark mode, and P5.2 Cusdis or disabling comments.
+  framework upgrade, P5.1 dark mode, and optional P5.2 Cusdis.
 - **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.
 
 ---
