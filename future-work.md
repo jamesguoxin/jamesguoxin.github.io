@@ -1,6 +1,33 @@
 # Future Work — Website Improvement Plan
 
-## Recommended Roadmap (updated 2026-06-16)
+## Active Development Plan (updated 2026-06-27)
+
+The site should continue to work primarily as an academic / research profile:
+fast to understand, easy to verify, and simple to contact.
+
+1. **Content refinement for About / Research / Contact**
+   - Make the homepage copy shorter, more concrete, and more consistent.
+   - Align terminology around AI for life sciences, multi-omics, multimodal
+     foundation models, biological representation learning, and scientific
+     agentic AI.
+   - Update stale credibility details such as paper counts.
+2. **Publication resource metadata**
+   - Continue adding official `Paper`, `Code`, and `Project` links across the
+     full Publications archive.
+   - Use the metadata to support future research navigation only after links
+     are sufficiently complete.
+3. **Research navigation**
+   - Consider topic filters or richer topic landing paths for Publications
+     once publication metadata is complete enough to support them cleanly.
+4. **Maintenance cleanup**
+   - Resolve GitHub Actions Node.js runtime annotations.
+   - Resolve Sass `@import` deprecation warnings as part of a focused
+     styling/toolchain update.
+5. **Deferred visual upgrade**
+   - Dark mode remains a useful standalone visual enhancement, but should wait
+     until content and metadata are stable.
+
+## Recommended Roadmap (updated 2026-06-27)
 
 The academic light refresh is now live. The next improvements should help a first-time visitor answer four questions quickly:
 
@@ -57,7 +84,13 @@ navigation enhancements not included in Next 2.
 
 ### Next 4: Content Editing and Credibility Details
 
-- Professionally edit the About Me copy for concision and consistent terminology:
+- Initial pass completed 2026-06-27 for About / Research / Contact:
+  - Reoriented homepage copy around `AI4Science Specialist → Academic Researcher → Research Leader / Applied AI`.
+  - Updated About to foreground AI for life sciences and scientific discovery.
+  - Added representative works FLAG, ChromFound, and SOLD without positioning HorusEye as core to the identity.
+  - Expanded Research Highlights to AI for Life Sciences, Scientific Foundation Models, and Scientific Agentic AI.
+  - Updated Contact collaboration language around multi-omics, spatial biology, RNA design, scientific foundation models, and tool-using AI systems.
+- Remaining content-editing work:
   - `Life Sciences`
   - `multi-omics`
   - `vision foundation models`

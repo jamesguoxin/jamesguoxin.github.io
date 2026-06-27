@@ -1,4 +1,6 @@
 - title: AI for Life Sciences
-  description: Multi-omics foundation models, biological representation learning, RNA design, spatial biology, and clinically relevant AI.
+  description: Multi-omics, spatial biology, single-cell epigenomics, RNA design, and biological representation learning for scientific discovery.
+- title: Scientific Foundation Models
+  description: Multimodal and multi-scale foundation models for scientific data, with an emphasis on generalizable representations and reusable research infrastructure.
 - title: Scientific Agentic AI
-  description: Reasoning and agentic systems that plan, use scientific tools, and support reliable scientific discovery workflows.
+  description: Reasoning and tool-using AI systems that plan, call scientific tools, and support reliable discovery workflows.

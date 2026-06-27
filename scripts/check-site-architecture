@@ -23,6 +23,42 @@ abort("Homepage must show 4 news entries") unless home.css("#news .news-item").l
 abort("Homepage must show 6 publications") unless home.css("#publications .publication-item").length == 6
 abort("SkySense missing from homepage") unless home.at_css("#publications").text.include?("SkySense")
 
+about_text = home.at_css("#about").text.gsub(/\s+/, " ").strip
+[
+  "AI for life sciences",
+  "scientific discovery",
+  "multi-omics",
+  "biological representation learning",
+  "FLAG",
+  "ChromFound",
+  "SOLD"
+].each do |phrase|
+  abort("About section missing #{phrase.inspect}") unless about_text.include?(phrase)
+end
+abort("About section should not position HorusEye as a core work") if about_text.include?("HorusEye")
+abort("About metric must show 19 papers") unless home.at_css("#about .metric-card strong", text: "19")
+
+expected_research_titles = [
+  "AI for Life Sciences",
+  "Scientific Foundation Models",
+  "Scientific Agentic AI"
+]
+actual_research_titles = home.css("#research .research-card h3").map { |node| SiteCheckHelpers.normalized_text(node) }
+unless actual_research_titles == expected_research_titles
+  abort("Research highlight titles expected #{expected_research_titles.inspect}, got #{actual_research_titles.inspect}")
+end
+
+contact_text = home.at_css("#contact").text.gsub(/\s+/, " ").strip
+[
+  "multi-omics",
+  "spatial biology",
+  "RNA design",
+  "scientific foundation models",
+  "tool-using AI systems"
+].each do |phrase|
+  abort("Contact section missing collaboration phrase #{phrase.inspect}") unless contact_text.include?(phrase)
+end
+
 expected_section_actions = {
   "#publications" => ["View all publications →", SiteCheckHelpers.internal_path("/publications/")],
   "#news" => ["More news →", SiteCheckHelpers.internal_path("/news/")],
