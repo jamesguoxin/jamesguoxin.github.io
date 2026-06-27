@@ -119,7 +119,7 @@ abort("Activities page missing Honors & Awards heading") unless awards_heading
 award_count = awards_heading.xpath("following-sibling::p[not(contains(concat(' ', normalize-space(@class), ' '), ' cv-note '))]").length
 abort("Activities awards count expected 12, got #{award_count}") unless award_count == 12
 
-expected_nav = ["About", "Research", "Experience", "Contact"]
+expected_nav = ["About", "Research", "Experience", "Blog", "Contact"]
 actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }
 abort("Primary navigation mismatch") unless actual_nav == expected_nav
 
@@ -132,6 +132,7 @@ expected_home_nav_hrefs = [
   "#about",
   "#research",
   "#experience",
+  SiteCheckHelpers.internal_path("/blog/"),
   "#contact"
 ]
 actual_home_nav_hrefs = home.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
@@ -143,6 +144,7 @@ expected_news_nav_hrefs = [
   SiteCheckHelpers.internal_path("/#about"),
   SiteCheckHelpers.internal_path("/#research"),
   SiteCheckHelpers.internal_path("/#experience"),
+  SiteCheckHelpers.internal_path("/blog/"),
   SiteCheckHelpers.internal_path("/#contact")
 ]
 actual_news_nav_hrefs = news.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
