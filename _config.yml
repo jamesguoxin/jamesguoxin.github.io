@@ -234,12 +234,12 @@ navigation:
   - label: Experience
     type: section
     target: experience
-  - label: Blog
-    type: page
-    url: /blog/
   - label: Contact
     type: section
     target: contact
+  - label: Blog ↗
+    type: page
+    url: /blog/
 
 # Exclusion list from the generated _site
 
