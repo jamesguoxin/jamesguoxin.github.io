@@ -119,13 +119,16 @@ a {
         margin-top: -5px;
     }
 
-    .navbar-toggle {
+    .navbar-toggler {
+        border: 0;
         padding: 4px 6px;
         font-size: 16px;
         color: $navbar-color;
+        box-shadow: none;
         &:focus,
         &:active {
             outline: none;
+            box-shadow: none;
         }
     }
     .navbar-brand {
@@ -140,10 +143,10 @@ a {
             text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
         }
     }
-    .nav {
+    .navbar-nav {
         text-align: center;
-        li {
-            a {
+        .nav-item {
+            .nav-link {
                 -webkit-transition: background .3s ease-in-out;
                 -moz-transition: background .3s ease-in-out;
                 transition: background .3s ease-in-out;
@@ -160,7 +163,7 @@ a {
             }
             &.active {
                 outline: none;
-                a {
+                .nav-link {
                     background-color: rgba($font-color, 0.3);
                     &:hover {
                         color: $navbar-color;
@@ -238,6 +241,13 @@ a {
             font-style: italic;
             @if $navbar-text-shadow {
                 text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+            }
+            &:after {
+                content: "|";
+                opacity: 1;
+                -webkit-animation: blink 0.7s infinite;
+                -moz-animation: blink 0.7s infinite;
+                animation: blink 0.7s infinite;
             }
         }
     }
@@ -916,6 +926,11 @@ footer .social-buttons {
 }
 
 /* Added in { Personal } */
+ul.social-buttons li {
+    display: inline-block;
+    margin: 0 4px 8px;
+}
+
 ul.social-buttons li a {
     display: block;
     width: 40px;

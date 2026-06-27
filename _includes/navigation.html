@@ -1,12 +1,9 @@
 
 <!-- Navigation Start -->
 
-<nav class="navbar navbar-custom navbar-fixed-top{% unless page.section-type == "index" %} navbar-standalone{% endunless %}" role="navigation">
+<nav class="navbar navbar-expand-md navbar-custom fixed-top{% unless page.section-type == "index" %} navbar-standalone{% endunless %}" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-        <i class="fa fa-bars"></i>
-      </button>
       {% if page.section-type == "index" %}
         <a class="navbar-brand page-scroll" href="#page-top">
       {% else %}
@@ -22,19 +19,22 @@
           </div>
         </a>
     </div>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#site-navbar" aria-controls="site-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-      <ul class="nav navbar-nav">
+    <div id="site-navbar" class="collapse navbar-collapse justify-content-end navbar-main-collapse">
+      <ul class="navbar-nav">
         {% for item in site.navigation %}
-          <li>
+          <li class="nav-item">
             {% if item.type == "section" %}
               {% if page.section-type == "index" %}
-                <a class="page-scroll" href="#{{ item.target }}"> {{ item.label }} </a>
+                <a class="nav-link page-scroll" href="#{{ item.target }}"> {{ item.label }} </a>
               {% else %}
-                <a href="{{ site.baseurl }}/#{{ item.target }}"> {{ item.label }} </a>
+                <a class="nav-link" href="{{ site.baseurl }}/#{{ item.target }}"> {{ item.label }} </a>
               {% endif %}
             {% elsif item.type == "page" %}
-              <a href="{{ site.baseurl }}{{ item.url }}"> {{ item.label }} </a>
+              <a class="nav-link" href="{{ site.baseurl }}{{ item.url }}"> {{ item.label }} </a>
             {% endif %}
           </li>
         {% endfor %}

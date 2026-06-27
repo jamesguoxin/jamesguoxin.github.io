@@ -74,7 +74,7 @@ scripts/check-site-architecture
 ## External Dependencies
 
 - **Academicons** — CDN-loaded icon font for academic social icons (Google Scholar, ORCID). Added in `_includes/head.html`.
-- Social buttons template (`_includes/social-buttons.html`) supports an optional `icon` field in `_config.yml` social entries, falling back to Font Awesome `fa fa-{{ title }}` when not specified.
+- Social buttons template (`_includes/social-buttons.html`) supports an optional `icon` field in `_config.yml` social entries, falling back to Font Awesome 7 solid or brand icon classes when not specified.
 
 ## Deployment
 

@@ -284,7 +284,7 @@ posts.each do |post|
 end
 
 expected_nav = ["About", "Research", "Experience", "Contact", "Blog ↗"]
-actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }
+actual_nav = home.css(".navbar-main-collapse .navbar-nav .nav-link").map { |node| node.text.strip }
 abort("Primary navigation mismatch") unless actual_nav == expected_nav
 
 abort("Homepage navbar must remain hero-transparent") if home.at_css("nav.navbar-standalone")
@@ -299,7 +299,7 @@ expected_home_nav_hrefs = [
   "#contact",
   SiteCheckHelpers.internal_path("/blog/")
 ]
-actual_home_nav_hrefs = home.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
+actual_home_nav_hrefs = home.css(".navbar-main-collapse .navbar-nav .nav-link").map { |node| node["href"] }
 unless actual_home_nav_hrefs == expected_home_nav_hrefs
   abort("Homepage nav hrefs expected #{expected_home_nav_hrefs.inspect}, got #{actual_home_nav_hrefs.inspect}")
 end
@@ -311,7 +311,7 @@ expected_news_nav_hrefs = [
   SiteCheckHelpers.internal_path("/#contact"),
   SiteCheckHelpers.internal_path("/blog/")
 ]
-actual_news_nav_hrefs = news.css(".navbar-main-collapse .nav > li > a").map { |node| node["href"] }
+actual_news_nav_hrefs = news.css(".navbar-main-collapse .navbar-nav .nav-link").map { |node| node["href"] }
 unless actual_news_nav_hrefs == expected_news_nav_hrefs
   abort("News nav hrefs expected #{expected_news_nav_hrefs.inspect}, got #{actual_news_nav_hrefs.inspect}")
 end
@@ -322,6 +322,23 @@ end
 end
 
 generated_pages = Dir.glob(File.join(ROOT, "_site", "**", "*.html"))
+generated_html = generated_pages.map { |path| File.read(path) }.join("\n")
+abort("Generated pages must load Bootstrap 5 CSS") unless generated_html.include?("bootstrap@5.")
+abort("Generated pages must load Bootstrap 5 JS bundle") unless generated_html.include?("bootstrap.bundle")
+abort("Generated pages must not load Bootstrap 3 assets") if generated_html.include?("bootstrap/3.")
+abort("Generated pages must not load jQuery 1.x") if generated_html.include?("jquery-1.")
+abort("Generated pages must not load jquery-easing") if generated_html.include?("jquery.easing")
+abort("Generated pages must not load Font Awesome 4") if generated_html.include?("font-awesome/4.")
+unless generated_html.include?("font-awesome/7.") || generated_html.include?("fontawesome")
+  abort("Generated pages must load a current Font Awesome asset")
+end
+
+navbar_toggler = home.at_css(".navbar-toggler")
+abort("Navbar must use Bootstrap 5 navbar-toggler") unless navbar_toggler
+abort("Navbar toggler must use data-bs-toggle") unless navbar_toggler["data-bs-toggle"] == "collapse"
+abort("Navbar toggler must target #site-navbar") unless navbar_toggler["data-bs-target"] == "#site-navbar"
+abort("Navbar collapse must have #site-navbar") unless home.at_css("#site-navbar.navbar-collapse")
+
 generated_pages.each do |path|
   html = File.read(path)
   relative_path = path.delete_prefix("#{File.join(ROOT, "_site")}/")

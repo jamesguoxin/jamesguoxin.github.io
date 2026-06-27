@@ -21,17 +21,28 @@ fast to understand, easy to verify, and simple to contact.
      are sufficiently complete.
    - Added official code links for S2DC, PUIR, SCRIPT, and POA where links are
      confirmed.
-3. **Research navigation**
+3. **Technical foundation upgrade**
+   - Frontend foundation upgrade completed: Bootstrap 5, first-party vanilla
+     JavaScript interactions, and a current Font Awesome baseline.
+   - Continue treating future frontend work as staged compatibility work unless
+     a separate visual redesign is explicitly planned.
+4. **Blog and review content strategy**
+   - Raise blog quality and cadence as a high-priority content track.
+   - Focus future posts on review-style articles that support the AI for
+     science positioning.
+   - Plan for cross-posting or synchronized publishing with the WeChat personal
+     public account while keeping the website as the canonical archive.
+5. **Research navigation**
    - Consider topic filters or richer topic landing paths only after metadata
      is complete enough to support them cleanly.
-4. **Maintenance cleanup**
+6. **Maintenance cleanup**
    - GitHub Actions Node.js runtime annotations resolved by updating Pages
      actions to Node 24-compatible major versions.
    - Sass `@import` deprecation warnings resolved by migrating the main
      stylesheet to Sass module `@use` syntax.
    - Blog SEO baseline added with `robots.txt`, absolute canonical URLs,
      page-specific post descriptions, and Open Graph metadata.
-5. **Deferred visual upgrade**
+7. **Deferred visual upgrade**
    - Dark mode remains a useful standalone visual enhancement, but should wait
      until content and metadata are stable.
 
@@ -146,7 +157,8 @@ No official code currently listed for:
 
 - Dark mode remains a valid visual enhancement, but it is lower value than improving homepage hierarchy and conversion.
 - Comments are disabled. Cusdis can be reconsidered only if comments become genuinely useful.
-- Bootstrap 5 / no-jQuery migration remains long-term technical work and should not block content improvements.
+- Bootstrap 5 / no-jQuery migration is complete; future frontend work can build
+  on the newer baseline.
 
 ---
 
@@ -245,12 +257,30 @@ Closed as sufficient for now. Three substantial posts (Lausanne restaurants 2016
 ### 4.2 Set Up Google Analytics
 Currently empty in `_config.yml`. Set up if you want to track visitor metrics.
 
-### 4.3 Framework Upgrade (long-term)
-- Bootstrap 3.3.5 → 5.x
-- jQuery 1.11.3 → remove or update
-- Font Awesome 4.4.0 → 6.x
-- Consider migrating to a modern academic theme (e.g., Hugo Academic / al-folio for Jekyll) which has built-in publication management, BibTeX import, and responsive design
-- NB: the upstream theme (le4ker fork) has already done most of this — see Priority 5. Route B there ≈ this upgrade.
+### 4.3 Framework Upgrade — ✅ COMPLETED (2026-06-28)
+Completed as a foundation migration rather than a visual redesign.
+
+- Bootstrap 3.3.5 was replaced with Bootstrap 5.3.x.
+- First-party jQuery interactions were replaced with vanilla JavaScript.
+- Font Awesome 4.4.0 was replaced with a current Font Awesome baseline.
+- Legacy jQuery-based typed and rrssb scripts were removed.
+- Current visual hierarchy and content structure were preserved.
+- A different academic theme was not adopted; that remains a separate redesign
+  decision.
+
+### 4.4 Blog / Review Publishing Track
+High priority content track for future site value.
+
+- Publish higher-quality review-style articles around AI for science,
+  scientific foundation models, agentic AI, automated labs, and related papers.
+- Keep the website as the canonical long-form archive.
+- Synchronize selected posts with the WeChat personal public account, with
+  clear source links between the website and WeChat version.
+- Future implementation candidates:
+  - add per-post canonical / cross-post metadata,
+  - add review-specific tags or collections,
+  - add a stronger Blog index for review articles,
+  - add structured data for article pages after the content pattern stabilizes.
 
 ---
 
@@ -264,9 +294,12 @@ Context: the upstream theme [le4ker/personal-jekyll-theme](https://github.com/le
 - ✅ Homepage selected publication resource links plus confirmed archive code
   metadata for S2DC, PUIR, SCRIPT, and POA.
 
-### 5.1 Dark mode with theme toggle — ⬜ TODO (highest-value visual upgrade)
+### 5.1 Dark mode with theme toggle — ⬜ TODO
 System-following + manual toggle button, preference saved in `localStorage`. This is the main reason the upstream "looks nice".
-**Decision: Route A (incremental).** Keep Bootstrap 3 and current structure; convert `grayscale.scss` to CSS variables and hand-write light/dark palettes coordinated with the Matterhorn backdrop. Large styling job — do as its own focused session.
+**Decision: Route A (incremental).** Modernize the frontend baseline first,
+then convert `grayscale.scss` to CSS variables and hand-write light/dark
+palettes coordinated with the Matterhorn backdrop. Large styling job — do as
+its own focused session.
 - (Route B = adopt upstream's Bootstrap 5 + new styles and port our customizations back. Rejected for now: highest risk, ≈ a full front-end re-integration. Equivalent to §4.4.)
 - Upstream reference clone notes: dark mode bootstraps via an inline `<head>` script reading `localStorage.theme` and setting `data-theme`; toggle logic lives in `js.html`; styles key off `[data-theme="dark"]`.
 
@@ -291,11 +324,16 @@ Disqus is disabled. Cusdis can be reconsidered later only if comments become gen
 - **Recently completed maintenance:** GitHub Actions Node.js runtime annotations
   and Sass `@import` deprecation warnings have both been resolved. Blog SEO
   now has a crawlable `robots.txt`, absolute canonical URLs, page-specific
-  descriptions, and Open Graph metadata.
-- **Recommended next:** decide whether to add lightweight research navigation
-  filters now that publication resource metadata is more complete.
-- **Open but lower priority:** P2.5 optional pages, P4.2 analytics, P4.3
-  framework upgrade, P5.1 dark mode, and optional P5.2 Cusdis.
+  descriptions, and Open Graph metadata. The frontend foundation now uses
+  Bootstrap 5, vanilla first-party interactions, and a current Font Awesome
+  baseline.
+- **Recommended next:** decide between lightweight Publications / Research
+  filters and the first higher-quality review-style blog article workflow.
+- **High-priority content track:** improve blog quality with review-style AI for
+  science writing and synchronize selected posts with the WeChat personal
+  public account.
+- **Open but lower priority:** P2.5 optional pages, P4.2 analytics, P5.1 dark
+  mode, and optional P5.2 Cusdis.
 - **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.
 
 ---
