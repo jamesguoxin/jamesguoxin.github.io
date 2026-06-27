@@ -23,6 +23,15 @@ abort("Homepage must show 4 news entries") unless home.css("#news .news-item").l
 abort("Homepage must show 6 publications") unless home.css("#publications .publication-item").length == 6
 abort("SkySense missing from homepage") unless home.at_css("#publications").text.include?("SkySense")
 
+hero_focus = home.css(".hero-focus span").map { |node| SiteCheckHelpers.normalized_text(node) }
+expected_hero_focus = [
+  "AI for Life Sciences · Multimodal Scientific Foundation Models",
+  "Scientific Agentic AI · Automated Labs for Discovery"
+]
+unless hero_focus == expected_hero_focus
+  abort("Hero focus expected #{expected_hero_focus.inspect}, got #{hero_focus.inspect}")
+end
+
 about_text = home.at_css("#about").text.gsub(/\s+/, " ").strip
 [
   "AI for life sciences",
@@ -36,12 +45,13 @@ about_text = home.at_css("#about").text.gsub(/\s+/, " ").strip
   abort("About section missing #{phrase.inspect}") unless about_text.include?(phrase)
 end
 abort("About section should not position HorusEye as a core work") if about_text.include?("HorusEye")
-abort("About metric must show 19 papers") unless home.at_css("#about .metric-card strong", text: "19")
+abort("About metric must show 20+ papers") unless home.at_css("#about .metric-card strong", text: "20+")
 
 expected_research_titles = [
   "AI for Life Sciences",
-  "Scientific Foundation Models",
-  "Scientific Agentic AI"
+  "Multimodal Scientific Foundation Models",
+  "Scientific Agentic AI",
+  "Automated Labs for Closed-Loop Discovery"
 ]
 actual_research_titles = home.css("#research .research-card h3").map { |node| SiteCheckHelpers.normalized_text(node) }
 unless actual_research_titles == expected_research_titles
@@ -54,7 +64,9 @@ contact_text = home.at_css("#contact").text.gsub(/\s+/, " ").strip
   "spatial biology",
   "RNA design",
   "scientific foundation models",
-  "tool-using AI systems"
+  "tool-using AI systems",
+  "automated labs",
+  "closed-loop discovery"
 ].each do |phrase|
   abort("Contact section missing collaboration phrase #{phrase.inspect}") unless contact_text.include?(phrase)
 end
@@ -115,6 +127,16 @@ expected_publications = publication_data.sum { |group| group.fetch("papers").len
 abort("Source publication count expected 19, got #{expected_publications}") unless expected_publications == 19
 unless publications.css(".publication-item").length == expected_publications
   abort("Complete publication count mismatch")
+end
+poa_item = publications.css(".publication-item").find do |item|
+  item.text.include?("POA: Pre-training Once for Models of All Sizes")
+end
+abort("Complete publications missing POA") unless poa_item
+poa_code = poa_item.css(".publication-resource-link").find do |node|
+  SiteCheckHelpers.normalized_text(node) == "Code"
+end
+unless poa_code && poa_code["href"] == "https://github.com/alipay/POA/tree/main"
+  abort("POA must include official Code link")
 end
 
 news_data = YAML.load_file(File.join(ROOT, "_data", "news.yml"))

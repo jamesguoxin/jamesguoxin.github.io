@@ -11,6 +11,9 @@ fast to understand, easy to verify, and simple to contact.
      foundation models, biological representation learning, and scientific
      agentic AI.
    - Update stale credibility details such as paper counts.
+   - Current homepage direction set: AI for Life Sciences, Multimodal
+     Scientific Foundation Models, Scientific Agentic AI, and Automated Labs
+     for Closed-Loop Discovery.
 2. **Publication resource metadata**
    - Continue adding official `Paper`, `Code`, and `Project` links across the
      full Publications archive.
@@ -88,8 +91,9 @@ navigation enhancements not included in Next 2.
   - Reoriented homepage copy around `AI4Science Specialist → Academic Researcher → Research Leader / Applied AI`.
   - Updated About to foreground AI for life sciences and scientific discovery.
   - Added representative works FLAG, ChromFound, and SOLD without positioning HorusEye as core to the identity.
-  - Expanded Research Highlights to AI for Life Sciences, Scientific Foundation Models, and Scientific Agentic AI.
-  - Updated Contact collaboration language around multi-omics, spatial biology, RNA design, scientific foundation models, and tool-using AI systems.
+  - Expanded Research Highlights to AI for Life Sciences, Multimodal Scientific Foundation Models, Scientific Agentic AI, and Automated Labs for Closed-Loop Discovery.
+  - Updated Contact collaboration language around multi-omics, spatial biology, RNA design, scientific foundation models, tool-using AI systems, and automated labs.
+  - Updated paper metric to `20+`.
 - Remaining content-editing work:
   - `Life Sciences`
   - `multi-omics`
@@ -226,6 +230,7 @@ Context: the upstream theme [le4ker/personal-jekyll-theme](https://github.com/le
 **Already adopted (2026-05-30):**
 - ✅ Mermaid diagrams via `jekyll-spaceship` (build-time SVG; see Plugins / CLAUDE.md).
 - ✅ GitHub Actions deploy (= §4.2).
+- ✅ Homepage selected publication resource links plus POA code metadata.
 
 ### 5.1 Dark mode with theme toggle — ⬜ TODO (highest-value visual upgrade)
 System-following + manual toggle button, preference saved in `localStorage`. This is the main reason the upstream "looks nice".

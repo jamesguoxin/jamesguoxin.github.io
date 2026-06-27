@@ -98,6 +98,7 @@
       homepage_order: 6
     - title: "POA: Pre-training Once for Models of All Sizes"
       url: "https://eccv.ecva.net/virtual/2024/poster/442"
+      code: "https://github.com/alipay/POA/tree/main"
       authors: "Yingying Zhang, Xin Guo, Jiangwei Lao, Lei Yu, Lixiang Ru, Jian Wang, Guo Ye, Huimei He, Jingdong Chen, Ming Yang"
       venue: "ECCV 2024"
     - title: "Parameter-Efficient Complementary Expert Learning for Long-Tailed Visual Recognition"
