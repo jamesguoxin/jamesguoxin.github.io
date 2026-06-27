@@ -9,6 +9,17 @@ home = SiteCheckHelpers.page("index.html")
 publications = SiteCheckHelpers.page("publications/index.html")
 news = SiteCheckHelpers.page("news/index.html")
 activities = SiteCheckHelpers.page("activities/index.html")
+posts = [
+  SiteCheckHelpers.page("tech/2026/04/05/foundation-models-meet-biology.html"),
+  SiteCheckHelpers.page("tech/2023/03/19/chatgpt.html"),
+  SiteCheckHelpers.page("cuisine/2016/04/04/res-rec.html")
+]
+
+robots_path = File.join(ROOT, "_site", "robots.txt")
+abort("Generated site must include robots.txt") unless File.exist?(robots_path)
+robots = File.read(robots_path)
+abort("robots.txt must allow crawlers") unless robots.include?("User-agent: *") && robots.include?("Allow: /")
+abort("robots.txt must declare sitemap") unless robots.include?("Sitemap: https://jamesguoxin.github.io/sitemap.xml")
 
 expected_home_sections = %w[about research publications news experience contact]
 home_main = home.at_css("body > main")
@@ -240,6 +251,30 @@ scss_files.each do |path|
 end
 readme = File.read(File.join(ROOT, "README.md"))
 abort("README must not describe Sass @import warnings as expected") if readme.include?("Sass `@import` deprecation warnings")
+
+posts.each do |post|
+  canonical = post.at_css("link[rel='canonical']")
+  abort("Post canonical must be absolute") unless canonical && canonical["href"].start_with?("https://jamesguoxin.github.io/")
+
+  meta_description = post.at_css("meta[name='description']")
+  abort("Post must have a page-specific meta description") unless meta_description
+  if meta_description["content"] == config["description"] || meta_description["content"].length < 80
+    abort("Post meta description must be page-specific and substantial")
+  end
+
+  {
+    "og:title" => "Post must include Open Graph title",
+    "og:description" => "Post must include Open Graph description",
+    "og:url" => "Post must include Open Graph URL",
+    "og:type" => "Post must include Open Graph type"
+  }.each do |property, message|
+    abort(message) unless post.at_css("meta[property='#{property}']")
+  end
+
+  og_url = post.at_css("meta[property='og:url']")["content"]
+  abort("Post Open Graph URL must be absolute") unless og_url.start_with?("https://jamesguoxin.github.io/")
+  abort("Post Open Graph type must be article") unless post.at_css("meta[property='og:type']")["content"] == "article"
+end
 
 expected_nav = ["About", "Research", "Experience", "Contact", "Blog ↗"]
 actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }

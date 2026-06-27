@@ -2,6 +2,7 @@
 layout: post
 section-type: post
 title: Foundation Models Meet Biology - A New Frontier
+description: "A research-oriented essay on how foundation models are reshaping biology, including genomics, single-cell omics, drug design, and AI for scientific discovery."
 category: tech
 tags: [ 'foundation-model', 'biology', 'genomics', 'AI4Science', 'multi-omics', 'deep-learning', 'single-cell', 'drug-design' ]
 ---

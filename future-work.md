@@ -29,6 +29,8 @@ fast to understand, easy to verify, and simple to contact.
      actions to Node 24-compatible major versions.
    - Sass `@import` deprecation warnings resolved by migrating the main
      stylesheet to Sass module `@use` syntax.
+   - Blog SEO baseline added with `robots.txt`, absolute canonical URLs,
+     page-specific post descriptions, and Open Graph metadata.
 5. **Deferred visual upgrade**
    - Dark mode remains a useful standalone visual enhancement, but should wait
      until content and metadata are stable.
@@ -287,7 +289,9 @@ Disqus is disabled. Cusdis can be reconsidered later only if comments become gen
   publication data, P2.3 photo + metrics, P3 blog, P4.1 Actions workflow, P5
   Mermaid, and the academic light visual refresh.
 - **Recently completed maintenance:** GitHub Actions Node.js runtime annotations
-  and Sass `@import` deprecation warnings have both been resolved.
+  and Sass `@import` deprecation warnings have both been resolved. Blog SEO
+  now has a crawlable `robots.txt`, absolute canonical URLs, page-specific
+  descriptions, and Open Graph metadata.
 - **Recommended next:** decide whether to add lightweight research navigation
   filters now that publication resource metadata is more complete.
 - **Open but lower priority:** P2.5 optional pages, P4.2 analytics, P4.3
