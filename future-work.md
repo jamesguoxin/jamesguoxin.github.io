@@ -25,7 +25,8 @@ fast to understand, easy to verify, and simple to contact.
    - Consider topic filters or richer topic landing paths only after metadata
      is complete enough to support them cleanly.
 4. **Maintenance cleanup**
-   - Resolve GitHub Actions Node.js runtime annotations.
+   - GitHub Actions Node.js runtime annotations resolved by updating Pages
+     actions to Node 24-compatible major versions.
    - Resolve Sass `@import` deprecation warnings as part of a focused
      styling/toolchain update.
 5. **Deferred visual upgrade**
@@ -134,7 +135,9 @@ No official code currently listed for:
 
 - Add a downloadable CV when a publishable PDF is available (low priority).
 - Add privacy-conscious analytics only if visitor metrics will influence decisions.
-- Keep GitHub Actions workflow maintenance current.
+- Keep GitHub Actions workflow maintenance current. Node.js runtime annotations
+  were resolved on 2026-06-27 by moving official Pages actions to their
+  Node 24-compatible major versions.
 - Resolve Sass `@import` deprecation warnings as part of a future styling/toolchain update.
 
 ### Deferred: Dark Mode and Framework Upgrade

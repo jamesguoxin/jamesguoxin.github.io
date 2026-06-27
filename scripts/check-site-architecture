@@ -204,6 +204,24 @@ abort("Future work must not mention stale 15+ paper metric") if future_work.incl
 abort("Future work must include publication metadata audit") unless future_work.include?("Publication Metadata Audit")
 abort("Future work must track unknown code links") unless future_work.include?("No official code currently listed")
 
+config = YAML.load_file(File.join(ROOT, "_config.yml"))
+expected_author_blurb = "Xin Guo is a Principal Research Scientist at the Shanghai AI Laboratory, focusing on AI for life sciences, multimodal scientific foundation models, scientific agentic AI, and automated labs for closed-loop discovery. His work aims to build AI systems that connect biological data, scientific reasoning, and experimental discovery. He has studied and worked in Switzerland, Germany, and the UK. Outside research, he enjoys coffee, Swiss chocolate, badminton, and basketball."
+unless config["author_blurb"] == expected_author_blurb
+  abort("Author blurb must use the updated academic profile copy")
+end
+abort("Author blurb must not mention Stephen Curry") if config["author_blurb"].include?("Stephen Curry")
+
+workflow = File.read(File.join(ROOT, ".github", "workflows", "jekyll.yml"))
+{
+  "actions/checkout@v5" => "Checkout must use the Node 24 runtime action",
+  "actions/configure-pages@v6" => "Configure Pages must use the Node 24 runtime action",
+  "actions/upload-pages-artifact@v5" => "Upload Pages artifact must use the Node 24 runtime action",
+  "actions/deploy-pages@v5" => "Deploy Pages must use the Node 24 runtime action"
+}.each do |expected_action, message|
+  abort(message) unless workflow.include?(expected_action)
+end
+abort("Pages deploy workflow must grant actions: read permission") unless workflow.include?("actions: read")
+
 expected_nav = ["About", "Research", "Experience", "Contact", "Blog ↗"]
 actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }
 abort("Primary navigation mismatch") unless actual_nav == expected_nav

@@ -177,7 +177,7 @@ email: "tigerguoxin@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "Xin is a Researcher specializing in AI4 (Life) Science, Machine Learning and Computer Vision. He currently resides in Shanghai, China, and has previously studied and worked in Switzerland, Germany and the UK. In his leisure time, Xin enjoys drinking coffee and indulging in Swiss chocolate. Additionally, he is an amateur badminton and basketball player, with Stephen Curry being his favorite basketball player."
+author_blurb: "Xin Guo is a Principal Research Scientist at the Shanghai AI Laboratory, focusing on AI for life sciences, multimodal scientific foundation models, scientific agentic AI, and automated labs for closed-loop discovery. His work aims to build AI systems that connect biological data, scientific reasoning, and experimental discovery. He has studied and worked in Switzerland, Germany, and the UK. Outside research, he enjoys coffee, Swiss chocolate, badminton, and basketball."
 author_blurb_image: "/img/bib.png"
 
 ##################
