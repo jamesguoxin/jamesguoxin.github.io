@@ -163,7 +163,10 @@ timeline-img: "/img/timeline/hangzhou.png"
 # Contact #
 ###########
 
-email: "tigerguoxin@gmail.com"
+email: "guoxin@sais.org.cn"
+emails:
+  - "guoxin@sais.org.cn"
+  - "tigerguoxin@gmail.com"
 
 
 # Set a url pointing to your publish PGP Public Key here, and it will appear in the Contact section

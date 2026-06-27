@@ -11,25 +11,31 @@
         <p class="contact-collaboration">{{ site.collaboration-statement }}</p>
       {% endif %}
 
-      {% if site.email %}
-        {% if site.email contains '@' %}
-          {% assign newemail = site.email | split: '@' %}
-            <p>
-            <script>
-              function join_at_email(user, domain){
+      {% assign contact_emails = site.emails | default: site.email %}
+      {% if contact_emails %}
+        {% unless contact_emails.first %}
+          {% assign contact_emails = contact_emails | split: "|" %}
+        {% endunless %}
+        <p class="contact-emails">
+          <script>
+            function join_at_email(user, domain){
               return (user && domain)?(user + "@" + domain):"";
-              }
-              document.write('<a href="mailto:'
-              + join_at_email( "{{ newemail[0] }}", "{{ newemail[1] }}" )
-              + '">'
-              + join_at_email( "{{ newemail[0] }}", "{{ newemail[1] }}" )
-              + '</a>'
-              );
-              </script>
-            </p>
-        {% else %}
-          <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-        {% endif %}
+            }
+            var contactEmails = [
+              {% for email in contact_emails %}
+                {% assign newemail = email | split: '@' %}
+                {
+                  user: "{{ newemail[0] }}",
+                  domain: "{{ newemail[1] }}"
+                }{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            ];
+            document.write(contactEmails.map(function(emailParts) {
+              var email = join_at_email(emailParts.user, emailParts.domain);
+              return '<a href="mailto:' + email + '">' + email + '</a>';
+            }).join(' · '));
+          </script>
+        </p>
       {% endif %}
 
       {% if site.pgp %}

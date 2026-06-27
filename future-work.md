@@ -27,8 +27,8 @@ fast to understand, easy to verify, and simple to contact.
 4. **Maintenance cleanup**
    - GitHub Actions Node.js runtime annotations resolved by updating Pages
      actions to Node 24-compatible major versions.
-   - Resolve Sass `@import` deprecation warnings as part of a focused
-     styling/toolchain update.
+   - Sass `@import` deprecation warnings resolved by migrating the main
+     stylesheet to Sass module `@use` syntax.
 5. **Deferred visual upgrade**
    - Dark mode remains a useful standalone visual enhancement, but should wait
      until content and metadata are stable.
@@ -138,7 +138,7 @@ No official code currently listed for:
 - Keep GitHub Actions workflow maintenance current. Node.js runtime annotations
   were resolved on 2026-06-27 by moving official Pages actions to their
   Node 24-compatible major versions.
-- Resolve Sass `@import` deprecation warnings as part of a future styling/toolchain update.
+- Keep Sass module usage current as Dart Sass removes legacy APIs.
 
 ### Deferred: Dark Mode and Framework Upgrade
 
@@ -286,8 +286,10 @@ Disqus is disabled. Cusdis can be reconsidered later only if comments become gen
 - **Previously completed:** homepage positioning, P1 quick wins, P2.2
   publication data, P2.3 photo + metrics, P3 blog, P4.1 Actions workflow, P5
   Mermaid, and the academic light visual refresh.
-- **Recommended next:** resolve GitHub Actions Node.js runtime annotations, then
-  consider Sass `@import` cleanup.
+- **Recently completed maintenance:** GitHub Actions Node.js runtime annotations
+  and Sass `@import` deprecation warnings have both been resolved.
+- **Recommended next:** decide whether to add lightweight research navigation
+  filters now that publication resource metadata is more complete.
 - **Open but lower priority:** P2.5 optional pages, P4.2 analytics, P4.3
   framework upgrade, P5.1 dark mode, and optional P5.2 Cusdis.
 - **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.

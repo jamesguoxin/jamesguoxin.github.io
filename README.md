@@ -101,8 +101,7 @@ Use the same environment as the GitHub Actions build:
 JEKYLL_ENV=production bundle exec jekyll build --baseurl ""
 ```
 
-The build may print Sass `@import` deprecation warnings. They are known
-toolchain warnings and do not currently prevent a successful build.
+The production build should complete without Sass deprecation warnings.
 
 ## Updating Content
 

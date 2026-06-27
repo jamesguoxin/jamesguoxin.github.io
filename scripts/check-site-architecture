@@ -71,6 +71,18 @@ contact_text = home.at_css("#contact").text.gsub(/\s+/, " ").strip
   abort("Contact section missing collaboration phrase #{phrase.inspect}") unless contact_text.include?(phrase)
 end
 
+config = YAML.load_file(File.join(ROOT, "_config.yml"))
+expected_contact_emails = ["guoxin@sais.org.cn", "tigerguoxin@gmail.com"]
+unless config["emails"] == expected_contact_emails
+  abort("Contact emails expected #{expected_contact_emails.inspect}")
+end
+expected_contact_emails.each do |email|
+  user, domain = email.split("@", 2)
+  unless home.to_html.include?(user) && home.to_html.include?(domain)
+    abort("Contact section must render obfuscated email parts for #{email}")
+  end
+end
+
 expected_section_actions = {
   "#publications" => ["View all publications →", SiteCheckHelpers.internal_path("/publications/")],
   "#news" => ["More news →", SiteCheckHelpers.internal_path("/news/")],
@@ -204,7 +216,6 @@ abort("Future work must not mention stale 15+ paper metric") if future_work.incl
 abort("Future work must include publication metadata audit") unless future_work.include?("Publication Metadata Audit")
 abort("Future work must track unknown code links") unless future_work.include?("No official code currently listed")
 
-config = YAML.load_file(File.join(ROOT, "_config.yml"))
 expected_author_blurb = "Xin Guo is a Principal Research Scientist at the Shanghai AI Laboratory, focusing on AI for life sciences, multimodal scientific foundation models, scientific agentic AI, and automated labs for closed-loop discovery. His work aims to build AI systems that connect biological data, scientific reasoning, and experimental discovery. He has studied and worked in Switzerland, Germany, and the UK. Outside research, he enjoys coffee, Swiss chocolate, badminton, and basketball."
 unless config["author_blurb"] == expected_author_blurb
   abort("Author blurb must use the updated academic profile copy")
@@ -221,6 +232,14 @@ workflow = File.read(File.join(ROOT, ".github", "workflows", "jekyll.yml"))
   abort(message) unless workflow.include?(expected_action)
 end
 abort("Pages deploy workflow must grant actions: read permission") unless workflow.include?("actions: read")
+
+scss_files = Dir.glob(File.join(ROOT, "{css,_sass}", "**", "*.scss"))
+scss_files.each do |path|
+  relative_path = path.delete_prefix("#{ROOT}/")
+  abort("#{relative_path} must use Sass modules instead of @import") if File.read(path).match?(/^\s*@import\b/)
+end
+readme = File.read(File.join(ROOT, "README.md"))
+abort("README must not describe Sass @import warnings as expected") if readme.include?("Sass `@import` deprecation warnings")
 
 expected_nav = ["About", "Research", "Experience", "Contact", "Blog ↗"]
 actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }
