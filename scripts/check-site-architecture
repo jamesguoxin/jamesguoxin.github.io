@@ -21,6 +21,13 @@ robots = File.read(robots_path)
 abort("robots.txt must allow crawlers") unless robots.include?("User-agent: *") && robots.include?("Allow: /")
 abort("robots.txt must declare sitemap") unless robots.include?("Sitemap: https://jamesguoxin.github.io/sitemap.xml")
 
+google_verification_path = File.join(ROOT, "_site", "google6b951a2a15a739d9.html")
+abort("Generated site must include Google Search Console verification file") unless File.exist?(google_verification_path)
+google_verification = File.read(google_verification_path).strip
+unless google_verification == "google-site-verification: google6b951a2a15a739d9.html"
+  abort("Google Search Console verification file content mismatch")
+end
+
 expected_home_sections = %w[about research publications news experience contact]
 home_main = home.at_css("body > main")
 abort("Homepage sections must be wrapped in a main landmark") unless home_main
