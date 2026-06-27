@@ -138,6 +138,22 @@ end
 unless poa_code && poa_code["href"] == "https://github.com/alipay/POA/tree/main"
   abort("POA must include official Code link")
 end
+expected_complete_code_links = {
+  "Structure-aware Semantic Discrepancy and Consistency for 3D Medical Image Self-supervised Learning" => "https://github.com/Ashespt/S2DC",
+  "Towards a Universal 3D Medical Multi-modality Generalization via Learning Personalized Invariant Representation" => "https://github.com/zhaorui-tan/PUIR_ICCV25",
+  "SCRIPT: Predicting Single-Cell Long-Range Cis-Regulation Based on Pretrained Graph Attention Networks" => "https://github.com/SAIS-LifeScience/SCRIPT"
+}
+expected_complete_code_links.each do |title, expected_href|
+  item = publications.css(".publication-item").find { |node| node.text.include?(title) }
+  abort("Complete publications missing #{title}") unless item
+
+  code_link = item.css(".publication-resource-link").find do |node|
+    SiteCheckHelpers.normalized_text(node) == "Code"
+  end
+  unless code_link && code_link["href"] == expected_href
+    abort("#{title} must include official Code link")
+  end
+end
 
 news_data = YAML.load_file(File.join(ROOT, "_data", "news.yml"))
 abort("Source news count expected 7, got #{news_data.length}") unless news_data.length == 7

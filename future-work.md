@@ -19,6 +19,8 @@ fast to understand, easy to verify, and simple to contact.
      full Publications archive.
    - Use the metadata to support future research navigation only after links
      are sufficiently complete.
+   - Added official code links for S2DC, PUIR, SCRIPT, and POA where links are
+     confirmed.
 3. **Research navigation**
    - Consider topic filters or richer topic landing paths for Publications
      once publication metadata is complete enough to support them cleanly.
@@ -230,7 +232,8 @@ Context: the upstream theme [le4ker/personal-jekyll-theme](https://github.com/le
 **Already adopted (2026-05-30):**
 - ✅ Mermaid diagrams via `jekyll-spaceship` (build-time SVG; see Plugins / CLAUDE.md).
 - ✅ GitHub Actions deploy (= §4.2).
-- ✅ Homepage selected publication resource links plus POA code metadata.
+- ✅ Homepage selected publication resource links plus confirmed archive code
+  metadata for S2DC, PUIR, SCRIPT, and POA.
 
 ### 5.1 Dark mode with theme toggle — ⬜ TODO (highest-value visual upgrade)
 System-following + manual toggle button, preference saved in `localStorage`. This is the main reason the upstream "looks nice".
