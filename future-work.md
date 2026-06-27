@@ -6,24 +6,24 @@ The site should continue to work primarily as an academic / research profile:
 fast to understand, easy to verify, and simple to contact.
 
 1. **Content refinement for About / Research / Contact**
-   - Make the homepage copy shorter, more concrete, and more consistent.
-   - Align terminology around AI for life sciences, multi-omics, multimodal
-     foundation models, biological representation learning, and scientific
-     agentic AI.
-   - Update stale credibility details such as paper counts.
+   - Initial homepage pass is complete.
+   - Keep future copy concise and aligned around AI for life sciences,
+     multimodal scientific foundation models, scientific agentic AI, and
+     automated labs for closed-loop discovery.
+   - Keep credibility metrics durable rather than overly precise.
    - Current homepage direction set: AI for Life Sciences, Multimodal
      Scientific Foundation Models, Scientific Agentic AI, and Automated Labs
      for Closed-Loop Discovery.
 2. **Publication resource metadata**
-   - Continue adding official `Paper`, `Code`, and `Project` links across the
-     full Publications archive.
+   - Continue adding official `Paper`, `Code`, and `Project` links only when
+     they are confirmed.
    - Use the metadata to support future research navigation only after links
      are sufficiently complete.
    - Added official code links for S2DC, PUIR, SCRIPT, and POA where links are
      confirmed.
 3. **Research navigation**
-   - Consider topic filters or richer topic landing paths for Publications
-     once publication metadata is complete enough to support them cleanly.
+   - Consider topic filters or richer topic landing paths only after metadata
+     is complete enough to support them cleanly.
 4. **Maintenance cleanup**
    - Resolve GitHub Actions Node.js runtime annotations.
    - Resolve Sass `@import` deprecation warnings as part of a focused
@@ -45,14 +45,15 @@ The academic light refresh is now live. The next improvements should help a firs
 
 - Added a stable, non-animated identity line to the Matterhorn hero:
   - `Principal Research Scientist at SAIS`
-  - `AI for Life Sciences · Multimodal Foundation Models`
+  - `AI for Life Sciences · Multimodal Scientific Foundation Models`
+  - `Scientific Agentic AI · Automated Labs for Discovery`
 - Kept the typed animation as secondary personality rather than the only
   research description.
 - Added three direct hero actions: `Publications`, `Google Scholar`, and
   `Contact`.
 - Added a short collaboration statement to Contact covering AI for life
-  sciences, multimodal foundation models, and agentic AI for scientific
-  discovery.
+  sciences, multimodal scientific foundation models, scientific agentic AI,
+  and automated labs for closed-loop discovery.
 
 Completed with a stable identity line, research focus, direct Publications /
 Google Scholar / Contact actions, and a collaboration statement.
@@ -69,9 +70,9 @@ Google Scholar / Contact actions, and a collaboration statement.
 - Patents, academic service, interviews, competitions, and awards are on the
   generated standalone Academic & Professional Activities page rather than
   the homepage.
-- The primary navigation contains homepage anchors only. Complete
-  Publications and News pages are reached through `View all publications` and
-  `More news`.
+- The primary navigation contains homepage anchors plus a distinct `Blog ↗`
+  page link. Complete Publications and News pages are reached through `View
+  all publications` and `More news`.
 - Academic & Professional Activities is reached from the Experience section
   rather than a global footer link.
 - Timeline was renamed to `Experience` and kept concise.
@@ -97,14 +98,37 @@ navigation enhancements not included in Next 2.
   - Updated Contact collaboration language around multi-omics, spatial biology, RNA design, scientific foundation models, tool-using AI systems, and automated labs.
   - Updated paper metric to `20+`.
 - Remaining content-editing work:
-  - `Life Sciences`
-  - `multi-omics`
-  - `vision foundation models`
-  - `large corporations and innovative startups`
-- Replace broad claims such as `benefit the whole world` with a concrete research mission.
-- Update numerical claims such as `15+ papers` when the displayed record has grown beyond them.
-- Keep Awards chronological, preferably newest first, without artificial `1, 2, 3` ranking.
-- Clarify project names for international visitors while retaining Chinese branding where useful.
+  - Keep terminology consistent as new content is added.
+  - Keep Awards chronological, newest first.
+  - Clarify project names for international visitors while retaining Chinese
+    branding where useful.
+
+### Publication Metadata Audit (2026-06-27)
+
+Confirmed official code links are listed for:
+
+- FLAG
+- ChromFound
+- SOLD
+- HorusEye
+- SkySense
+- POA
+- S2DC
+- PUIR
+- SCRIPT
+
+No official code currently listed for:
+
+- Efficient Network Automatic Relevance Determination
+- Minimal Semantic Sufficiency Meets Unsupervised Domain Generalization
+- Sprint or Delve
+- Simultaneously Short- and Long-Term Temporal Modeling
+- PECEL
+- The Innovation remote sensing foundation model paper
+- RSE zero-shot urban land-use mapping
+- Automatic Car Damage Assessment System
+- Feature Correlation Distillation
+- ICASSP 2015 NMF source separation
 
 ### Next 5: Performance, Measurement, and Maintenance
 
@@ -250,21 +274,21 @@ Disqus is disabled. Cusdis can be reconsidered later only if comments become gen
 
 ---
 
-## Current status snapshot (2026-06-16)
+## Current status snapshot (2026-06-27)
 
-- **Implemented locally:** homepage information architecture, representative
-  publication curation, generated Publications / News / Activities pages, and
-  the Experience rename.
+- **Implemented and deployed:** homepage information architecture,
+  representative publication curation, generated Publications / News /
+  Activities pages, Experience rename, Blog navigation, Disqus removal, and
+  current AI4Science positioning.
 - **Previously completed:** homepage positioning, P1 quick wins, P2.2
   publication data, P2.3 photo + metrics, P3 blog, P4.1 Actions workflow, P5
   Mermaid, and the academic light visual refresh.
-- **Recommended next:** continue adding Code / Project resource metadata where
-  available, then consider research navigation improvements supported by that
-  metadata.
+- **Recommended next:** resolve GitHub Actions Node.js runtime annotations, then
+  consider Sass `@import` cleanup.
 - **Open but lower priority:** P2.5 optional pages, P4.2 analytics, P4.3
   framework upgrade, P5.1 dark mode, and optional P5.2 Cusdis.
 - **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.
 
 ---
 
-*Generated: 2026-04-05 · last updated: 2026-06-16*
+*Generated: 2026-04-05 · last updated: 2026-06-27*

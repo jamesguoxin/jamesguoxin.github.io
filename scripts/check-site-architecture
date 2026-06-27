@@ -190,8 +190,19 @@ awards_heading = activity_headings.find do |node|
   SiteCheckHelpers.normalized_text(node) == "Honors & Awards"
 end
 abort("Activities page missing Honors & Awards heading") unless awards_heading
-award_count = awards_heading.xpath("following-sibling::p[not(contains(concat(' ', normalize-space(@class), ' '), ' cv-note '))]").length
+awards = awards_heading.xpath("following-sibling::p[not(contains(concat(' ', normalize-space(@class), ' '), ' cv-note '))]")
+award_count = awards.length
 abort("Activities awards count expected 12, got #{award_count}") unless award_count == 12
+award_texts = awards.map { |node| SiteCheckHelpers.normalized_text(node) }
+abort("Activities awards must be newest first") unless award_texts.first.start_with?("2026:")
+abort("Activities awards must keep oldest entries last") unless award_texts.last.start_with?("2008:")
+abort("Activities page must explain Dingsunbao Chinese branding") unless activities.text.include?("Dingsunbao (定损宝")
+abort("Activities page must clarify Shanghai Oriental Talent Program") unless activities.text.include?("Shanghai municipal young-talent program")
+
+future_work = File.read(File.join(ROOT, "future-work.md"))
+abort("Future work must not mention stale 15+ paper metric") if future_work.include?("15+ papers")
+abort("Future work must include publication metadata audit") unless future_work.include?("Publication Metadata Audit")
+abort("Future work must track unknown code links") unless future_work.include?("No official code currently listed")
 
 expected_nav = ["About", "Research", "Experience", "Contact", "Blog ↗"]
 actual_nav = home.css(".navbar-main-collapse .nav > li > a").map { |node| node.text.strip }
