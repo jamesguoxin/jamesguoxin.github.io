@@ -103,6 +103,23 @@ JEKYLL_ENV=production bundle exec jekyll build --baseurl ""
 
 The production build should complete without Sass deprecation warnings.
 
+### Visual Regression Checks
+
+Install Node dependencies once:
+
+```bash
+npm install
+```
+
+Run the Playwright smoke and screenshot checks:
+
+```bash
+npm run test:visual
+```
+
+The test starts a local Jekyll server, checks desktop and mobile layouts, and
+verifies navbar and Research Highlights alignment.
+
 ## Updating Content
 
 ### News

@@ -22,6 +22,9 @@ Rakefile
 _site/
 .bundle/
 vendor/
+node_modules/
 .superpowers/
 docs/superpowers/
 .worktrees/
+playwright-report/
+test-results/

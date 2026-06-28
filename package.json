@@ -1,0 +1,24 @@
+{
+  "name": "jamesguoxin.github.io",
+  "version": "1.0.0",
+  "description": "Source code for Xin / James Guo's academic website: [https://jamesguoxin.github.io/](https://jamesguoxin.github.io/).",
+  "scripts": {
+    "test": "npm run test:visual",
+    "test:visual": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesguoxin/jamesguoxin.github.io.git"
+  },
+  "keywords": [],
+  "author": "Xin / James Guo",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jamesguoxin/jamesguoxin.github.io/issues"
+  },
+  "homepage": "https://github.com/jamesguoxin/jamesguoxin.github.io#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
+  }
+}
