@@ -114,6 +114,11 @@ a {
     max-height: 100%;
     overflow-y: auto;
 
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
     #logo_nav {
         height: 30px;
         margin-top: -5px;
@@ -132,6 +137,11 @@ a {
         }
     }
     .navbar-brand {
+        display: flex;
+        min-height: 50px;
+        padding-top: 0;
+        padding-bottom: 0;
+        align-items: center;
         font-weight: 700;
         &:focus {
             outline: none;
@@ -147,6 +157,11 @@ a {
         text-align: center;
         .nav-item {
             .nav-link {
+                display: flex;
+                min-height: 50px;
+                padding-top: 0;
+                padding-bottom: 0;
+                align-items: center;
                 -webkit-transition: background .3s ease-in-out;
                 -moz-transition: background .3s ease-in-out;
                 transition: background .3s ease-in-out;
@@ -644,6 +659,8 @@ a {
 }
 
 .research-card {
+    display: flex;
+    flex-direction: column;
     padding: 22px 24px;
     background: #f8fafc;
     border-left: 4px solid $secondary-color;
@@ -652,6 +669,7 @@ a {
     h3 {
         margin: 0 0 12px;
         font-size: 18px;
+        line-height: 1.35;
         text-transform: none;
         letter-spacing: 0;
     }
@@ -664,6 +682,14 @@ a {
         text-align: left;
         text-align-last: left;
         hyphens: none;
+    }
+}
+
+@media(min-width:768px) {
+    .research-card h3 {
+        min-height: 49px;
+        display: flex;
+        align-items: flex-start;
     }
 }
 

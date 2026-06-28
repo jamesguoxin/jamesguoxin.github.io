@@ -259,6 +259,10 @@ end
 readme = File.read(File.join(ROOT, "README.md"))
 abort("README must not describe Sass @import warnings as expected") if readme.include?("Sass `@import` deprecation warnings")
 
+compiled_css = File.read(File.join(ROOT, "_site", "css", "grayscale.css"))
+abort("Navbar container must vertically align brand and links") unless compiled_css.include?(".navbar-custom .container") && compiled_css.include?("align-items:center")
+abort("Research card titles must reserve a stable two-line block") unless compiled_css.include?(".research-card h3") && compiled_css.include?("min-height")
+
 posts.each do |post|
   canonical = post.at_css("link[rel='canonical']")
   abort("Post canonical must be absolute") unless canonical && canonical["href"].start_with?("https://jamesguoxin.github.io/")
