@@ -38,6 +38,12 @@
         </p>
       {% endif %}
 
+      {% if site.cv.english %}
+        <p class="contact-cv">
+          <a href="{{ site.cv.english | relative_url }}" target="_blank" rel="noopener noreferrer">Download CV</a>
+        </p>
+      {% endif %}
+
       {% if site.pgp %}
         <a href="{{ site.pgp }}" target="_blank">PGP Key</a>
         <p/>

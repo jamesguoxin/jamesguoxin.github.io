@@ -1,125 +1,47 @@
-# Future Work — Website Improvement Plan
+# Future Work - Website Improvement Plan
 
-## Active Development Plan (updated 2026-06-27)
+Last updated: 2026-06-28
 
-The site should continue to work primarily as an academic / research profile:
-fast to understand, easy to verify, and simple to contact.
+The site should continue to work primarily as an academic and research profile:
+fast to understand, easy to verify, and simple to contact. The current
+positioning is:
 
-1. **Content refinement for About / Research / Contact**
-   - Initial homepage pass is complete.
-   - Keep future copy concise and aligned around AI for life sciences,
-     multimodal scientific foundation models, scientific agentic AI, and
-     automated labs for closed-loop discovery.
-   - Keep credibility metrics durable rather than overly precise.
-   - Current homepage direction set: AI for Life Sciences, Multimodal
-     Scientific Foundation Models, Scientific Agentic AI, and Automated Labs
-     for Closed-Loop Discovery.
-2. **Publication resource metadata**
-   - Continue adding official `Paper`, `Code`, and `Project` links only when
-     they are confirmed.
-   - Use the metadata to support future research navigation only after links
-     are sufficiently complete.
-   - Added official code links for S2DC, PUIR, SCRIPT, and POA where links are
-     confirmed.
-3. **Technical foundation upgrade**
-   - Frontend foundation upgrade completed: Bootstrap 5, first-party vanilla
-     JavaScript interactions, and a current Font Awesome baseline.
-   - Continue treating future frontend work as staged compatibility work unless
-     a separate visual redesign is explicitly planned.
-4. **Blog and review content strategy**
-   - Raise blog quality and cadence as a high-priority content track.
-   - Focus future posts on review-style articles that support the AI for
-     science positioning.
-   - Plan for cross-posting or synchronized publishing with the WeChat personal
-     public account while keeping the website as the canonical archive.
-5. **Research navigation**
-   - Consider topic filters or richer topic landing paths only after metadata
-     is complete enough to support them cleanly.
-6. **Maintenance cleanup**
-   - GitHub Actions Node.js runtime annotations resolved by updating Pages
-     actions to Node 24-compatible major versions.
-   - Sass `@import` deprecation warnings resolved by migrating the main
-     stylesheet to Sass module `@use` syntax.
-   - Blog SEO baseline added with `robots.txt`, absolute canonical URLs,
-     page-specific post descriptions, and Open Graph metadata.
-7. **Deferred visual upgrade**
-   - Dark mode remains a useful standalone visual enhancement, but should wait
-     until content and metadata are stable.
+- AI for Life Sciences
+- Multimodal Scientific Foundation Models
+- Scientific Agentic AI
+- Automated Labs for Closed-Loop Discovery
 
-## Recommended Roadmap (updated 2026-06-27)
+## Active Priorities
 
-The academic light refresh is now live. The next improvements should help a first-time visitor answer four questions quickly:
+### 1. Blog / Review Content Strategy
 
-1. Who is Xin / James Guo?
-2. What are his current research areas?
-3. What are his strongest representative works?
-4. How can someone recruit or collaborate with him?
+Raise blog quality and cadence as a high-priority content track. The website
+should remain the canonical long-form archive, with selected posts synchronized
+to the WeChat personal public account.
 
-### Next 1: Homepage Positioning and Conversion — ✅ COMPLETED
+Recommended review-style topics:
 
-- Added a stable, non-animated identity line to the Matterhorn hero:
-  - `Principal Research Scientist at SAIS`
-  - `AI for Life Sciences · Multimodal Scientific Foundation Models`
-  - `Scientific Agentic AI · Automated Labs for Discovery`
-- Kept the typed animation as secondary personality rather than the only
-  research description.
-- Added three direct hero actions: `Publications`, `Google Scholar`, and
-  `Contact`.
-- Added a short collaboration statement to Contact covering AI for life
-  sciences, multimodal scientific foundation models, scientific agentic AI,
-  and automated labs for closed-loop discovery.
+- AI for Life Sciences Foundation Models: A Practical Research Map
+- Multimodal Scientific Foundation Models: From Omics to Spatial Biology
+- Scientific Agentic AI: Why Tool-Using Models Matter for Discovery
+- Automated Labs and Closed-Loop Discovery: What AI Researchers Should Know
 
-Completed with a stable identity line, research focus, direct Publications /
-Google Scholar / Contact actions, and a collaboration statement.
+Future implementation candidates:
 
-### Next 2: Homepage Information Architecture — IMPLEMENTED LOCALLY (2026-06-16)
+- Add per-post canonical or cross-post metadata for WeChat versions.
+- Add review-specific tags or a lightweight review collection.
+- Improve the Blog index once there are enough review-style posts.
+- Add article structured data after the publishing pattern stabilizes.
 
-- Homepage order is now `About Me`, `Research Highlights`, `Selected
-  Publications`, `Recent News`, `Experience`, and `Contact`.
-- Recent News shows the latest four entries from `_data/news.yml`.
-- Selected Publications shows six papers in this order: FLAG, HorusEye, RNA
-  Design, Sprint or Delve, ChromFound, and SkySense.
-- Complete Publications and News archives are generated as standalone pages
-  and ready for deployment.
-- Patents, academic service, interviews, competitions, and awards are on the
-  generated standalone Academic & Professional Activities page rather than
-  the homepage.
-- The primary navigation contains homepage anchors plus a distinct `Blog ↗`
-  page link. Complete Publications and News pages are reached through `View
-  all publications` and `More news`.
-- Academic & Professional Activities is reached from the Experience section
-  rather than a global footer link.
-- Timeline was renamed to `Experience` and kept concise.
+### 2. Publication Resource Metadata
 
-### Next 3: Resource Metadata and Research Navigation
+#### Publication Metadata Audit
 
-- Add compact resource links where available: `Paper`, `Code`, and `Project`.
-- Add `code` and `project` fields to publication data when useful.
-- Consider future research navigation enhancements, such as topic filters or
-  richer topic landing paths, only when the metadata supports them.
+Continue adding official `Paper`, `Code`, and `Project` links only when they
+are confirmed. Use this metadata to support future research navigation only
+after the links are sufficiently complete.
 
-The representative homepage selection and complete Publications page are
-already implemented. This item remains open only for resource metadata and
-navigation enhancements not included in Next 2.
-
-### Next 4: Content Editing and Credibility Details
-
-- Initial pass completed 2026-06-27 for About / Research / Contact:
-  - Reoriented homepage copy around `AI4Science Specialist → Academic Researcher → Research Leader / Applied AI`.
-  - Updated About to foreground AI for life sciences and scientific discovery.
-  - Added representative works FLAG, ChromFound, and SOLD without positioning HorusEye as core to the identity.
-  - Expanded Research Highlights to AI for Life Sciences, Multimodal Scientific Foundation Models, Scientific Agentic AI, and Automated Labs for Closed-Loop Discovery.
-  - Updated Contact collaboration language around multi-omics, spatial biology, RNA design, scientific foundation models, tool-using AI systems, and automated labs.
-  - Updated paper metric to `20+`.
-- Remaining content-editing work:
-  - Keep terminology consistent as new content is added.
-  - Keep Awards chronological, newest first.
-  - Clarify project names for international visitors while retaining Chinese
-    branding where useful.
-
-### Publication Metadata Audit (2026-06-27)
-
-Confirmed official code links are listed for:
+Confirmed official code links are currently listed for:
 
 - FLAG
 - ChromFound
@@ -144,198 +66,162 @@ No official code currently listed for:
 - Feature Correlation Distillation
 - ICASSP 2015 NMF source separation
 
-### Next 5: Performance, Measurement, and Maintenance
+### 3. Research Navigation
 
-- Add a downloadable CV when a publishable PDF is available (low priority).
-- Add privacy-conscious analytics only if visitor metrics will influence decisions.
-- Keep GitHub Actions workflow maintenance current. Node.js runtime annotations
-  were resolved on 2026-06-27 by moving official Pages actions to their
-  Node 24-compatible major versions.
+Consider topic filters or richer research landing paths after publication
+metadata is complete enough to support them cleanly.
+
+Potential scope:
+
+- Filter Publications by research area.
+- Add compact topic pages for the four homepage research directions.
+- Link representative papers, code, and blog reviews under each direction.
+
+This should wait until the metadata and content are strong enough to avoid
+empty or uneven sections.
+
+### 4. Optional Pages
+
+Add only if there is enough real content to justify each page:
+
+- Talks / Presentations
+- Teaching / Mentoring
+- Open Source / Code
+
+These are useful, but they are lower priority than CV and review content.
+
+## Backlog
+
+### Analytics
+
+Google Analytics or another privacy-conscious analytics tool can be added if
+visitor metrics will influence decisions. Leave it off if the data will not be
+used.
+
+### Dark Mode
+
+Dark mode remains a valid standalone visual enhancement, but it should wait
+until content, metadata, and review publishing are stable.
+
+Preferred future route:
+
+- Keep the current Bootstrap 5 baseline.
+- Convert theme colors to CSS variables.
+- Add a system-following theme with a manual toggle saved in `localStorage`.
+
+### Comments
+
+Comments are disabled. Cusdis can be reconsidered only if comments become
+genuinely useful for review-style blog posts. If added, it should land after or
+alongside dark-mode theme plumbing so the widget matches the page theme.
+
+## Maintenance Notes
+
+Routine maintenance should stay small and staged:
+
+- Keep GitHub Actions dependencies current.
 - Keep Sass module usage current as Dart Sass removes legacy APIs.
+- Keep Playwright screenshots updated when intentional visual changes land.
+- Do not commit `_site/`; GitHub Actions builds and deploys the site.
 
-### Deferred: Dark Mode and Framework Upgrade
+Suggested workflow:
 
-- Dark mode remains a valid visual enhancement, but it is lower value than improving homepage hierarchy and conversion.
-- Comments are disabled. Cusdis can be reconsidered only if comments become genuinely useful.
-- Bootstrap 5 / no-jQuery migration is complete; future frontend work can build
-  on the newer baseline.
-
----
-
-## Priority 1: Quick Wins (config changes only) — ✅ COMPLETED (2026-04-13)
-
-### 1.1 Header Dynamic Text — ✅ Done
-Configured lines are `Running Up That Hill` and
-`Decoding Life with Foundation Models`.
-
-### 1.2 Site Description — ✅ Done
-Current description: *"Principal Research Scientist at SAIS — AI for Life
-Sciences, Multimodal Foundation Models, and Scientific Agentic AI."*
-
-### 1.3 Social Links — ✅ Done
-- **Added:** Google Scholar, ORCID (with Academicons CDN for proper icons)
-- **Removed:** Facebook, Twitter/X
-- **Kept:** LinkedIn, GitHub
-- Template updated to support custom `icon` field in social entries.
-
-### 1.4 Disable Irrelevant Features — ✅ Done
-- `tumblr-share: False`
-- `pinterest-share: False`
-- `vkontakte-share: False`
-- Disqus comments disabled to keep the site focused and lighter.
-
----
-
-## Priority 2: Content & Structure (moderate effort)
-
-### 2.1 Split About Page into Dedicated Sections — IMPLEMENTED LOCALLY (2026-06-16)
-The homepage now uses concise About, Research Highlights, Selected
-Publications, Recent News, Experience, and Contact sections. Complete
-Publications, News, and Activities content is generated as standalone pages
-and ready for deployment.
-
-### 2.2 Publication Tracking — Use YAML Data File — ✅ COMPLETED (2026-05-29)
-Publications now live in `_data/publications.yml` (grouped by `section`, each
-paper has `title`/`url`/`authors`/`venue` and an optional
-`me_mark: equal|corr`). Shared Liquid includes render the selected homepage
-list and complete Publications page, auto-highlight "Xin Guo", and append the
-`*`/✉ marks. Adding a paper requires YAML changes rather than HTML editing.
-
-Data model:
-```yaml
-- section: "AI4Biomedicine at SAIS"
-  papers:
-    - title: "ChromFound: Towards A Universal Foundation Model..."
-      url: "https://arxiv.org/abs/2505.12638"
-      authors: "Yifeng Jiao, Yuchen Liu, Yu Zhang, Xin Guo, ..."
-      venue: "NeurIPS 2025"
-      me_mark: "corr"   # "corr" → ✉, "equal" → *, omit for none; url optional
+```bash
+scripts/check-site-architecture
+npm run test:visual
+JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.dev.yml
+git push
 ```
 
-### 2.3 About Page — Add Photo and Key Metrics — ✅ COMPLETED (2026-06-07)
-- Professional headshot is embedded in the About section.
-- Key metrics are displayed in a responsive metric grid.
+## Completed
 
-### 2.4 Timeline / Experience — IMPLEMENTED LOCALLY (2026-06-16)
-The homepage section is named `Experience`, retains the four major career and
-education entries, and stays concise rather than duplicating publications,
-awards, and projects shown elsewhere.
+### Homepage Positioning
 
-### 2.5 Add Missing Pages
-- **Talks/Presentations** — Conference talks, invited lectures
-- **Teaching/Mentoring** — TA at EPFL, student supervision at SAIS
-- **Open Source / Code** — SkySense, POA, and other repos with links and descriptions
+Completed and deployed.
 
----
+- Added stable identity line: `Principal Research Scientist at SAIS`.
+- Added research focus around AI for life sciences, multimodal scientific
+  foundation models, scientific agentic AI, and automated labs.
+- Added hero actions for Publications, Google Scholar, and Contact.
+- Updated About, Research, and Contact copy to support the AI4Science
+  positioning.
+- Kept HorusEye out of the core medical-positioning narrative.
+- Updated publication metric to `20+`.
 
-## Priority 3: Blog Strategy — ✅ COMPLETED (2026-05-29)
+### Homepage Information Architecture
 
-Closed as sufficient for now. Three substantial posts (Lausanne restaurants 2016, ChatGPT/GPT-4 2023, Foundation Models Meet Biology 2026) cover the AI-for-Life-Science positioning well; the two recent tech posts are 1,500–2,000 words each. More posts are welcome over time but not a blocker.
+Completed and deployed.
 
-### 3.1 Write More Consistently — Done (deemed sufficient)
-3 posts; recent ones are on-message and substantial. Future posts optional, not required.
+- Homepage order is now About, Research Highlights, Selected Publications,
+  Recent News, Experience, and Contact.
+- Publications, News, and Academic & Professional Activities are generated as
+  standalone pages.
+- Blog is a distinct navigation item.
+- Activities are reached from Experience rather than as a top-level homepage
+  section.
 
-### 3.2 Add New Categories — Dropped
-`tech` already covers research content; no new categories needed. Regenerated `tags/` pages so all tags on recent posts resolve (fixed previously-missing tag pages).
+### Publication Data Model
 
----
+Completed.
 
-## Priority 4: Technical Debt (low urgency)
+- Publications live in `_data/publications.yml`.
+- Shared Liquid includes render selected homepage publications and the complete
+  Publications page.
+- The model supports optional `url`, `code`, `project`, `me_mark`, and display
+  metadata.
 
-### 4.1 Remove `_site/` from Git — Use GitHub Actions to Build — ✅ COMPLETED (2026-05-30, verified live)
-- Added `.github/workflows/jekyll.yml`: builds with Bundler (`bundle exec jekyll build`) and deploys via GitHub Pages on push to `master`.
-- Added `Gemfile` / `Gemfile.lock` pinning jekyll, jekyll-paginate, jemoji, jekyll-spaceship, webrick.
-- Gitignored `_site/` and untracked it (87 files); generated output is no longer committed.
-- Repo setting changed: Settings → Pages → Source → "GitHub Actions".
-- First deploy succeeded and the live site was confirmed updated.
+### Technical Foundation
 
-**Gotchas hit (for future reference):**
-- Pushing workflow files needs a PAT with `workflow` scope (or push via SSH).
-- Bundler 4 wrote a `CHECKSUMS` section with empty entries (Tsinghua mirror serves no checksums), which fails CI's frozen `bundle install`. Fix: removed the `CHECKSUMS` section. When regenerating the lockfile locally, verify with `BUNDLE_FROZEN=true bundle check` before pushing.
-- Legacy CI configuration was removed after GitHub Actions became the sole deploy path.
+Completed.
 
-### 4.2 Set Up Google Analytics
-Currently empty in `_config.yml`. Set up if you want to track visitor metrics.
-
-### 4.3 Framework Upgrade — ✅ COMPLETED (2026-06-28)
-Completed as a foundation migration rather than a visual redesign.
-
-- Bootstrap 3.3.5 was replaced with Bootstrap 5.3.x.
+- GitHub Actions builds and deploys the site through GitHub Pages.
+- `_site/` is no longer committed.
+- Bootstrap 3 was replaced with Bootstrap 5.
 - First-party jQuery interactions were replaced with vanilla JavaScript.
-- Font Awesome 4.4.0 was replaced with a current Font Awesome baseline.
-- Legacy jQuery-based typed and rrssb scripts were removed.
-- Current visual hierarchy and content structure were preserved.
-- A different academic theme was not adopted; that remains a separate redesign
-  decision.
+- Font Awesome was upgraded to a current baseline.
+- Legacy typed and rrssb scripts were removed.
+- Sass `@import` deprecation warnings were resolved with Sass module `@use`
+  syntax.
+- GitHub Actions Node.js runtime annotations were resolved by updating Pages
+  actions to Node 24-compatible versions.
 
-### 4.4 Blog / Review Publishing Track
-High priority content track for future site value.
+### SEO And Search
 
-- Publish higher-quality review-style articles around AI for science,
-  scientific foundation models, agentic AI, automated labs, and related papers.
-- Keep the website as the canonical long-form archive.
-- Synchronize selected posts with the WeChat personal public account, with
-  clear source links between the website and WeChat version.
-- Future implementation candidates:
-  - add per-post canonical / cross-post metadata,
-  - add review-specific tags or collections,
-  - add a stronger Blog index for review articles,
-  - add structured data for article pages after the content pattern stabilizes.
+Completed.
 
----
+- Added crawlable `robots.txt`.
+- Added absolute canonical URLs.
+- Added page-specific post descriptions.
+- Added Open Graph metadata.
+- Added Google Search Console verification file.
 
-## Priority 5: Adopt Upstream Theme Updates (le4ker fork)
+### Visual QA
 
-Context: the upstream theme [le4ker/personal-jekyll-theme](https://github.com/le4ker/personal-jekyll-theme) (v10.4.1, Mar 2026) has diverged substantially from our fork — it rewrote to **Bootstrap 5 (no jQuery)**, **Font Awesome 7**, and a **CSS-variable + `[data-theme]` styling system**. Our `grayscale.scss` still uses Bootstrap 3 + SASS `darken()`/hardcoded colors. Reviewed 2026-05-30; decided to cherry-pick rather than wholesale-merge.
+Completed.
 
-**Already adopted (2026-05-30):**
-- ✅ Mermaid diagrams via `jekyll-spaceship` (build-time SVG; see Plugins / CLAUDE.md).
-- ✅ GitHub Actions deploy (= §4.2).
-- ✅ Homepage selected publication resource links plus confirmed archive code
-  metadata for S2DC, PUIR, SCRIPT, and POA.
+- Added Playwright visual regression checks for homepage, Blog, one post,
+  Publications, and Activities.
+- Covered desktop and mobile screenshots.
+- Added checks for navbar alignment, Research Highlights alignment, and mobile
+  navbar behavior.
+- Fixed Bootstrap 5 mobile column width issues by adding explicit `col-12`
+  classes where needed.
 
-### 5.1 Dark mode with theme toggle — ⬜ TODO
-System-following + manual toggle button, preference saved in `localStorage`. This is the main reason the upstream "looks nice".
-**Decision: Route A (incremental).** Modernize the frontend baseline first,
-then convert `grayscale.scss` to CSS variables and hand-write light/dark
-palettes coordinated with the Matterhorn backdrop. Large styling job — do as
-its own focused session.
-- (Route B = adopt upstream's Bootstrap 5 + new styles and port our customizations back. Rejected for now: highest risk, ≈ a full front-end re-integration. Equivalent to §4.4.)
-- Upstream reference clone notes: dark mode bootstraps via an inline `<head>` script reading `localStorage.theme` and setting `data-theme`; toggle logic lives in `js.html`; styles key off `[data-theme="dark"]`.
+### CV / Resume Download
 
-### 5.2 Comments — Deferred / Optional
-Disqus is disabled. Cusdis can be reconsidered later only if comments become genuinely useful; if added, it should land together with the dark-mode theme plumbing so the widget can match the page theme.
+Completed.
 
-### 5.3 Skipped from upstream (intentionally)
-- License change to Apache 2.0, Conventional Commits, git hooks — maintainer tooling, not relevant to us.
-- Single-quote `site.quote` header (we keep typed.js multi-line animation).
+- Added a compiled English academic CV PDF under `assets/cv/`.
+- Added a `CV` action in the hero.
+- Added a `Download CV` link in Contact.
 
----
+### Earlier Quick Wins
 
-## Current status snapshot (2026-06-27)
+Completed.
 
-- **Implemented and deployed:** homepage information architecture,
-  representative publication curation, generated Publications / News /
-  Activities pages, Experience rename, Blog navigation, Disqus removal, and
-  current AI4Science positioning.
-- **Previously completed:** homepage positioning, P1 quick wins, P2.2
-  publication data, P2.3 photo + metrics, P3 blog, P4.1 Actions workflow, P5
-  Mermaid, and the academic light visual refresh.
-- **Recently completed maintenance:** GitHub Actions Node.js runtime annotations
-  and Sass `@import` deprecation warnings have both been resolved. Blog SEO
-  now has a crawlable `robots.txt`, absolute canonical URLs, page-specific
-  descriptions, and Open Graph metadata. The frontend foundation now uses
-  Bootstrap 5, vanilla first-party interactions, and a current Font Awesome
-  baseline.
-- **Recommended next:** decide between lightweight Publications / Research
-  filters and the first higher-quality review-style blog article workflow.
-- **High-priority content track:** improve blog quality with review-style AI for
-  science writing and synchronize selected posts with the WeChat personal
-  public account.
-- **Open but lower priority:** P2.5 optional pages, P4.2 analytics, P5.1 dark
-  mode, and optional P5.2 Cusdis.
-- **Workflow note:** edit → `scripts/preview` (local check) → commit → `git push` → Actions auto-deploys (~1–2 min). Do NOT commit `_site/`. Workflow-file pushes need a PAT with `workflow` scope.
-
----
-
-*Generated: 2026-04-05 · last updated: 2026-06-27*
+- Updated site description and social links.
+- Added Google Scholar and ORCID.
+- Removed irrelevant social/share options.
+- Disabled Disqus comments.
+- Added professional headshot and key metrics.
+- Added Mermaid diagram support through `jekyll-spaceship`.

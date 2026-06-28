@@ -69,6 +69,9 @@ hero:
 
 collaboration-statement: "I welcome collaborations in AI for life sciences, multimodal scientific foundation models, scientific agentic AI, and automated labs for closed-loop discovery, including multi-omics, spatial biology, RNA design, and tool-using AI systems."
 
+cv:
+  english: "/assets/cv/xin-guo-cv-en-20260628.pdf"
+
 # To use facebook profile pic comment the previous line and uncomment the following
 # line, and replace 'user_id' with your facebook user id.
 # Facebook user id can be found by clicking on your profile pic and the large number

@@ -22,6 +22,9 @@
                 {% endif %}
               {% endfor %}
               <a class="hero-action page-scroll" href="#contact">Contact</a>
+              {% if site.cv.english %}
+                <a class="hero-action" href="{{ site.cv.english | relative_url }}" target="_blank" rel="noopener noreferrer">CV</a>
+              {% endif %}
             </nav>
             <a href="#about" class="page-scroll intro-scroll" aria-label="Scroll to About">
               <i class="fa-solid fa-angle-down"></i>
