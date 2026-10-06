@@ -53,8 +53,10 @@ end
 about_text = home.at_css("#about").text.gsub(/\s+/, " ").strip
 [
   "gene and RNA foundation models",
-  "single-cell and spatial omics",
   "biological representation learning",
+  "sequence- and structure-based RNA design",
+  "sequence-based siRNA design",
+  "related work in cellular and spatial biology",
   "PAST",
   "FLAG",
   "ChromFound",
@@ -64,7 +66,8 @@ about_text = home.at_css("#about").text.gsub(/\s+/, " ").strip
   "Toward Programmable and Personalized Medicine",
   "Together with my collaborators",
   "I aspire to turn biological understanding into programmable medicine through nucleic acid therapeutics",
-  "disease targets that conventional therapies struggle to reach",
+  "using insights into disease mechanisms to guide target selection and RNA design",
+  "targets that conventional therapies struggle to reach",
   "treatments tailored to the biology of individual patients"
 ].each do |phrase|
   abort("About section missing #{phrase.inspect}") unless about_text.include?(phrase)
@@ -73,10 +76,10 @@ abort("About section should not position HorusEye as a core work") if about_text
 abort("About metric must show 20+ papers") unless home.at_css("#about .metric-card strong", text: "20+")
 
 expected_research_titles = [
-  "Gene Foundation Models",
-  "RNA Foundation Models & Design",
+  "Gene & RNA Foundation Models",
   "AI Scientists",
-  "Autonomous Labs"
+  "Autonomous Labs",
+  "Programmable Therapeutics"
 ]
 actual_research_titles = home.css("#research .research-card h3").map { |node| SiteCheckHelpers.normalized_text(node) }
 unless actual_research_titles == expected_research_titles
@@ -86,10 +89,10 @@ end
 contact_text = home.at_css("#contact").text.gsub(/\s+/, " ").strip
 [
   "gene and RNA foundation models",
-  "single-cell and spatial omics",
-  "RNA design",
+  "sequence- and structure-based RNA design",
   "AI scientists",
-  "autonomous labs"
+  "autonomous labs",
+  "programmable nucleic acid therapeutics"
 ].each do |phrase|
   abort("Contact section missing collaboration phrase #{phrase.inspect}") unless contact_text.include?(phrase)
 end
@@ -235,7 +238,7 @@ abort("Future work must not mention stale 15+ paper metric") if future_work.incl
 abort("Future work must include publication metadata audit") unless future_work.include?("Publication Metadata Audit")
 abort("Future work must track unknown code links") unless future_work.include?("No official code currently listed")
 
-expected_author_blurb = "Xin Guo is a Principal Research Scientist at the Shanghai Academy of Artificial Intelligence for Science (SAIS). His research focuses on gene and RNA foundation models, AI scientists, and autonomous labs. He has studied and worked in Switzerland, Germany, and the UK. Outside research, he enjoys coffee, Swiss chocolate, badminton, and basketball."
+expected_author_blurb = "Xin Guo is a Principal Research Scientist at the Shanghai Academy of Artificial Intelligence for Science (SAIS). His research centers on gene and RNA foundation models for biological representation learning, and on sequence- and structure-based RNA design. His long-term vision is programmable and personalized medicine through nucleic acid therapeutics. He has studied and worked in Switzerland, Germany, and the UK. Outside research, he enjoys coffee, Swiss chocolate, badminton, and basketball."
 unless config["author_blurb"] == expected_author_blurb
   abort("Author blurb must use the updated academic profile copy")
 end

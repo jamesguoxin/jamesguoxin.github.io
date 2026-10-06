@@ -21,7 +21,7 @@
     - title: "PAST: A multimodal single-cell foundation model for histopathology and spatial transcriptomics in cancer"
       url: "https://arxiv.org/abs/2507.06418"
       code: "https://github.com/Changchun-Yang/past_sc"
-      authors: "Changchun Yang, Haoyang Li, Yushuai Wu, Yilan Zhang, Yifeng Jiao, Yu Zhang, Rihan Huang, Yuan Cheng, Yuan Qi, Xin Guo, Xin Gao"
+      authors: "Changchun Yang, Haoyang Li, Yushuai Wu, Yilan Zhang, Yifeng Jiao, Yu Zhang, Rihan Huang, Qiangcheng Zeng, Yuan Cheng, Xin Guo, Xin Gao, Yuan Qi"
       venue: "Cell Systems, 2026 (accepted in principle)"
       me_mark: "corr"
       selected: true

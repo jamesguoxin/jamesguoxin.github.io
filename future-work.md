@@ -6,10 +6,14 @@ The site should continue to work primarily as an academic and research profile:
 fast to understand, easy to verify, and simple to contact. The current
 positioning is:
 
-- Gene Foundation Models
-- RNA Foundation Models & Design
+- Gene & RNA Foundation Models
 - AI Scientists
 - Autonomous Labs
+- Programmable Therapeutics
+
+The primary research connects biological representation learning with gene and
+RNA foundation models, sequence-based siRNA design, and structure-based RNA
+design. Related cellular and spatial biology work includes PAST and FLAG.
 
 The long-term vision is toward programmable and personalized medicine through
 nucleic acid therapeutics, including disease targets conventional therapies
@@ -144,8 +148,10 @@ git push
 Completed and deployed.
 
 - Added stable identity line: `Principal Research Scientist at SAIS`.
-- Clarified research focus around gene and RNA foundation models, AI scientists,
-  and autonomous labs.
+- Clarified the primary research around gene and RNA foundation models for
+  representation learning and sequence- and structure-based RNA design.
+- Research Highlights presents combined Gene & RNA Foundation Models, AI
+  Scientists, Autonomous Labs, and the Programmable Therapeutics vision.
 - Added the long-term vision of programmable and personalized medicine to About.
 - Added hero actions for Publications, Google Scholar, and Contact.
 - Updated About, Research, and Contact copy to support the AI4Science

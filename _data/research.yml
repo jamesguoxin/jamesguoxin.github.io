@@ -1,8 +1,8 @@
-- title: Gene Foundation Models
-  description: Learning cellular and regulatory representations from single-cell and spatial omics, chromatin accessibility, and tissue images to understand disease biology.
-- title: RNA Foundation Models & Design
-  description: Connecting RNA sequence, structure, and function through foundation models, with applications in RNA representation learning, inverse folding, and therapeutic design.
+- title: Gene & RNA Foundation Models
+  description: Learning biological representations with gene and RNA foundation models, and developing sequence-based siRNA design and structure-based RNA design methods.
 - title: AI Scientists
   description: Reasoning, tool use, and learning over long-horizon tasks to support scientific discovery and experimental decision-making.
 - title: Autonomous Labs
   description: Connecting molecular design with experiment planning, execution, and measurement in feedback loops that guide the next round of discovery.
+- title: Programmable Therapeutics
+  description: A long-term vision of using disease mechanisms to guide target selection and RNA design toward programmable and personalized nucleic acid therapies.
