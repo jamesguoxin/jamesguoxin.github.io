@@ -28,7 +28,7 @@ unless google_verification == "google-site-verification: google6b951a2a15a739d9.
   abort("Google Search Console verification file content mismatch")
 end
 
-expected_home_sections = %w[about research publications news experience contact]
+expected_home_sections = %w[news about research publications experience contact]
 home_main = home.at_css("body > main")
 abort("Homepage sections must be wrapped in a main landmark") unless home_main
 

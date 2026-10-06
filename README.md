@@ -41,7 +41,8 @@ Generated output is written to `_site/`. It is intentionally ignored by Git
 and must not be committed.
 
 The homepage section order is configured by `homepage_sections` in
-`_config.yml`. About and Experience use `about.html` and `experience.html`;
+`_config.yml`. Recent News follows the hero, ahead of About Me and Research
+Highlights. About and Experience use `about.html` and `experience.html`;
 Research Highlights uses `_data/research.yml`; Recent News uses the latest four
 entries from `_data/news.yml`; and Selected Publications uses selection
 metadata from `_data/publications.yml`.

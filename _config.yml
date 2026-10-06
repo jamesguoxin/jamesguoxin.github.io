@@ -223,10 +223,10 @@ err-404-img: "/img/labtocat.png"
 # Sections shown in the index page
 
 homepage_sections:
+  - news
   - about
   - research
   - publications
-  - news
   - experience
   - contact
 
