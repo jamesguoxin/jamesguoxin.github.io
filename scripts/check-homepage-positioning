@@ -27,7 +27,7 @@ end
 hero_focus = intro.at_css(".hero-focus")
 abort("Missing hero focus: .intro .hero-focus") unless hero_focus
 actual_hero_focus = SiteCheckHelpers.normalized_text(hero_focus)
-expected_hero_focus = ["AI for Life Sciences", "Multimodal Scientific Foundation Models", "Scientific Agentic AI", "Automated Labs for Discovery"]
+expected_hero_focus = ["Gene & RNA Foundation Models", "AI Scientists", "Autonomous Labs"]
 missing_hero_focus = expected_hero_focus.reject { |text| actual_hero_focus.include?(text) }
 unless missing_hero_focus.empty?
   abort("Hero focus missing #{missing_hero_focus.inspect}; got #{actual_hero_focus.inspect}")
@@ -51,7 +51,7 @@ end
 
 contact_statement = doc.at_css("#contact .contact-collaboration")
 abort("Missing contact collaboration statement") unless contact_statement
-expected_contact_statement = "I welcome collaborations in AI for life sciences, multimodal scientific foundation models, scientific agentic AI, and automated labs for closed-loop discovery, including multi-omics, spatial biology, RNA design, and tool-using AI systems."
+expected_contact_statement = "I welcome collaborations in gene and RNA foundation models, single-cell and spatial omics, RNA design, AI scientists, and autonomous labs."
 actual_contact_statement = SiteCheckHelpers.normalized_text(contact_statement)
 unless actual_contact_statement == expected_contact_statement
   abort("Contact collaboration statement expected #{expected_contact_statement.inspect}, got #{actual_contact_statement.inspect}")
@@ -60,7 +60,7 @@ end
 research_cards = doc.css("#research .research-card")
 abort("Expected 4 research cards, found #{research_cards.length}") unless research_cards.length == 4
 
-expected_research_titles = ["AI for Life Sciences", "Multimodal Scientific Foundation Models", "Scientific Agentic AI", "Automated Labs for Closed-Loop Discovery"]
+expected_research_titles = ["Gene Foundation Models", "RNA Foundation Models & Design", "AI Scientists", "Autonomous Labs"]
 actual_research_titles = research_cards.map do |node|
   title = node.at_css("h3")
   abort("Missing research card title: #research .research-card h3") unless title

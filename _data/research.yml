@@ -1,8 +1,8 @@
-- title: AI for Life Sciences
-  description: Multi-omics, spatial biology, single-cell epigenomics, RNA design, and biological representation learning for scientific discovery.
-- title: Multimodal Scientific Foundation Models
-  description: Foundation models for heterogeneous scientific data, aligning molecular, omics, imaging, and structured biological signals into reusable representations.
-- title: Scientific Agentic AI
-  description: Reasoning and tool-using AI systems that plan, call scientific tools, and support reliable discovery workflows.
-- title: Automated Labs for Closed-Loop Discovery
-  description: AI-driven experimental platforms that connect hypothesis generation, experiment planning, robotic execution, measurement, and feedback.
+- title: Gene Foundation Models
+  description: Learning cellular and regulatory representations from single-cell and spatial omics, chromatin accessibility, and tissue images to understand disease biology.
+- title: RNA Foundation Models & Design
+  description: Connecting RNA sequence, structure, and function through foundation models, with applications in RNA representation learning, inverse folding, and therapeutic design.
+- title: AI Scientists
+  description: Reasoning, tool use, and learning over long-horizon tasks to support scientific discovery and experimental decision-making.
+- title: Autonomous Labs
+  description: Connecting molecular design with experiment planning, execution, and measurement in feedback loops that guide the next round of discovery.

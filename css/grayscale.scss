@@ -507,6 +507,10 @@ a {
 
     /* Added in { Personal } */
     &#post {
+        .rrssb-buttons {
+            height: auto;
+            min-height: 36px;
+        }
         div.author img {
             border: 0px;
             margin-bottom: 20px;

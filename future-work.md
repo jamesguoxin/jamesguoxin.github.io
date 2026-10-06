@@ -1,15 +1,19 @@
 # Future Work - Website Improvement Plan
 
-Last updated: 2026-06-28
+Last updated: 2026-10-06
 
 The site should continue to work primarily as an academic and research profile:
 fast to understand, easy to verify, and simple to contact. The current
 positioning is:
 
-- AI for Life Sciences
-- Multimodal Scientific Foundation Models
-- Scientific Agentic AI
-- Automated Labs for Closed-Loop Discovery
+- Gene Foundation Models
+- RNA Foundation Models & Design
+- AI Scientists
+- Autonomous Labs
+
+The long-term vision is toward programmable and personalized medicine through
+nucleic acid therapeutics, including disease targets conventional therapies
+struggle to reach.
 
 ## Active Priorities
 
@@ -140,8 +144,9 @@ git push
 Completed and deployed.
 
 - Added stable identity line: `Principal Research Scientist at SAIS`.
-- Added research focus around AI for life sciences, multimodal scientific
-  foundation models, scientific agentic AI, and automated labs.
+- Clarified research focus around gene and RNA foundation models, AI scientists,
+  and autonomous labs.
+- Added the long-term vision of programmable and personalized medicine to About.
 - Added hero actions for Publications, Google Scholar, and Contact.
 - Updated About, Research, and Contact copy to support the AI4Science
   positioning.
@@ -152,8 +157,8 @@ Completed and deployed.
 
 Completed and deployed.
 
-- Homepage order is now About, Research Highlights, Selected Publications,
-  Recent News, Experience, and Contact.
+- Homepage order is now Recent News, About, Research Highlights, Selected
+  Publications, Experience, and Contact.
 - Publications, News, and Academic & Professional Activities are generated as
   standalone pages.
 - Blog is a distinct navigation item.

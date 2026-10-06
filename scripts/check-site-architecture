@@ -43,8 +43,8 @@ abort("SkySense missing from homepage") unless home.at_css("#publications").text
 
 hero_focus = home.css(".hero-focus span").map { |node| SiteCheckHelpers.normalized_text(node) }
 expected_hero_focus = [
-  "AI for Life Sciences · Multimodal Scientific Foundation Models",
-  "Scientific Agentic AI · Automated Labs for Discovery"
+  "Gene & RNA Foundation Models",
+  "AI Scientists · Autonomous Labs"
 ]
 unless hero_focus == expected_hero_focus
   abort("Hero focus expected #{expected_hero_focus.inspect}, got #{hero_focus.inspect}")
@@ -52,13 +52,20 @@ end
 
 about_text = home.at_css("#about").text.gsub(/\s+/, " ").strip
 [
-  "AI for life sciences",
-  "scientific discovery",
-  "multi-omics",
+  "gene and RNA foundation models",
+  "single-cell and spatial omics",
   "biological representation learning",
+  "PAST",
   "FLAG",
   "ChromFound",
-  "SOLD"
+  "Nüwa.RNA",
+  "GOLD",
+  "SOLD",
+  "Toward Programmable and Personalized Medicine",
+  "Together with my collaborators",
+  "I aspire to turn biological understanding into programmable medicine through nucleic acid therapeutics",
+  "disease targets that conventional therapies struggle to reach",
+  "treatments tailored to the biology of individual patients"
 ].each do |phrase|
   abort("About section missing #{phrase.inspect}") unless about_text.include?(phrase)
 end
@@ -66,10 +73,10 @@ abort("About section should not position HorusEye as a core work") if about_text
 abort("About metric must show 20+ papers") unless home.at_css("#about .metric-card strong", text: "20+")
 
 expected_research_titles = [
-  "AI for Life Sciences",
-  "Multimodal Scientific Foundation Models",
-  "Scientific Agentic AI",
-  "Automated Labs for Closed-Loop Discovery"
+  "Gene Foundation Models",
+  "RNA Foundation Models & Design",
+  "AI Scientists",
+  "Autonomous Labs"
 ]
 actual_research_titles = home.css("#research .research-card h3").map { |node| SiteCheckHelpers.normalized_text(node) }
 unless actual_research_titles == expected_research_titles
@@ -78,13 +85,11 @@ end
 
 contact_text = home.at_css("#contact").text.gsub(/\s+/, " ").strip
 [
-  "multi-omics",
-  "spatial biology",
+  "gene and RNA foundation models",
+  "single-cell and spatial omics",
   "RNA design",
-  "scientific foundation models",
-  "tool-using AI systems",
-  "automated labs",
-  "closed-loop discovery"
+  "AI scientists",
+  "autonomous labs"
 ].each do |phrase|
   abort("Contact section missing collaboration phrase #{phrase.inspect}") unless contact_text.include?(phrase)
 end
@@ -230,7 +235,7 @@ abort("Future work must not mention stale 15+ paper metric") if future_work.incl
 abort("Future work must include publication metadata audit") unless future_work.include?("Publication Metadata Audit")
 abort("Future work must track unknown code links") unless future_work.include?("No official code currently listed")
 
-expected_author_blurb = "Xin Guo is a Principal Research Scientist at the Shanghai AI Laboratory, focusing on AI for life sciences, multimodal scientific foundation models, scientific agentic AI, and automated labs for closed-loop discovery. His work aims to build AI systems that connect biological data, scientific reasoning, and experimental discovery. He has studied and worked in Switzerland, Germany, and the UK. Outside research, he enjoys coffee, Swiss chocolate, badminton, and basketball."
+expected_author_blurb = "Xin Guo is a Principal Research Scientist at the Shanghai Academy of Artificial Intelligence for Science (SAIS). His research focuses on gene and RNA foundation models, AI scientists, and autonomous labs. He has studied and worked in Switzerland, Germany, and the UK. Outside research, he enjoys coffee, Swiss chocolate, badminton, and basketball."
 unless config["author_blurb"] == expected_author_blurb
   abort("Author blurb must use the updated academic profile copy")
 end
