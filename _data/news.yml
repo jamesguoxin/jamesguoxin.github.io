@@ -1,3 +1,9 @@
+- date: "2026.10.06"
+  content: '🧬 <a href="https://arxiv.org/abs/2507.06418">PAST</a>, our multimodal single-cell foundation model for histopathology and spatial transcriptomics in cancer, has been accepted in principle by <strong>Cell Systems</strong>. <a href="https://github.com/Changchun-Yang/past_sc">Code is available</a>.'
+- date: "2026.09.25"
+  content: '🎉 Two papers accepted at <strong>NeurIPS 2026</strong>: <a href="https://neurips.cc/virtual/2026/poster/153434">GOLD</a>, on structure-aware RNA inverse folding, as a <strong>Spotlight</strong>; and <a href="https://neurips.cc/virtual/2026/poster/155495">Nüwa.RNA</a>, an RNA foundation model with deep structure infusion.'
+- date: "2026.08.01"
+  content: '🎉 <strong>TRACE-GRPO: Teacher-Refined Advantage Credit Estimation for Long-Horizon Agentic RL</strong> has been accepted at <strong>EMNLP 2026</strong>. Our work uses teacher feedback to improve credit assignment for long-horizon LLM agents. <a href="https://github.com/Lau-Jonathan/TRACE-GRPO">Code is available</a>.'
 - date: "2026.06.13"
   content: '🏅 Honored to receive the <a href="https://icml.cc/">ICML 2026 Silver Reviewer Award</a>. Grateful for the recognition and for the opportunity to contribute to the research community.'
 - date: "2026.05.29"

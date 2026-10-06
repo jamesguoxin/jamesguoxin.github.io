@@ -118,7 +118,14 @@ npm run test:visual
 ```
 
 The test starts a local Jekyll server, checks desktop and mobile layouts, and
-verifies navbar and Research Highlights alignment.
+verifies navbar and Research Highlights alignment. It also captures the News
+page and complete homepage publication and news sections, and checks that
+pages fit within the viewport.
+
+If CDN downloads are slow, set `VISUAL_ASSET_HAR` to a HAR containing the
+original font, stylesheet, and script responses. Those assets are replayed
+locally; missing cached assets fail the test. Without this variable, the tests
+use the site's live CDN resources.
 
 ## Updating Content
 

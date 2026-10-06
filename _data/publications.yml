@@ -18,6 +18,49 @@
 
 - section: "AI4Biomedicine at SAIS"
   papers:
+    - title: "PAST: A multimodal single-cell foundation model for histopathology and spatial transcriptomics in cancer"
+      url: "https://arxiv.org/abs/2507.06418"
+      code: "https://github.com/Changchun-Yang/past_sc"
+      authors: "Changchun Yang, Haoyang Li, Yushuai Wu, Yilan Zhang, Yifeng Jiao, Yu Zhang, Rihan Huang, Yuan Cheng, Yuan Qi, Xin Guo, Xin Gao"
+      venue: "Cell Systems, 2026 (accepted in principle)"
+      me_mark: "corr"
+      selected: true
+      topic: "Life Science"
+      homepage_order: 1
+    - title: "GOLD: Geometric Optimized Latent Diffusion for Structure-Aware RNA Inverse Folding"
+      url: "https://neurips.cc/virtual/2026/poster/153434"
+      authors: "Qi Si, Xuyang Liu, Penglei Wang, Shuo Su, Limei Han, Mengzhu Li, Xin Guo, Yuan Qi, Yuan Cheng"
+      venue: "NeurIPS 2026 (Spotlight)"
+      me_mark: "corr"
+      selected: true
+      topic: "Life Science"
+      homepage_order: 2
+    - title: "Nüwa.RNA: An RNA Foundation Model for Unified Representation with Deep Structure Infusion"
+      url: "https://neurips.cc/virtual/2026/poster/155495"
+      authors: "Kun Huang, Jiyang Li, Xin Guo, Limei Han, Yuan Cheng"
+      venue: "NeurIPS 2026"
+      me_mark: "corr"
+      selected: true
+      topic: "Life Science"
+      homepage_order: 3
+    - title: "TRACE-GRPO: Teacher-Refined Advantage Credit Estimation for Long-Horizon Agentic RL"
+      code: "https://github.com/Lau-Jonathan/TRACE-GRPO"
+      authors: "Yuchen Liu, Tianchu Yao, Deshu Chen, Yinghao Zhang, Xigui Li, Zehui Ling, Xin Guo, Yuan Cheng, Chao Qu, Lintao Ma, Yuan Qi"
+      venue: "EMNLP 2026"
+    - title: "Topological-Aware Regularization for Semi-Supervised Intracranial Aneurysm Vessel Segmentation"
+      url: "https://proceedings.mlr.press/v315/xiao26a.html"
+      code: "https://github.com/AbsoluteResonance/TAR"
+      authors: "Feiyang Xiao, Yichi Zhang, Xigui Li, Yuanye Zhou, Chen Jiang, Xin Guo, Limei Han, Yuxin Li, Fengping Zhu, Yuan Cheng"
+      venue: "MIDL 2026"
+    - title: "Ophora: A Large-Scale Data-Driven Text-Guided Ophthalmic Surgical Video Generation Model"
+      url: "https://papers.miccai.org/miccai-2025/0656-Paper1768.html"
+      code: "https://github.com/uni-medical/Ophora"
+      authors: "Wei Li, Ming Hu, Guoan Wang, Lihao Liu, Kaijing Zhou, Junzhi Ning, Xin Guo, Zongyuan Ge, Lixu Gu, Junjun He"
+      venue: "MICCAI 2025 (Oral)"
+    - title: "Empowering AI in RNAi Therapeutics: A Foundational Dataset for siRNA Design and Optimization"
+      url: "https://openreview.net/pdf?id=8ZO59AyyiP"
+      authors: "Xin Guo, Jiyang Li"
+      venue: "NeurIPS 2025 AI for Science Workshop"
     - title: "Efficient Network Automatic Relevance Determination"
       url: "https://arxiv.org/pdf/2506.12352"
       authors: "Hongwei Zhang, Ziqi Ye, Xinyuan Wang, Xin Guo, Zenglin Xu, Yuan Cheng, Zixin Hu, Yuan Qi"
@@ -43,9 +86,6 @@
       authors: "Yifeng Jiao, Yuchen Liu, Yu Zhang, Xin Guo, Yushuai Wu, Chen Jiang, Jiyang Li, Hongwei Zhang, Limei Han, Xin Gao, Yuan Qi, Yuan Cheng"
       venue: "NeurIPS 2025"
       me_mark: "corr"
-      selected: true
-      topic: "Life Science"
-      homepage_order: 5
     - title: "Minimal Semantic Sufficiency Meets Unsupervised Domain Generalization"
       url: "https://arxiv.org/abs/2509.15791"
       authors: "Tan Pan, Kaiyu Guo, Dongli Xu, Zhaorui Tan, Chen Jiang, Deshu Chen, Xin Guo, Brian C. Lovell, Limei Han, Yuan Cheng, Mahsa Baktashmotlagh"
@@ -58,15 +98,12 @@
       me_mark: "corr"
       selected: true
       topic: "Life Science"
-      homepage_order: 3
+      homepage_order: 5
     - title: "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration"
       url: "https://www.nature.com/articles/s43588-026-00973-3"
       code: "https://github.com/Arturia-Pendragon-Iris/HorusEye_XRT_Restoration"
       authors: "Yuetan Chu, Longxi Zhou, Gongning Luo, Kai Kang, Suyu Dong, Zhongyi Han, Lianming Wu, Xianglin Meng, Changchun Yang, Xin Guo, Yuan Cheng, Yuan Qi, Xin Liu, Dexuan Xie, Yue Li, Ricardo Henao, Xigang Xiao, Shaodong Cao, Gianluca Setti, Zhaowen Qiu, Xin Gao"
       venue: "Nature Computational Science, 2026"
-      selected: true
-      topic: "Life Science"
-      homepage_order: 2
     - title: "FLAG: Foundation model representation with Latent diffusion Alignment via Graph for spatial gene expression prediction"
       url: "https://arxiv.org/abs/2605.18055"
       code: "https://github.com/SAIS-LifeScience/FLAG"
@@ -75,13 +112,11 @@
       me_mark: "corr"
       selected: true
       topic: "Life Science"
-      homepage_order: 1
+      homepage_order: 4
     - title: "Sprint or Delve: A Distribution-Aware Approach to Efficient Reasoning"
+      url: "https://www.ijcai.org/proceedings/2026/653"
       authors: "Zehui Ling, Deshu Chen, Hongwei Zhang, Yifeng Jiao, Xin Guo, Zenglin Xu, Yuan Cheng"
       venue: "IJCAI 2026"
-      selected: true
-      topic: "Agentic AI"
-      homepage_order: 4
 
 - section: "亿亩田 with Ant & MYBank & Wuhan University"
   papers:

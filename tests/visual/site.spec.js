@@ -5,11 +5,18 @@ const pages = [
   ["/blog/", "blog"],
   ["/tech/2026/04/05/foundation-models-meet-biology.html", "post"],
   ["/publications/", "publications"],
+  ["/news/", "news"],
   ["/activities/", "activities"]
 ];
 
 test.describe("site visual smoke", () => {
   test.beforeEach(async ({ page }) => {
+    if (process.env.VISUAL_ASSET_HAR) {
+      await page.routeFromHAR(process.env.VISUAL_ASSET_HAR, {
+        url: /^https?:\/\/(?:fonts\.googleapis\.com|fonts\.gstatic\.com|cdn\.jsdelivr\.net|cdnjs\.cloudflare\.com)\//,
+        notFound: "abort"
+      });
+    }
     await page.addInitScript(() => {
       window.localStorage.setItem("blog-swipeshowed", "true");
       window.localStorage.setItem("post-swipeshowed", "true");
@@ -17,7 +24,7 @@ test.describe("site visual smoke", () => {
   });
 
   for (const [path, name] of pages) {
-    test(`${name} renders without console errors`, async ({ page }) => {
+    test(`${name} renders without console errors`, async ({ page }, testInfo) => {
       const errors = [];
       page.on("pageerror", error => errors.push(error.message));
       page.on("console", message => {
@@ -27,11 +34,34 @@ test.describe("site visual smoke", () => {
       await page.goto(path);
       await expect(page.locator("body")).toBeVisible();
       await expect(page.locator(".navbar-custom")).toBeVisible();
+      expect(await page.evaluate(() =>
+        document.documentElement.scrollWidth <= window.innerWidth
+      )).toBe(true);
       await expect(page).toHaveScreenshot(`${name}.png`, {
         animations: "disabled",
         maxDiffPixelRatio: 0.04
       });
       expect(errors).toEqual([]);
+      await page.screenshot({
+        path: testInfo.outputPath(`${name}-full.png`),
+        fullPage: true,
+        animations: "disabled"
+      });
+    });
+  }
+
+  for (const section of ["publications", "news"]) {
+    test(`homepage ${section} section renders`, async ({ page }) => {
+      await page.goto("/");
+      const content = page.locator(`#${section}`);
+      await expect(content).toBeVisible();
+      await expect(content).toHaveScreenshot(`home-${section}.png`, {
+        animations: "disabled",
+        // Fixed navigation is checked in the page screenshots; keep it from
+        // covering content when Playwright scrolls to capture a long section.
+        stylePath: require.resolve("./section-screenshot.css"),
+        maxDiffPixelRatio: 0.04
+      });
     });
   }
 

@@ -116,21 +116,20 @@ expected_section_actions.each do |selector, (label, href)|
 end
 
 expected_titles = [
+  "PAST: A multimodal single-cell foundation model for histopathology and spatial transcriptomics in cancer",
+  "GOLD: Geometric Optimized Latent Diffusion for Structure-Aware RNA Inverse Folding",
+  "Nüwa.RNA: An RNA Foundation Model for Unified Representation with Deep Structure Infusion",
   "FLAG: Foundation model representation with Latent diffusion Alignment via Graph for spatial gene expression prediction",
-  "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration",
   "Structure-based RNA Design by Step-wise Optimization of Latent Diffusion Model",
-  "Sprint or Delve: A Distribution-Aware Approach to Efficient Reasoning",
-  "ChromFound: Towards A Universal Foundation Model for Single-Cell Chromatin Accessibility Data",
   "SkySense: A Multi-Modal Remote Sensing Foundation Model Towards Universal Interpretation for Earth Observation Imagery"
 ]
 actual_titles = home.css("#publications .publication-title").map { |node| node.text.gsub(/\s+/, " ").strip }
 abort("Selected publication order mismatch") unless actual_titles == expected_titles
 
 expected_selected_code_links = {
+  "PAST: A multimodal single-cell foundation model for histopathology and spatial transcriptomics in cancer" => "https://github.com/Changchun-Yang/past_sc",
   "FLAG: Foundation model representation with Latent diffusion Alignment via Graph for spatial gene expression prediction" => "https://github.com/SAIS-LifeScience/FLAG",
-  "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration" => "https://github.com/Arturia-Pendragon-Iris/HorusEye_XRT_Restoration",
   "Structure-based RNA Design by Step-wise Optimization of Latent Diffusion Model" => "https://github.com/SAIS-LifeScience/SOLD",
-  "ChromFound: Towards A Universal Foundation Model for Single-Cell Chromatin Accessibility Data" => "https://github.com/SAIS-LifeScience/ChromFound",
   "SkySense: A Multi-Modal Remote Sensing Foundation Model Towards Universal Interpretation for Earth Observation Imagery" => "https://github.com/Jack-bo1220/SkySense"
 }
 selected_items = home.css("#publications .publication-item")
@@ -146,15 +145,12 @@ selected_items.each do |item|
     unless code_links.any? { |node| node["href"] == expected_code_href }
       abort("Selected publication #{title.inspect} Code link mismatch")
     end
-  elsif title.start_with?("Sprint or Delve")
-    abort("Sprint or Delve must not show a placeholder Paper link") unless paper_links.empty?
-    abort("Sprint or Delve must not show a placeholder Code link") unless code_links.empty?
   end
 end
 
 publication_data = YAML.load_file(File.join(ROOT, "_data", "publications.yml"))
 expected_publications = publication_data.sum { |group| group.fetch("papers").length }
-abort("Source publication count expected 19, got #{expected_publications}") unless expected_publications == 19
+abort("Source publication count expected 26, got #{expected_publications}") unless expected_publications == 26
 unless publications.css(".publication-item").length == expected_publications
   abort("Complete publication count mismatch")
 end
@@ -186,7 +182,7 @@ expected_complete_code_links.each do |title, expected_href|
 end
 
 news_data = YAML.load_file(File.join(ROOT, "_data", "news.yml"))
-abort("Source news count expected 7, got #{news_data.length}") unless news_data.length == 7
+abort("Source news count expected 10, got #{news_data.length}") unless news_data.length == 10
 abort("Complete news count mismatch") unless news.css(".news-item").length == news_data.length
 
 abort("Activities page lost patents") unless activities.text.include?("EP3201917B1")
