@@ -55,20 +55,13 @@ about_text = home.at_css("#about").text.gsub(/\s+/, " ").strip
   "gene and RNA foundation models",
   "biological representation learning",
   "sequence- and structure-based RNA design",
-  "sequence-based siRNA design",
-  "related work in cellular and spatial biology",
-  "PAST",
-  "FLAG",
-  "ChromFound",
-  "Nüwa.RNA",
-  "GOLD",
-  "SOLD",
-  "Toward Programmable and Personalized Medicine",
+  "AI scientists",
+  "autonomous labs",
+  "contributions to NovaInspire",
   "Together with my collaborators",
-  "I aspire to turn biological understanding into programmable medicine through nucleic acid therapeutics",
-  "using insights into disease mechanisms to guide target selection and RNA design",
-  "targets that conventional therapies struggle to reach",
-  "treatments tailored to the biology of individual patients"
+  "programmable and personalized",
+  "nucleic acid therapeutics",
+  "targets conventional therapies struggle to address"
 ].each do |phrase|
   abort("About section missing #{phrase.inspect}") unless about_text.include?(phrase)
 end
