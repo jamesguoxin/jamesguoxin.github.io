@@ -28,3 +28,9 @@ docs/superpowers/
 .worktrees/
 playwright-report/
 test-results/
+
+# Local blog drafts, review copies, and artwork notes
+/docs/blog-learning-biology-artwork.md
+/docs/blog-learning-biology-preview.html
+/docs/life-between-scales-wechat-zh.md
+/docs/life-between-scales-wechat-zh-revised.md
