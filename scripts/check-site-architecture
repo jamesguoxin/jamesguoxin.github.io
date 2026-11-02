@@ -183,7 +183,7 @@ expected_complete_code_links.each do |title, expected_href|
 end
 
 news_data = YAML.load_file(File.join(ROOT, "_data", "news.yml"))
-abort("Source news count expected 10, got #{news_data.length}") unless news_data.length == 10
+abort("Source news count expected 11, got #{news_data.length}") unless news_data.length == 11
 abort("Complete news count mismatch") unless news.css(".news-item").length == news_data.length
 
 abort("Activities page lost patents") unless activities.text.include?("EP3201917B1")
@@ -219,7 +219,7 @@ end
 abort("Activities page missing Honors & Awards heading") unless awards_heading
 awards = awards_heading.xpath("following-sibling::p[not(contains(concat(' ', normalize-space(@class), ' '), ' cv-note '))]")
 award_count = awards.length
-abort("Activities awards count expected 12, got #{award_count}") unless award_count == 12
+abort("Activities awards count expected 13, got #{award_count}") unless award_count == 13
 award_texts = awards.map { |node| SiteCheckHelpers.normalized_text(node) }
 abort("Activities awards must be newest first") unless award_texts.first.start_with?("2026:")
 abort("Activities awards must keep oldest entries last") unless award_texts.last.start_with?("2008:")
